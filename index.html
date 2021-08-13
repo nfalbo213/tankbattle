@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8">
+        <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+        <title>Tank Battle</title>
+        <link rel="icon" href="./Resources/TanTankRight.png">
+        <link href="./style.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" type="text/css" href="fonts.googleapis.com/css?family=Droid+Sans+Mono">
+    </head>
+    <body>
+        <div class="main-body-wrapper">
+            
+            <!--<div class="screen-wrapper">-->
+                <div class="canvas-wrapper">
+                    
+                    <canvas id="battlefield" width="800" height="800">
+                        ERROR: Browser unable to display canvas; try reloading
+                    </canvas>
+
+                    <div id="scoreboard-wrapper" class="scoreboard">
+                        <div id="tanks-destroyed">
+                            Tanks: 0 
+                        </div>
+                        <div id="bosses-destroyed">
+                            Bosses: 0
+                        </div>
+                        <div id="high-score">
+                            High Score: 0 
+                        </div>
+                    </div>
+
+                    <div id="start-menu" class="battlefield-cover">
+
+                    </div>
+                    <div id="start-menu-touch" class="battlefield-cover-touch">
+
+                    </div>
+                    <div id="start-and-over-screen" class="battlefield-message">
+                        
+                    </div>
+                    <div id="top-title-screen" class="top-animation-screen">
+                        <div>Tank</div>
+                        <div>Battle</div>
+                    </div>
+                    <div id="bottom-title-screen" class="bottom-animation-screen">
+                        
+                        <div class="option-button-wrapper">
+                            <div id="left-option-mouse" class="bottom-animation-left">
+                                Regular Battle
+                            </div>
+                            <div id="left-option-touch" class="bottom-animation-left">
+                                Regular Battle
+                            </div>
+                        </div>
+
+                        <div class="bottom-animation-middle">
+                            <img id="bottom-animation-image" src="./Resources/TanTankRight.png" alt="Player Tank" height="80" width="140">
+                            <div id="bottom-title-text">Choose Gameplay Mode</div>
+                        </div>
+                        
+                        <div class="option-button-wrapper">
+                            <div id="right-option-mouse" class="bottom-animation-right">
+                                Battle Royal
+                            </div>
+                            <div id="right-option-touch" class="bottom-animation-right">
+                                Battle Royal
+                            </div>
+                        </div>
+
+                    </div>
+                    <!--<div class="lower-screen-row">
+                        <div class="lower-screen-message">
+                            Tank Battle
+                        </div>
+                        <div id="lower-screen-right" class="lower-screen-message">
+                            Click Screen to Start
+                        </div>
+                    </div>-->
+                </div>
+                <!-- ** Wrap lower-screen-row into canvas-wrapper-->
+                <div class="lower-screen-row">
+                    <div class="lower-screen-message">
+                        Tank Battle
+                    </div>
+                    <div id="lower-screen-right" class="lower-screen-message">
+                        Click Screen to Begin
+                    </div>
+                </div>
+            <!--</div>-->
+
+            <!-- Mobile Gamepad -->
+
+            <div class="full-gamepad-wrapper">
+
+                <div class="movement-button-wrapper">
+                    <div class="gamepad-wrapper-up">
+                        <div id="up-button" class="gamepad-button">
+                            
+                        </div>
+                    </div>
+                    <div class="gamepad-wrapper-side">
+                        <div id="left-button" class="gamepad-button">
+                        
+                        </div>
+                    
+                    <!-- Mobile Gamepad Logo -->
+                    
+                    <div class="gamepad-wrapper-side">
+                    
+                        <div class="gamepad-logo">
+                            
+                        </div>
+                    </div>
+                    
+                        <div id="right-button" class="gamepad-button">
+                        
+                        </div>
+                    </div>
+                    <div class="gamepad-wrapper-down">
+                        <div id="down-button" class="gamepad-button">
+                        
+                        </div>
+                    </div>
+                </div>
+
+                <div id="fire-button" class="fire-button">
+                    <div>
+                        FIRE
+                    </div>
+                </div>
+
+            </div>
+
+            <!--
+            <!-- First Gamepad Layout 8/10/21 construction --
+            <div class="full-gamepad-wrapper">
+                <div id="fire-button" class="fire-button">
+                    <div>
+                        FIRE
+                    </div>
+                </div>
+
+                <div class="gamepad-wrapper-up">
+                    <div id="up-button" class="gamepad-button">
+                        
+                    </div>
+                </div>
+                <div class="gamepad-wrapper-side">
+                    <div id="left-button" class="gamepad-button">
+                    
+                    </div>
+                
+                <!-- Mobile Gamepad Logo --
+                
+                <div class="gamepad-wrapper-side">
+                
+                    <div class="gamepad-logo">
+                        
+                    </div>
+                </div>
+                
+                    <div id="right-button" class="gamepad-button">
+                    
+                    </div>
+                </div>
+                <div class="gamepad-wrapper-down">
+                    <div id="down-button" class="gamepad-button">
+                    
+                    </div>
+                </div>
+            </div>
+            <!-- ^First Gamepad Layout^ --
+        -->
+
+        </div>
+    </body>
+    <script type="text/javascript" src="./script.js"></script>
+    <!--<script type="text/javascript" src="./controls.js"></script>-->
+</html>
