@@ -1502,7 +1502,7 @@ leftButton.ontouchstart = () => {
 }
 const leftButtonHold = () => {
     if (tanTankPosition.length > 0) {
-        if (startObj.onTouchLeft {
+        if (startObj.onTouchLeft) {
             tanTankPosition[0].x -= 10;
         } else if (!startObj.onTouchLeft) {
             return;
