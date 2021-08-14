@@ -86,10 +86,10 @@ const drawTanks = () => {
             // Draw a "border" around the entire canvas
             battlefield_ctx.strokeRect(0, 0, battlefield.width, battlefield.height);
             
-            //leftButtonHold();
-            //upButtonHold();
-            //rightButtonHold();
-            //downButtonHold();
+            leftButtonHold();
+            upButtonHold();
+            rightButtonHold();
+            downButtonHold();
             drawEachTanTank();
             drawEachDarkTank();
             drawHealthBar();
@@ -1490,8 +1490,8 @@ fireButton.ontouchend = () => {
 // LEFT
 leftButton.ontouchstart = () => {
     if (startObj.gameStart && !startObj.startClicked && !startObj.gameOver) {  
-        //startObj.onTouchLeft = true;
-        tanTankPosition[0].x -= 10;
+        startObj.onTouchLeft = true;
+        //tanTankPosition[0].x -= 10;
         tanTankPosition[0].facingLeft = true;
         leftButton.style.boxShadow = 'none';
         leftButton.style.backgroundColor = 'rgb(80, 80, 80)';
@@ -1500,25 +1500,27 @@ leftButton.ontouchstart = () => {
         return;
     }
 }
-/*
 const leftButtonHold = () => {
-    if (startObj.onTouchLeft) {
+    if (tanTankPosition.length > 0) {
+        if (startObj.onTouchLeft === true) {
             tanTankPosition[0].x -= 10;
-        } else {
+        } else if (startObj.onTouchLeft === false) {
             return;
         }
+    }
 }
-*/
 leftButton.ontouchend = () => {
     //startObj.onTouchLeft = false;
+    //startObj.onTouchLeftFunction = false;
     leftButton.style.boxShadow = '';
     leftButton.style.backgroundColor = '';
+    startObj.onTouchLeft = false;
 }
 // UP
 upButton.ontouchstart = () => {
     if (startObj.gameStart && !startObj.startClicked && !startObj.gameOver) {
-        //startObj.onTouchUp = true;
-        tanTankPosition[0].y -= 10;
+        startObj.onTouchUp = true;
+        //tanTankPosition[0].y -= 10;
         upButton.style.boxShadow = 'none';
         upButton.style.backgroundColor = 'rgb(80, 80, 80)';
         //upButtonHold();
@@ -1526,25 +1528,27 @@ upButton.ontouchstart = () => {
         return;
     }
 }
-/*
 const upButtonHold = () => {
-    if (startObj.onTouchLeft) {
-            tanTankPosition[0].x -= 10;
-        } else {
+    if (tanTankPosition.length > 0) {
+        if (startObj.onTouchUp === true) {
+            tanTankPosition[0].y -= 10;
+        } else if (startObj.onTouchUp === false) {
             return;
         }
+    }
 }
-*/
 upButton.ontouchend = () => {
     //startObj.onTouchUp = false;
+    //startObj.onTouchUpFunction = false;
     upButton.style.boxShadow = '';
     upButton.style.backgroundColor = '';
+    startObj.onTouchUp = false;
 }
 // RIGHT
 rightButton.ontouchstart = () => {
     if (startObj.gameStart && !startObj.startClicked && !startObj.gameOver) {
-        //startObj.onTouchRight = true;
-        tanTankPosition[0].x += 10;
+        startObj.onTouchRight = true;
+        //tanTankPosition[0].x += 10;
         tanTankPosition[0].facingLeft = false;
         rightButton.style.boxShadow = 'none';
         rightButton.style.backgroundColor = 'rgb(80, 80, 80)';
@@ -1553,25 +1557,29 @@ rightButton.ontouchstart = () => {
         return;
     }
 }
-/*
 const rightButtonHold = () => {
-    if (startObj.onTouchLeft) {
-            tanTankPosition[0].x -= 10;
-        } else {
+    if (tanTankPosition.length > 0) {
+        if (startObj.onTouchRight === true) {
+            tanTankPosition[0].x += 10;
+        } else if (startObj.onTouchUp === false) {
             return;
         }
+    } else {
+        return;
+    }   
 }
-*/
 rightButton.ontouchend = () => {
     //startObj.onTouchRight = false;
+    //startObj.onTouchRightFunction = false;
     rightButton.style.boxShadow = '';
     rightButton.style.backgroundColor = '';
+    startObj.onTouchRight = false;
 }
 // DOWN
 downButton.ontouchstart = () => {
     if (startObj.gameStart && !startObj.startClicked && !startObj.gameOver) {
-        //startObj.onTouchDown = true;
-        tanTankPosition[0].y += 10;
+        startObj.onTouchDown = true;
+        //tanTankPosition[0].y += 10;
         downButton.style.boxShadow = 'none';
         downButton.style.backgroundColor = 'rgb(80, 80, 80)';
         //downButtonHold();
@@ -1579,19 +1587,21 @@ downButton.ontouchstart = () => {
         return;
     }
 }
-/*
 const downButtonHold = () => {
-    if (startObj.onTouchLeft) {
-            tanTankPosition[0].x -= 10;
-        } else {
+    if (tanTankPosition.length > 0) {
+        if (startObj.onTouchDown === true) {
+            tanTankPosition[0].y += 10;
+        } else if (startObj.onTouchUp === false) {
             return;
         }
+    } else {
+        return;
+    }
 }
-*/
 downButton.ontouchend = () => {
-    //startObj.onTouchDown = false;
     downButton.style.boxShadow = '';
     downButton.style.backgroundColor = '';
+    startObj.onTouchDown = false;
 }
 //////////////////////////////////
 
