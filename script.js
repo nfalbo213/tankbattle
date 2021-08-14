@@ -996,7 +996,7 @@ const downButton = document.getElementById('down-button');
 
 // Start Menu
 // startClicked implicatded in drawTanks(), startMenu.onmousedown()
-let startObj = {startClicked: false, animationPlayed: false, gameStart: false, gameOver: false, battleRoyal: false};
+let startObj = {startClicked: false, animationPlayed: false, gameStart: false, gameOver: false, battleRoyal: false, onTouch: false};
 //let gameStart = false;
 //let gameOver = false;
 
@@ -1486,58 +1486,78 @@ fireButton.ontouchend = () => {
 // LEFT
 leftButton.ontouchstart = () => {
     if (startObj.gameStart && !startObj.startClicked && !startObj.gameOver) {  
+        startObj.onTouch = true;
         tanTankPosition[0].x -= 10;
         tanTankPosition[0].facingLeft = true;
         leftButton.style.boxShadow = 'none';
         leftButton.style.backgroundColor = 'rgb(80, 80, 80)';
+        while (startObj.onTouch) {
+            tanTankPosition[0].x -= 3;
+        }
     } else {
         return;
     }
 }
 leftButton.ontouchend = () => {
+    startObj.onTouch = false;
     leftButton.style.boxShadow = '';
     leftButton.style.backgroundColor = '';
 }
 // UP
 upButton.ontouchstart = () => {
     if (startObj.gameStart && !startObj.startClicked && !startObj.gameOver) {
+        startObj.onTouch = true;
         tanTankPosition[0].y -= 10;
         upButton.style.boxShadow = 'none';
         upButton.style.backgroundColor = 'rgb(80, 80, 80)';
+        while (startObj.onTouch) {
+            tanTankPosition[0].x -= 3;
+        }
     } else {
         return;
     }
 }
 upButton.ontouchend = () => {
+    startObj.onTouch = false;
     upButton.style.boxShadow = '';
     upButton.style.backgroundColor = '';
 }
 // RIGHT
 rightButton.ontouchstart = () => {
     if (startObj.gameStart && !startObj.startClicked && !startObj.gameOver) {
+        startObj.onTouch = true;
         tanTankPosition[0].x += 10;
         tanTankPosition[0].facingLeft = false;
         rightButton.style.boxShadow = 'none';
         rightButton.style.backgroundColor = 'rgb(80, 80, 80)';
+        while (startObj.onTouch) {
+            tanTankPosition[0].x -= 3;
+        }
     } else {
         return;
     }
 }
 rightButton.ontouchend = () => {
+    startObj.onTouch = false;
     rightButton.style.boxShadow = '';
     rightButton.style.backgroundColor = '';
 }
 // DOWN
 downButton.ontouchstart = () => {
     if (startObj.gameStart && !startObj.startClicked && !startObj.gameOver) {
+        startObj.onTouch = true;
         tanTankPosition[0].y += 10;
         downButton.style.boxShadow = 'none';
         downButton.style.backgroundColor = 'rgb(80, 80, 80)';
+        while (startObj.onTouch) {
+            tanTankPosition[0].x -= 3;
+        }
     } else {
         return;
     }
 }
 downButton.ontouchend = () => {
+    startObj.onTouch = false;
     downButton.style.boxShadow = '';
     downButton.style.backgroundColor = '';
 }
