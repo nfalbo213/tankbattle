@@ -1531,7 +1531,6 @@ rightButton.ontouchend = () => {
 downButton.ontouchstart = () => {
     if (startObj.gameStart && !startObj.startClicked && !startObj.gameOver) {
         tanTankPosition[0].y += 10;
-        tanTankPosition[0].facingLeft = false;
         downButton.style.boxShadow = 'none';
         downButton.style.backgroundColor = 'rgb(80, 80, 80)';
     } else {
