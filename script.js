@@ -1491,12 +1491,17 @@ leftButton.ontouchstart = () => {
         tanTankPosition[0].facingLeft = true;
         leftButton.style.boxShadow = 'none';
         leftButton.style.backgroundColor = 'rgb(80, 80, 80)';
-        while (startObj.onTouch) {
-            tanTankPosition[0].x -= 3;
-        }
+        leftButtonHold();
     } else {
         return;
     }
+}
+const leftButtonHold = () => {
+    while (startObj.onTouch) {
+            tanTankPosition[0].x -= 3;
+        } else {
+            break;
+        }
 }
 leftButton.ontouchend = () => {
     startObj.onTouch = false;
@@ -1510,12 +1515,17 @@ upButton.ontouchstart = () => {
         tanTankPosition[0].y -= 10;
         upButton.style.boxShadow = 'none';
         upButton.style.backgroundColor = 'rgb(80, 80, 80)';
-        while (startObj.onTouch) {
-            tanTankPosition[0].x -= 3;
-        }
+        upButtonHold();
     } else {
         return;
     }
+}
+const upButtonHold = () => {
+    while (startObj.onTouch) {
+            tanTankPosition[0].y -= 3;
+        } else {
+            break;
+        }
 }
 upButton.ontouchend = () => {
     startObj.onTouch = false;
@@ -1530,12 +1540,17 @@ rightButton.ontouchstart = () => {
         tanTankPosition[0].facingLeft = false;
         rightButton.style.boxShadow = 'none';
         rightButton.style.backgroundColor = 'rgb(80, 80, 80)';
-        while (startObj.onTouch) {
-            tanTankPosition[0].x -= 3;
-        }
+        rightButtonHold();
     } else {
         return;
     }
+}
+const rightButtonHold = () => {
+    while (startObj.onTouch) {
+            tanTankPosition[0].x += 3;
+        } else {
+            break;
+        }
 }
 rightButton.ontouchend = () => {
     startObj.onTouch = false;
@@ -1549,12 +1564,17 @@ downButton.ontouchstart = () => {
         tanTankPosition[0].y += 10;
         downButton.style.boxShadow = 'none';
         downButton.style.backgroundColor = 'rgb(80, 80, 80)';
-        while (startObj.onTouch) {
-            tanTankPosition[0].x -= 3;
-        }
+        downButtonHold();
     } else {
         return;
     }
+}
+const downButtonHold = () => {
+    while (startObj.onTouch) {
+            tanTankPosition[0].y += 3;
+        } else {
+            break;
+        }
 }
 downButton.ontouchend = () => {
     startObj.onTouch = false;
