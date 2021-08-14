@@ -1499,8 +1499,6 @@ leftButton.ontouchstart = () => {
 const leftButtonHold = () => {
     while (startObj.onTouch) {
             tanTankPosition[0].x -= 3;
-        } else {
-            break;
         }
 }
 leftButton.ontouchend = () => {
@@ -1523,9 +1521,7 @@ upButton.ontouchstart = () => {
 const upButtonHold = () => {
     while (startObj.onTouch) {
             tanTankPosition[0].y -= 3;
-        } else {
-            break;
-        }
+        } 
 }
 upButton.ontouchend = () => {
     startObj.onTouch = false;
@@ -1548,9 +1544,7 @@ rightButton.ontouchstart = () => {
 const rightButtonHold = () => {
     while (startObj.onTouch) {
             tanTankPosition[0].x += 3;
-        } else {
-            break;
-        }
+        } 
 }
 rightButton.ontouchend = () => {
     startObj.onTouch = false;
@@ -1572,8 +1566,6 @@ downButton.ontouchstart = () => {
 const downButtonHold = () => {
     while (startObj.onTouch) {
             tanTankPosition[0].y += 3;
-        } else {
-            break;
         }
 }
 downButton.ontouchend = () => {
