@@ -444,6 +444,7 @@ body {
 
 @media screen and (max-width: 1024px) and (min-height: 801px) {
     .main-body-wrapper {
+        margin: 5px auto auto auto;
         touch-action: none;
     }
     .battlefield-cover {
@@ -459,6 +460,9 @@ body {
     }
     #left-option-touch, #right-option-touch {
         z-index: 2;
+    }
+    .full-gamepad-wrapper {
+        margin: 50px 50px 0 50px;
     }
 }
 
