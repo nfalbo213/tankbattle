@@ -86,6 +86,10 @@ const drawTanks = () => {
             // Draw a "border" around the entire canvas
             battlefield_ctx.strokeRect(0, 0, battlefield.width, battlefield.height);
             
+            leftButtonHold();
+            upButtonHold();
+            rightButtonHold();
+            downButtonHold();
             drawEachTanTank();
             drawEachDarkTank();
             drawHealthBar();
@@ -996,7 +1000,7 @@ const downButton = document.getElementById('down-button');
 
 // Start Menu
 // startClicked implicatded in drawTanks(), startMenu.onmousedown()
-let startObj = {startClicked: false, animationPlayed: false, gameStart: false, gameOver: false, battleRoyal: false, onTouch: false};
+let startObj = {startClicked: false, animationPlayed: false, gameStart: false, gameOver: false, battleRoyal: false, onTouchLeft: false, onTouchUp: false, onTouchRight: false, onTouchDown: false};
 //let gameStart = false;
 //let gameOver = false;
 
@@ -1486,8 +1490,8 @@ fireButton.ontouchend = () => {
 // LEFT
 leftButton.ontouchstart = () => {
     if (startObj.gameStart && !startObj.startClicked && !startObj.gameOver) {  
-        //startObj.onTouch = true;
-        tanTankPosition[0].x -= 10;
+        startObj.onTouchLeft = true;
+        //tanTankPosition[0].x -= 10;
         tanTankPosition[0].facingLeft = true;
         leftButton.style.boxShadow = 'none';
         leftButton.style.backgroundColor = 'rgb(80, 80, 80)';
@@ -1497,20 +1501,20 @@ leftButton.ontouchstart = () => {
     }
 }
 const leftButtonHold = () => {
-    while (startObj.onTouch) {
-            tanTankPosition[0].x -= 3;
+    while (startObj.onTouchLeft) {
+            tanTankPosition[0].x -= 10;
         }
 }
 leftButton.ontouchend = () => {
-    startObj.onTouch = false;
+    startObj.onTouchLeft = false;
     leftButton.style.boxShadow = '';
     leftButton.style.backgroundColor = '';
 }
 // UP
 upButton.ontouchstart = () => {
     if (startObj.gameStart && !startObj.startClicked && !startObj.gameOver) {
-        //startObj.onTouch = true;
-        tanTankPosition[0].y -= 10;
+        startObj.onTouchUp = true;
+        //tanTankPosition[0].y -= 10;
         upButton.style.boxShadow = 'none';
         upButton.style.backgroundColor = 'rgb(80, 80, 80)';
         //upButtonHold();
@@ -1519,20 +1523,20 @@ upButton.ontouchstart = () => {
     }
 }
 const upButtonHold = () => {
-    while (startObj.onTouch) {
-            tanTankPosition[0].y -= 3;
+    while (startObj.onTouchUp) {
+            tanTankPosition[0].y -= 10;
         } 
 }
 upButton.ontouchend = () => {
-    //startObj.onTouch = false;
+    startObj.onTouchUp = false;
     upButton.style.boxShadow = '';
     upButton.style.backgroundColor = '';
 }
 // RIGHT
 rightButton.ontouchstart = () => {
     if (startObj.gameStart && !startObj.startClicked && !startObj.gameOver) {
-        //startObj.onTouch = true;
-        tanTankPosition[0].x += 10;
+        startObj.onTouchRight = true;
+        //tanTankPosition[0].x += 10;
         tanTankPosition[0].facingLeft = false;
         rightButton.style.boxShadow = 'none';
         rightButton.style.backgroundColor = 'rgb(80, 80, 80)';
@@ -1542,20 +1546,20 @@ rightButton.ontouchstart = () => {
     }
 }
 const rightButtonHold = () => {
-    while (startObj.onTouch) {
-            tanTankPosition[0].x += 3;
+    while (startObj.onTouchRight) {
+            tanTankPosition[0].x += 10;
         } 
 }
 rightButton.ontouchend = () => {
-    //startObj.onTouch = false;
+    startObj.onTouchRight = false;
     rightButton.style.boxShadow = '';
     rightButton.style.backgroundColor = '';
 }
 // DOWN
 downButton.ontouchstart = () => {
     if (startObj.gameStart && !startObj.startClicked && !startObj.gameOver) {
-        //startObj.onTouch = true;
-        tanTankPosition[0].y += 10;
+        startObj.onTouchDown = true;
+        //tanTankPosition[0].y += 10;
         downButton.style.boxShadow = 'none';
         downButton.style.backgroundColor = 'rgb(80, 80, 80)';
         //downButtonHold();
@@ -1564,12 +1568,12 @@ downButton.ontouchstart = () => {
     }
 }
 const downButtonHold = () => {
-    while (startObj.onTouch) {
-            tanTankPosition[0].y += 3;
+    while (startObj.onTouchDown) {
+            tanTankPosition[0].y += 10;
         }
 }
 downButton.ontouchend = () => {
-    //startObj.onTouch = false;
+    startObj.onTouchDown = false;
     downButton.style.boxShadow = '';
     downButton.style.backgroundColor = '';
 }
