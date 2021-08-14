@@ -1486,12 +1486,12 @@ fireButton.ontouchend = () => {
 // LEFT
 leftButton.ontouchstart = () => {
     if (startObj.gameStart && !startObj.startClicked && !startObj.gameOver) {  
-        startObj.onTouch = true;
+        //startObj.onTouch = true;
         tanTankPosition[0].x -= 10;
         tanTankPosition[0].facingLeft = true;
         leftButton.style.boxShadow = 'none';
         leftButton.style.backgroundColor = 'rgb(80, 80, 80)';
-        leftButtonHold();
+        //leftButtonHold();
     } else {
         return;
     }
@@ -1509,11 +1509,11 @@ leftButton.ontouchend = () => {
 // UP
 upButton.ontouchstart = () => {
     if (startObj.gameStart && !startObj.startClicked && !startObj.gameOver) {
-        startObj.onTouch = true;
+        //startObj.onTouch = true;
         tanTankPosition[0].y -= 10;
         upButton.style.boxShadow = 'none';
         upButton.style.backgroundColor = 'rgb(80, 80, 80)';
-        upButtonHold();
+        //upButtonHold();
     } else {
         return;
     }
@@ -1524,19 +1524,19 @@ const upButtonHold = () => {
         } 
 }
 upButton.ontouchend = () => {
-    startObj.onTouch = false;
+    //startObj.onTouch = false;
     upButton.style.boxShadow = '';
     upButton.style.backgroundColor = '';
 }
 // RIGHT
 rightButton.ontouchstart = () => {
     if (startObj.gameStart && !startObj.startClicked && !startObj.gameOver) {
-        startObj.onTouch = true;
+        //startObj.onTouch = true;
         tanTankPosition[0].x += 10;
         tanTankPosition[0].facingLeft = false;
         rightButton.style.boxShadow = 'none';
         rightButton.style.backgroundColor = 'rgb(80, 80, 80)';
-        rightButtonHold();
+        //rightButtonHold();
     } else {
         return;
     }
@@ -1547,18 +1547,18 @@ const rightButtonHold = () => {
         } 
 }
 rightButton.ontouchend = () => {
-    startObj.onTouch = false;
+    //startObj.onTouch = false;
     rightButton.style.boxShadow = '';
     rightButton.style.backgroundColor = '';
 }
 // DOWN
 downButton.ontouchstart = () => {
     if (startObj.gameStart && !startObj.startClicked && !startObj.gameOver) {
-        startObj.onTouch = true;
+        //startObj.onTouch = true;
         tanTankPosition[0].y += 10;
         downButton.style.boxShadow = 'none';
         downButton.style.backgroundColor = 'rgb(80, 80, 80)';
-        downButtonHold();
+        //downButtonHold();
     } else {
         return;
     }
@@ -1569,7 +1569,7 @@ const downButtonHold = () => {
         }
 }
 downButton.ontouchend = () => {
-    startObj.onTouch = false;
+    //startObj.onTouch = false;
     downButton.style.boxShadow = '';
     downButton.style.backgroundColor = '';
 }
