@@ -203,10 +203,10 @@ const drawEachTanTank = () => {
         battlefield_ctx.drawImage(tanTankImg, tanTankPosition[0].x, tanTankPosition[0].y, tanTankImg.width, tanTankImg.height);
 
         if (tanTankPosition[0].facingLeft === true) {
-            tanTankImg.src = "./tanTankLeft.png"
+            tanTankImg.src = "./TanTankLeft.png"
         }
         if (tanTankPosition[0].facingLeft === false) {
-            tanTankImg.src = "./tanTankRight.png"
+            tanTankImg.src = "./TanTankRight.png"
         }
 
         // Ensure off screen marker only happens during gameplay and not animation
