@@ -1507,6 +1507,8 @@ const leftButtonHold = () => {
         } else if (!startObj.onTouchLeft) {
             return;
         }
+    } else {
+        return;
     }
 }
 leftButton.ontouchend = () => {
@@ -1530,9 +1532,11 @@ const upButtonHold = () => {
     if (tanTankPosition.length > 0) {
         if (startObj.onTouchUp) {
             tanTankPosition[0].y -= 10;
-        } else if (!startObj.onTouchUp {
+        } else if (!startObj.onTouchUp) {
             return;
         }
+    } else {
+        return
     }
 }
 upButton.ontouchend = () => {
@@ -1557,7 +1561,7 @@ const rightButtonHold = () => {
     if (tanTankPosition.length > 0) {
         if (startObj.onTouchRight) {
             tanTankPosition[0].x += 10;
-        } else if (!startObj.onTouchUp) {
+        } else if (!startObj.onTouchRight) {
             return;
         }
     } else {
@@ -1585,7 +1589,7 @@ const downButtonHold = () => {
     if (tanTankPosition.length > 0) {
         if (startObj.onTouchDown) {
             tanTankPosition[0].y += 10;
-        } else if (!startObj.onTouchUp) {
+        } else if (!startObj.onTouchDown) {
             return;
         }
     } else {
