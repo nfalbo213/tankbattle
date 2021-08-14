@@ -387,63 +387,6 @@ body {
     box-shadow: 5px 5px 5px black;
 }
 
-/* **** 8/10/21 construction  **** */
-/*
-.full-gamepad-wrapper {
-    background-color: lightgrey;
-    border: 3px solid black;
-    border-radius: 50px;
-    padding: 2%;
-    margin: 50px;
-    display: flex;
-    /*justify-content: center;*
-    align-items: center;
-    flex-direction: column;
-
-}
-.fire-button {
-    /*position: relative;*
-    margin: 0 5% 5% 5%;
-    /*padding: 0;*
-    width: 450px;
-    height: 150px;
-    background-color: indianred;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    color: white;
-    font-size: 50px;
-    font-weight: bolder;
-    font-family: Droid Sans Mono;
-    border: 1px solid black;
-    border-radius: 100px;
-
-    box-shadow: 5px 5px 5px black;
-}
-.gamepad-wrapper-up {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.gamepad-wrapper-side {
-    display: flex;
-    justify-content: space-between;
-    align-content: space-between;
-    align-items: center;
-    /*margin-bottom: 50%;*
-
-    /*width: 900px;*
-} */
-/* **** 8/10/21 construction  **** */
-
-
-/*
-#right-button, #left-button {
-    margin: 15% 0 15% 0;
-}
-*/
 #up-button {
     background-image: url("./ResizedUpButton.png");
     background-size: /*60%*/80%;
@@ -478,25 +421,7 @@ body {
     align-items: center;
     /*margin-top: 277px;*/
 }
-/*
-.gamepad-button {
-    
-    /*display: none;*
-    
-    margin: auto;
-    width: 250px;
-    height: 200px;
-    /*font-family: 'Work Sans';*
-    background-color: /*lightskyblue*darkgrey;
-    padding-top: 18px;
-    /*margin-bottom: 21px;*
-    cursor: not-allowed;
-    border: 1px solid black;
-    border-radius: 30px;
 
-    box-shadow: 3px 3px 3px black;
-}
-*/
 
 @media screen and (min-width: 1025px) {
     .battlefield-cover {
