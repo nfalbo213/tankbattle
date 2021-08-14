@@ -1501,8 +1501,10 @@ leftButton.ontouchstart = () => {
     }
 }
 const leftButtonHold = () => {
-    while (startObj.onTouchLeft) {
+    if (startObj.onTouchLeft) {
             tanTankPosition[0].x -= 10;
+        } else {
+            return;
         }
 }
 leftButton.ontouchend = () => {
@@ -1523,9 +1525,11 @@ upButton.ontouchstart = () => {
     }
 }
 const upButtonHold = () => {
-    while (startObj.onTouchUp) {
-            tanTankPosition[0].y -= 10;
-        } 
+    if (startObj.onTouchLeft) {
+            tanTankPosition[0].x -= 10;
+        } else {
+            return;
+        }
 }
 upButton.ontouchend = () => {
     startObj.onTouchUp = false;
@@ -1546,9 +1550,11 @@ rightButton.ontouchstart = () => {
     }
 }
 const rightButtonHold = () => {
-    while (startObj.onTouchRight) {
-            tanTankPosition[0].x += 10;
-        } 
+    if (startObj.onTouchLeft) {
+            tanTankPosition[0].x -= 10;
+        } else {
+            return;
+        }
 }
 rightButton.ontouchend = () => {
     startObj.onTouchRight = false;
@@ -1568,8 +1574,10 @@ downButton.ontouchstart = () => {
     }
 }
 const downButtonHold = () => {
-    while (startObj.onTouchDown) {
-            tanTankPosition[0].y += 10;
+    if (startObj.onTouchLeft) {
+            tanTankPosition[0].x -= 10;
+        } else {
+            return;
         }
 }
 downButton.ontouchend = () => {
