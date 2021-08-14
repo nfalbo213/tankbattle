@@ -1500,6 +1500,7 @@ leftButton.ontouchstart = () => {
         return;
     }
 }
+/*
 const leftButtonHold = () => {
     if (startObj.onTouchLeft) {
             tanTankPosition[0].x -= 10;
@@ -1507,6 +1508,7 @@ const leftButtonHold = () => {
             return;
         }
 }
+*/
 leftButton.ontouchend = () => {
     //startObj.onTouchLeft = false;
     leftButton.style.boxShadow = '';
@@ -1524,6 +1526,7 @@ upButton.ontouchstart = () => {
         return;
     }
 }
+/*
 const upButtonHold = () => {
     if (startObj.onTouchLeft) {
             tanTankPosition[0].x -= 10;
@@ -1531,6 +1534,7 @@ const upButtonHold = () => {
             return;
         }
 }
+*/
 upButton.ontouchend = () => {
     //startObj.onTouchUp = false;
     upButton.style.boxShadow = '';
@@ -1549,6 +1553,7 @@ rightButton.ontouchstart = () => {
         return;
     }
 }
+/*
 const rightButtonHold = () => {
     if (startObj.onTouchLeft) {
             tanTankPosition[0].x -= 10;
@@ -1556,6 +1561,7 @@ const rightButtonHold = () => {
             return;
         }
 }
+*/
 rightButton.ontouchend = () => {
     //startObj.onTouchRight = false;
     rightButton.style.boxShadow = '';
@@ -1573,6 +1579,7 @@ downButton.ontouchstart = () => {
         return;
     }
 }
+/*
 const downButtonHold = () => {
     if (startObj.onTouchLeft) {
             tanTankPosition[0].x -= 10;
@@ -1580,6 +1587,7 @@ const downButtonHold = () => {
             return;
         }
 }
+*/
 downButton.ontouchend = () => {
     //startObj.onTouchDown = false;
     downButton.style.boxShadow = '';
