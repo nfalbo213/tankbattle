@@ -1502,16 +1502,14 @@ leftButton.ontouchstart = () => {
 }
 const leftButtonHold = () => {
     if (tanTankPosition.length > 0) {
-        if (startObj.onTouchLeft === true) {
+        if (startObj.onTouchLeft {
             tanTankPosition[0].x -= 10;
-        } else if (startObj.onTouchLeft === false) {
+        } else if (!startObj.onTouchLeft) {
             return;
         }
     }
 }
 leftButton.ontouchend = () => {
-    //startObj.onTouchLeft = false;
-    //startObj.onTouchLeftFunction = false;
     leftButton.style.boxShadow = '';
     leftButton.style.backgroundColor = '';
     startObj.onTouchLeft = false;
@@ -1530,16 +1528,14 @@ upButton.ontouchstart = () => {
 }
 const upButtonHold = () => {
     if (tanTankPosition.length > 0) {
-        if (startObj.onTouchUp === true) {
+        if (startObj.onTouchUp) {
             tanTankPosition[0].y -= 10;
-        } else if (startObj.onTouchUp === false) {
+        } else if (!startObj.onTouchUp {
             return;
         }
     }
 }
 upButton.ontouchend = () => {
-    //startObj.onTouchUp = false;
-    //startObj.onTouchUpFunction = false;
     upButton.style.boxShadow = '';
     upButton.style.backgroundColor = '';
     startObj.onTouchUp = false;
@@ -1559,9 +1555,9 @@ rightButton.ontouchstart = () => {
 }
 const rightButtonHold = () => {
     if (tanTankPosition.length > 0) {
-        if (startObj.onTouchRight === true) {
+        if (startObj.onTouchRight) {
             tanTankPosition[0].x += 10;
-        } else if (startObj.onTouchUp === false) {
+        } else if (!startObj.onTouchUp) {
             return;
         }
     } else {
@@ -1569,8 +1565,6 @@ const rightButtonHold = () => {
     }   
 }
 rightButton.ontouchend = () => {
-    //startObj.onTouchRight = false;
-    //startObj.onTouchRightFunction = false;
     rightButton.style.boxShadow = '';
     rightButton.style.backgroundColor = '';
     startObj.onTouchRight = false;
@@ -1589,9 +1583,9 @@ downButton.ontouchstart = () => {
 }
 const downButtonHold = () => {
     if (tanTankPosition.length > 0) {
-        if (startObj.onTouchDown === true) {
+        if (startObj.onTouchDown) {
             tanTankPosition[0].y += 10;
-        } else if (startObj.onTouchUp === false) {
+        } else if (!startObj.onTouchUp) {
             return;
         }
     } else {
