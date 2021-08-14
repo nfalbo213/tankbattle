@@ -14,66 +14,35 @@ let muzzleFire;
 let fireLocation = [];
 
 firstExplosion = new Image(95, 55);
-firstExplosion.src = './Resources/Explosion.png';
+firstExplosion.src = './Explosion.png';
 secondExplosion = new Image(95, 55);
-secondExplosion.src = './Resources/ExplosionReverse.png';
+secondExplosion.src = './ExplosionReverse.png';
 
 muzzleFire = new Image(25, 15);
-muzzleFire.src = './Resources/ExplosionReverse.png';
+muzzleFire.src = './ExplosionReverse.png';
 
 firstFire = new Image(70, 30);
-firstFire.src = './Resources/Fire.png';
+firstFire.src = './Fire.png';
 secondFire = new Image(70, 30);
-secondFire.src = './Resources/FireReverse.png';
+secondFire.src = './FireReverse.png';
 
 let tanTankImg;
-//let darkTankImgLeft;
 
 tanTankImg = new Image(80, 40);
-tanTankImg.src = './Resources/TanTankRight.png';
-
-//darkTankImg = new Image(80, 40);
-//darkTankImg.src = './Resources/DarkTankLeft.png';
+tanTankImg.src = './TanTankRight.png';
 
 // Ensure Tanks individually face player when turning by creating specific image and then utilizing darkTankPosition[i].facingLeft in drawEachDarkTank()
 let darkTankImgLeft;
 let darkTankImgRight;
 
 darkTankImgLeft = new Image(80, 40);
-darkTankImgLeft.src ='./Resources/DarkTankLeft.png';
+darkTankImgLeft.src ='./DarkTankLeft.png';
 
 darkTankImgRight = new Image(80, 40);
-darkTankImgRight.src ='./Resources/DarkTankRight.png';
+darkTankImgRight.src ='./DarkTankRight.png';
 
-let tanTankPosition = [
-    {x: 100, y: 100, facingLeft: false, health: 5}
-];
-let darkTankPosition = [
-    // First Wave
-    {x: 500, y: 220, facingLeft: true, health: 5}, 
-    {x: 600, y: 160, facingLeft: true, health: 5}, 
-    {x: 600, y: 280, facingLeft: true, health: 5},
-    // Second Wave
-    {x: 800, y: 190, facingLeft: true, health: 6}, 
-    {x: 900, y: 0, facingLeft: true, health: 6}, 
-    {x: 900, y: 500, facingLeft: true, health: 6},
-    // Third Wave
-    {x: 1100, y: 220, facingLeft: true, health: 6}, 
-    {x: 1200, y: -200, facingLeft: true, health: 6}, 
-    {x: 1200, y: 600, facingLeft: true, health: 6},
-    {x: 1300, y: -400, facingLeft: true, health: 6}, 
-    {x: 1300, y: 900, facingLeft: true, health: 6},
-    // Fourth Wave
-    {x: 1400, y: 220, facingLeft: true, health: 7}, 
-    {x: 1500, y: -400, facingLeft: true, health: 7}, 
-    {x: 1500, y: 800, facingLeft: true, health: 7},
-    {x: 1500, y: -600, facingLeft: true, health: 7}, 
-    {x: 1500, y: 1100, facingLeft: true, health: 7},
-    // Boss
-    {x: 2300, y: 220, facingLeft: true, health: 12} 
-
-
-];
+let tanTankPosition = [];
+let darkTankPosition = [];
 
 // Munitions Variables
 // [{x: (tankPosition[i].x - number), y: (tankPosition[i].y - number), velocity: negative number or positive along x axis}]
@@ -96,26 +65,6 @@ const battlefieldBackground = 'lightgreen';
 ////////////
 // Functions
 
-const main = () => {
-    
-
-    /*
-    // draw a border around the canvas
-    //const clearBoard = () => {
-        //  Select the colour to fill the drawing
-        battlefield_ctx.fillStyle = battlefieldBackground;
-        //  Select the colour for the border of the canvas
-        battlefield_ctx.strokestyle = battlefieldBorder;
-        // Draw a "filled" rectangle to cover the entire canvas
-        battlefield_ctx.fillRect(0, 0, battlefield.width, battlefield.height);
-        // Draw a "border" around the entire canvas
-        battlefield_ctx.strokeRect(0, 0, battlefield.width, battlefield.height);
-     // }
-    */
-     drawTanks();
-
-}
-
 // Display for Tanks
 
 const drawTanks = () => {
@@ -136,23 +85,11 @@ const drawTanks = () => {
             battlefield_ctx.fillRect(0, 0, battlefield.width, battlefield.height);
             // Draw a "border" around the entire canvas
             battlefield_ctx.strokeRect(0, 0, battlefield.width, battlefield.height);
-
-            //battlefield_ctx.drawImage(tanTankImg, tanTankPosition[0].x, tanTankPosition[0].y, tanTankImg.width, tanTankImg.height);
+            
             drawEachTanTank();
             drawEachDarkTank();
             drawHealthBar();
-            //drawFire();
             tankAI();
-            //
-            //battlefield_ctx.drawImage(darkTankImg, darkTankPosition[0].x, darkTankPosition[0].y, darkTankImg.width, darkTankImg.height);
-            /*
-            if (tanTankPosition[0].facingLeft === true) {
-                tanTankImg.src = "./Resources/tanTankLeft.png"
-            }
-            else if (tanTankPosition[0].facingLeft === false) {
-                tanTankImg.src = "./Resources/tanTankRight.png"
-            }
-            */
 
             if (roundFired === true) {
                 fireRound();
@@ -161,22 +98,13 @@ const drawTanks = () => {
             if (roundFired === false) {
                 return;
             }
-            //scoreboardDisplay();
-            // Allows animation to continue when game over (see startMenu.onmousedown())
-            // *** now implicated in gameOverDisplay()
-            /*if (tanTankPosition.length === 0) {
-                startObj.gameOver = true;
-            }*/
-            //drawEachDarkTank();
+         
         } 
         else if (startObj.startClicked) {
             return;
         }
     }, 80);
 
-    /*battlefield_ctx.drawImage(tanTankImg, tanTankPosition[0].x, tanTankPosition[0].y, tanTankImg.width, tanTankImg.height);
-    battlefield_ctx.drawImage(darkTankImg, darkTankPosition[0].x, darkTankPosition[0].y, darkTankImg.width, darkTankImg.height);
-    */
 }
 
 const returnOrigionalTanks = () => {
@@ -261,7 +189,6 @@ const drawEachDarkTank = () => {
             
         } while (i >= 0);
       } else {
-          //console.log('else happened');
         return;
       }
 
@@ -276,10 +203,10 @@ const drawEachTanTank = () => {
         battlefield_ctx.drawImage(tanTankImg, tanTankPosition[0].x, tanTankPosition[0].y, tanTankImg.width, tanTankImg.height);
 
         if (tanTankPosition[0].facingLeft === true) {
-            tanTankImg.src = "./Resources/tanTankLeft.png"
+            tanTankImg.src = "./tanTankLeft.png"
         }
         if (tanTankPosition[0].facingLeft === false) {
-            tanTankImg.src = "./Resources/tanTankRight.png"
+            tanTankImg.src = "./tanTankRight.png"
         }
 
         // Ensure off screen marker only happens during gameplay and not animation
@@ -294,14 +221,6 @@ const drawEachTanTank = () => {
                 battlefield_ctx.strokeRect (20, battlefield.height - 40, 20, 20);
 
             }
-            /*if (tanTankPosition[0].y >= battlefield.height && tanTankPosition[0].x <= 0) {
-                
-                battlefield_ctx.fillStyle = 'tan';
-                battlefield_ctx.fillRect (20, battlefield.height - 40, 20, 20);
-                battlefield_ctx.fillStyle = 'black';
-                battlefield_ctx.strokeRect (20, battlefield.height - 40, 20, 20);
-
-            }*/
             // Draw position marker for player if drives DOWN and RIGHT off canvas
             else if (tanTankPosition[0].y >= battlefield.height && tanTankPosition[0].x + 80 >= battlefield.width) {
                 
@@ -379,28 +298,6 @@ const drawEachTanTank = () => {
     } else {
         return;
     }
-    
-    /*
-    // This loop works becasue fireRound() is repeatedly invoked in drawTanks()
-    if (tanTankPosition.length - 1 >= 0) {
-   
-       let i = tanTankPosition.length - 1;
-       
-       do {
-           battlefield_ctx.drawImage(tanTankImg, tanTankPosition[i].x, tanTankPosition[i].y, tanTankImg.width, tanTankImg.height);
-           i--;
-           if (tanTankPosition[i].facingLeft === true) {
-                tanTankImg.src = "./Resources/tanTankLeft.png"
-            }
-            else if (tanTankPosition[i].facingLeft === false) {
-                tanTankImg.src = "./Resources/tanTankRight.png"
-            }
-        } while (i >= 0);
-     } else {
-         //console.log('else happened');
-       return;
-     }
-     */
 
 }
 
@@ -498,30 +395,6 @@ const drawHealthBar = () => {
                 battlefield_ctx.strokestyle = 'black';
                 battlefield_ctx.strokeRect(darkTankPosition[i].x, darkTankPosition[i].y - 1, 80, 3);
             }
-
-            /*
-            if (darkTankPosition[i].health === 3) {
-                battlefield_ctx.fillStyle = '#00ff00';
-                battlefield_ctx.fillRect(darkTankPosition[i].x, darkTankPosition[i].y - 1, 80, 3); // 80 is image width
-                // Draw a border around healthbar
-                battlefield_ctx.strokestyle = 'black';
-                battlefield_ctx.strokeRect(darkTankPosition[i].x, darkTankPosition[i].y - 1, 80, 3);
-            }
-            if (darkTankPosition[i].health === 2) {
-                battlefield_ctx.fillStyle = 'yellow';
-                battlefield_ctx.fillRect(darkTankPosition[i].x, darkTankPosition[i].y - 1, 53.32, 3); // 53.32/2 = 26.66 = 80/3 (80 is image width)
-                // Draw a border around healthbar
-                battlefield_ctx.strokestyle = 'black';
-                battlefield_ctx.strokeRect(darkTankPosition[i].x, darkTankPosition[i].y - 1, 80, 3);
-            }
-            if (darkTankPosition[i].health === 1) {
-                battlefield_ctx.fillStyle = 'red';
-                battlefield_ctx.fillRect(darkTankPosition[i].x, darkTankPosition[i].y - 1, 26.66, 3); // 26.66 = 80/3 (80 is image width)
-                // Draw a border around healthbar
-                battlefield_ctx.strokestyle = 'black';
-                battlefield_ctx.strokeRect(darkTankPosition[i].x, darkTankPosition[i].y - 1, 80, 3);
-            }
-            */
 
             i--;
 
@@ -656,91 +529,42 @@ const tankAI = () => {
             }
             // AI Move UP and LEFT towards player  
             if (tanTankPosition[i].x < darkTankPosition[n].x && tanTankPosition[i].y < darkTankPosition[n].y) {
-                //darkTankPosition[n].x -= 3;
-                //darkTankPosition[n].y -= 1;
-                /*
-                if (tanTankPosition[i].y === darkTankPosition[n].y) {
-                    roundFired = true;
-                    tankRoundArr.push({x: (darkTankPosition[n].x), y: (darkTankPosition[n].y + 17), velocity: -15});
-                }
-                */
+               
                 darkTankPosition[n].facingLeft = true;
-                //darkTankPosition[n].img = './Resources/DarkTankLeft.png'
                 darkTankPosition[n].x -= 2;
                 darkTankPosition[n].y -= 1;
             }
             // AI Move DOWN and LEFT towards player   
             if (tanTankPosition[i].x < darkTankPosition[n].x && tanTankPosition[i].y > darkTankPosition[n].y) {
-                //darkTankPosition[n].x -= 3;
-                //darkTankPosition[n].y += 1;
-                /*
-                if (tanTankPosition[i].y === darkTankPosition[n].y) {
-                    roundFired = true;
-                    tankRoundArr.push({x: (darkTankPosition[n].x), y: (darkTankPosition[n].y + 17), velocity: -15});
-                }
-                */
+                
                 darkTankPosition[n].facingLeft = true;
-                //darkTankPosition[n].img = './Resources/DarkTankLeft.png'
                 darkTankPosition[n].x -= 2;
                 darkTankPosition[n].y += 1;
             }
             // AI Move DOWN and RIGHT towards player 
             if (tanTankPosition[i].x > darkTankPosition[n].x && tanTankPosition[i].y > darkTankPosition[n].y) {
-                //darkTankPosition[n].x += 3;
-                //darkTankPosition[n].y += 1;
-                /*
-                if (tanTankPosition[i].y === darkTankPosition[n].y) {
-                    roundFired = true;
-                    tankRoundArr.push({x: (darkTankPosition[n].x), y: (darkTankPosition[n].y + 17), velocity: -15});
-                }
-                */
+                
                 darkTankPosition[n].facingLeft = false;
-                //darkTankPosition[n].img = './Resources/DarkTankRight.png'
                 darkTankPosition[n].x += 2;
                 darkTankPosition[n].y += 1;
             }
             // AI Move UP and RIGHT towards player 
             if (tanTankPosition[i].x > darkTankPosition[n].x && tanTankPosition[i].y < darkTankPosition[n].y) {
-                //darkTankPosition[n].x += 3;
-                //darkTankPosition[n].y -= 1;
-                /*
-                if (tanTankPosition[i].y === darkTankPosition[n].y) {
-                    roundFired = true;
-                    tankRoundArr.push({x: (darkTankPosition[n].x), y: (darkTankPosition[n].y + 17), velocity: -15});
-                }
-                */
+                
                 darkTankPosition[n].facingLeft = false;
-                //darkTankPosition[n].img = './Resources/DarkTankRight.png'
                 darkTankPosition[n].x += 2;
                 darkTankPosition[n].y -= 1;
             }
             // AI Move UP towards player
             if (tanTankPosition[i].x === darkTankPosition[n].x && tanTankPosition[i].y < darkTankPosition[n].y) {
-                //darkTankPosition[n].x += 3;
-                //darkTankPosition[n].y -= 1;
-                /*
-                if (tanTankPosition[i].y === darkTankPosition[n].y) {
-                    roundFired = true;
-                    tankRoundArr.push({x: (darkTankPosition[n].x), y: (darkTankPosition[n].y + 17), velocity: -15});
-                }
-                */
-                //darkTankPosition[n].facingLeft = false;
-                //darkTankImg.src = './Resources/DarkTankRight.png'
+                
                 darkTankPosition[n].x += 0;
                 darkTankPosition[n].y -= 1;
             }
             // AI Move DOWN towards player
             if (tanTankPosition[i].x === darkTankPosition[n].x && tanTankPosition[i].y > darkTankPosition[n].y) {
-                //darkTankPosition[n].x += 3;
-                //darkTankPosition[n].y -= 1;
-                /*
-                if (tanTankPosition[i].y === darkTankPosition[n].y) {
-                    roundFired = true;
-                    tankRoundArr.push({x: (darkTankPosition[n].x), y: (darkTankPosition[n].y + 17), velocity: -15});
-                }
-                */
+                
                 darkTankPosition[n].facingLeft = false;
-                //darkTankPosition[n].img = './Resources/DarkTankRight.png'
                 darkTankPosition[n].x += 0;
                 darkTankPosition[n].y += 1;
             }
@@ -796,7 +620,6 @@ const generateRandomAI = () => {
 
     if (startObj.battleRoyal) {
 
-        //let facingLeft;
         randomNumber = Math.floor(Math.random() * 100);
         
         if (randomNumber >= 50) {
@@ -806,8 +629,6 @@ const generateRandomAI = () => {
             facingLeft = true;
         }
 
-        //let x;
-        //let y;
         health = 5 + (Math.floor(Math.random() * 8));
 
         if (health === 12) {
@@ -824,8 +645,7 @@ const generateRandomAI = () => {
             x = battlefield.width + (100 + (Math.floor(Math.random() * 2) * 100));
             // battilefield.height > y > 0
             y = battlefield.height - (Math.floor(Math.random() * 8) * 100);
-            // can be randomized later if AI generated from other side
-            //facingLeft = true;
+         
         }
         else if (!facingLeft) {
             //  x < 0 - 300(probably start at battlefield.width + 100)
@@ -834,23 +654,13 @@ const generateRandomAI = () => {
             y = 0 + (Math.floor(Math.random() * 8) * 100);
         }
 
-        // 5 < Health <= 12
-        //health = 5 + (Math.floor(Math.random() * 8));
-
         darkTankPosition.push({x: x, y: y, facingLeft: facingLeft, health: health, boss: boss});
 
     } else {
         return;
     }
-
-    //darkTankPosition.push({x: x, y: y, facingLeft: facingLeft, health: health});
     
 }
-
-//drawTanks();
-//gameStartAnimation();
-//main();
-//drawTanks();
 
 
 // Keyboard Controls
@@ -876,15 +686,13 @@ function playerContols(event) {
                     tankRoundArr.push({x: tanTankPosition[0].x, y: tanTankPosition[0].y + 17, velocity: -15, darkTankRound: false, roundLive: true});
                     battlefield_ctx.drawImage(muzzleFire, tanTankPosition[0].x - 15, tanTankPosition[0].y + 12, muzzleFire.width, muzzleFire.height);
                     roundFired = true;
-                    //console.log(tanTankPosition);
-                    //console.log(tankRoundArr);
+                    
                 } 
                 else if (tanTankPosition[0].facingLeft === false) {
                     tankRoundArr.push({x: tanTankPosition[0].x + 81, y: tanTankPosition[0].y + 17, velocity: 15, darkTankRound: false, roundLive: true});
                     battlefield_ctx.drawImage(muzzleFire, tanTankPosition[0].x + 78, tanTankPosition[0].y + 12, muzzleFire.width, muzzleFire.height);
                     roundFired = true;
-                    //console.log(tanTankPosition);
-                    //console.log(tankRoundArr);
+                   
                 }
             }
         }
@@ -892,7 +700,7 @@ function playerContols(event) {
             if (tanTankPosition.length > 0) {
                 tanTankPosition[0].x = tanTankPosition[0].x - 10;
                 tanTankPosition[0].facingLeft = true;
-                //console.log(tanTankPosition);
+               
             } else {
                 return;
             }
@@ -944,67 +752,18 @@ const fireRound = () => {
             // Draw a border around the round
             battlefield_ctx.strokeRect(tankRoundArr[i].x, tankRoundArr[i].y, 4, 2);
 
-            //console.log(tankRoundArr);
+           
             tankRoundArr[i].x = tankRoundArr[i].x + tankRoundArr[i].velocity;
-            //console.log(tankRoundArr);
+           
           i--;
         } while (i >= 0);
       } else {
         return;
       }
-    
-    /*
-    let i = tankRoundArr.length - 1;
-
-       // do {
-            
-            if (i < 0) {
-                i = tankRoundArr.length - 1;
-            }
-
-            battlefield_ctx.fillStyle = 'black';
-            // Set the border colour of the snake part
-            battlefield_ctx.strokestyle = 'black';
-            // Draw a "filled" rectangle to represent the snake part at the coordinates
-            // the part is located
-            battlefield_ctx.fillRect(tankRoundArr[i].x, tankRoundArr[i].y, 2, 2);
-            // Draw a border around the snake part
-            battlefield_ctx.strokeRect(tankRoundArr[i].x, tankRoundArr[i].y, 2, 2);
-
-            //console.log(tankRoundArr);
-            tankRoundArr[i].x = tankRoundArr[i].x + tankRoundArr[i].velocity;
-            //console.log(tankRoundArr);
-
-            i--;
-
-        //}
-       // while (i < 0);
-            //i = tankRoundArr.length - 1;
-        
-            */
-
-    // ** Below code works
-    /*
-    battlefield_ctx.fillStyle = 'black';
-    // Set the border colour of the snake part
-    battlefield_ctx.strokestyle = 'black';
-    // Draw a "filled" rectangle to represent the snake part at the coordinates
-    // the part is located
-    battlefield_ctx.fillRect(tankRoundArr[0].x, tankRoundArr[0].y, 2, 2);
-    // Draw a border around the snake part
-    battlefield_ctx.strokeRect(tankRoundArr[0].x, tankRoundArr[0].y, 2, 2);
-
-    console.log(tankRoundArr);
-    tankRoundArr[0].x = tankRoundArr[0].x + tankRoundArr[0].velocity;
-    console.log(tankRoundArr);
-    */
 
 }
 
 const didRoundHit = () => {
-
-    // Loop through array only when tankRoundArr has objects 
-    //if (tankRoundArr.length - 1 > -1) {
     
     // Compare location arrays only when darkTankPosition has objects 
         // Using darkTankPosition.length as benchmark ensures error doesn't occur if all tanks are cleared from battlefield
@@ -1022,16 +781,13 @@ const didRoundHit = () => {
             
             n = darkTankPosition.length - 1;
             i--;
-            //console.log('n < 0 happened');
+           
 
           }
 
           // Ensure error doesn't occur by looping though when i = -1
           if (i < 0) {
-              
-            //console.log('i < 0 happened');
-            //break;
-            //i = -1;
+         
             break;
 
           }
@@ -1046,47 +802,26 @@ const didRoundHit = () => {
             //console.log(tankRoundArr.length);
             // Make round dead
             tankRoundArr[i].roundLive = false;
-            
-            //tankRoundArr.splice([i], 1);
-            //console.log('round left canvas happened');
-            //console.log(tankRoundArr.length);
-            //tankRoundArr.splice([i], 1);
-            /*if (tankRoundArr.length === 0) {
-                break;
-            }*/
 
           }
-          // Ensure error doesn't occur if round is spliced from last if statement OR if no rounds are fired
-          /*if (tankRoundArr.length === 0) {
-              
-            console.log('undefined happened');
-            //break;
-            //i = -1;
-            break;
-
-          }*/
 
           // Does round hit tank
           if (tankRoundArr[i].x >= darkTankPosition[n].x + 40 === true && tankRoundArr[i].x <= darkTankPosition[n].x + 55 === true && tankRoundArr[i].y <= darkTankPosition[n].y + 40 === true && tankRoundArr[i].y >= darkTankPosition[n].y === true && tankRoundArr[i].darkTankRound === false && tankRoundArr[i].roundLive === true) {
              
-            // Remove round from play
-            //tankRoundArr.splice([i], 1);
-            //console.log('round hit happened');
             // Draw imact explosion
             battlefield_ctx.drawImage(muzzleFire, tankRoundArr[i].x, tankRoundArr[i].y, muzzleFire.width - 8, muzzleFire.height - 8);
             // Lower tank health
             darkTankPosition[n].health = darkTankPosition[n].health - 1;
             // Check tank damage and remove from play if health is 0
             if (darkTankPosition[n].health === 0) {
-                //tankDestroyed(darkTankPosition[n]);
-                //fireLocation.push(darkTankPosition[n]);
+               
                 if (darkTankPosition[n].facingLeft) {
                     battlefield_ctx.drawImage(firstExplosion, darkTankPosition[n].x, darkTankPosition[n].y, firstExplosion.width, firstExplosion.height);
                 }
                 if (!darkTankPosition[n].facingLeft) {
                     battlefield_ctx.drawImage(secondExplosion, darkTankPosition[n].x - 12, darkTankPosition[n].y, secondExplosion.width, secondExplosion.height);
                 }
-                //fireLocation.push(darkTankPosition[n]);
+               
                 if (startObj.gameStart) {
                     // Needs to occur before splice
                     destroyedTanksArr.push(darkTankPosition[n]);
@@ -1100,11 +835,7 @@ const didRoundHit = () => {
                 }
                 //drawFire();
             }
-            // Remove round from play
-            /*tankRoundArr.splice([i], 1);
-            if (tankRoundArr.length === 0) {
-                break;
-            }*/
+          
             // Stop round from moving
             tankRoundArr[i].velocity = 0;
             // Clear round from canvas
@@ -1129,26 +860,6 @@ const didRoundHit = () => {
             }
     
           }
-          /* ******* GENERATE NEW AI ******** */
-          /*if (startObj.battleRoyal && darkTankPosition.length < 2) {
-                generateRandomAI();
-                //generateRandomAI();
-                //generateRandomAI();
-                //generateRandomAI();
-                //generateRandomAI();
-                if (tanTankPosition[0].health < 5) {
-                    tanTankPosition[0].health += 1
-                }
-
-                break;
-          }*/
-
-          // Ensure error doesn't occur if all Dark tanks are cleared from battle field
-          /*if (darkTankPosition.length === 0) {
-            i = -1;
-            //console.log('dark undefined happened');
-            break;
-            }*/
 
           // Does round hit player 
             // Temporary fix if works - doesn't address array loop if ever want to add allies
@@ -1156,9 +867,6 @@ const didRoundHit = () => {
 
             if (tankRoundArr[i].x >= tanTankPosition[0].x + 40 === true && tankRoundArr[i].x <= tanTankPosition[0].x + 55 === true && tankRoundArr[i].y <= tanTankPosition[0].y + 40 === true && tankRoundArr[i].y >= tanTankPosition[0].y === true && tankRoundArr[i].roundLive === true) {
                 
-                // Remove round from play
-                //tankRoundArr.splice([i], 1);
-                //console.log('round hit happened');
                 // Draw imact explosion
                 battlefield_ctx.drawImage(muzzleFire, tankRoundArr[i].x, tankRoundArr[i].y, muzzleFire.width - 8, muzzleFire.height - 8);
                 // Lower tank health
@@ -1178,10 +886,6 @@ const didRoundHit = () => {
                     break;
                 }
                 // Remove round from play
-                /*tankRoundArr.splice([i], 1);
-                if (tankRoundArr.length === 0) {
-                    break;
-                }*/
                 // Stop round from moving
                 tankRoundArr[i].velocity = 0;
                 // Clear round from canvas
@@ -1195,23 +899,11 @@ const didRoundHit = () => {
 
             // Ensure each tank(n) is compared with the same round(i) (^^see first if statement)
             n--;
-            //console.log('else happened');
              
           }    
-
-          // Ensure error doesn't occur if all tan tanks are cleared from battle field
-            // Blocked off to ensure rounds fired after player death still inflict damage; could cause problems later when including allies
-         /* 
-         if (tanTankPosition.length === 0) {
-            i = -1;
-            //console.log('dark undefined happened');
-            return;
-        }
-        */
           
           // Ensure error doesn't occur if round is spliced from last if statement
           if (tankRoundArr.length === 0) {
-            console.log('2nd undefined happened');
             i = -1;
             break;
           } 
@@ -1220,109 +912,13 @@ const didRoundHit = () => {
 
               // Ensure each tank(n) is compared with the same round(i) (^^see first if statement)
               n--;
-              //console.log('else happened');
                
             } 
     
-
-        //} while (i >= 0);
         }
     
       } 
-    
-      // Bellow is first attempt at tanTank hit
-      /* 
-    // Compare location arrays only when tanTankPosition has objects 
-        // Using darkTankPosition.length as benchmark ensures error doesn't occur if all tanks are cleared from battlefield
-        if (tanTankPosition.length - 1 > -1) {
-    
-            let i = tankRoundArr.length - 1;
-            let n = tanTankPosition.length - 1;
-        
-        
-            do {
-              
-              // Ensure each tank(n) is compared with the same round(i) (see n-- in final else statement after do.. while.. loop)
-              if (n < 0) {
-                
-                n = tanTankPosition.length - 1;
-                i--;
-                //console.log('n < 0 happened');
-    
-              }
-    
-              // Ensure error doesn't occur by looping though when i = -1
-              if (i < 0) {
-                  
-                //console.log('i < 0 happened');
-                //break;
-                i = -1;
-                return;
-    
-              }
-              
-              // Does round leave board
-              if (tankRoundArr[i].x > battlefield.width || tankRoundArr[i].x < 0) {
-                    
-                // Stop round from moving
-                //tankRoundArr[i].velocity = 0;
-                // Clear round from canvas
-                //tankRoundArr[i].x = battlefield.width + 20;
-                //console.log(tankRoundArr.length);
-                tankRoundArr.splice([i], 1);
-                //console.log('round left canvas happened');
-                //console.log(tankRoundArr.length);
-    
-              }
-              // Ensure error doesn't occur if round is spliced from last if statement
-              if (tankRoundArr.length === 0) {
-                  
-                //console.log('undefined happened');
-                //break;
-                i = -1;
-                return;;
-    
-              }
-    
-              // Does round hit tank
-              if (tankRoundArr[i].x >= tanTankPosition[n].x + 40 === true && tankRoundArr[i].x <= tanTankPosition[n].x + 55 === true && tankRoundArr[i].y <= tanTankPosition[n].y + 40 === true && tankRoundArr[i].y >= tanTankPosition[n].y === true) {
-                 
-                // Remove round from play
-                tankRoundArr.splice([i], 1);
-                //console.log('round hit happened');
-                // Lower tank health
-                tanTankPosition[n].health = tanTankPosition[n].health - 1;
-                // Check tank damage and remove from play if health is 0
-                if (tanTankPosition[n].health === 0) {
-                    tanTankPosition.splice([n], 1);
-                }
-        
-              }
-            
-              // Ensure error doesn't occur if all tanks are cleared from battle field
-              if (tanTankPosition.length === 0) {
-                  i = -1;
-                  //console.log('dark undefined happened');
-                  return;
-              }
-              
-              // Ensure error doesn't occur if round is spliced from last if statement
-              if (tankRoundArr.length === 0) {
-                //console.log('2nd undefined happened');
-                return;
-              } else {
-    
-                  // Ensure each tank(n) is compared with the same round(i) (^^see first if statement)
-                  n--;
-                  //console.log('else happened');
-                   
-                }
-        
-    
-            } while (i >= 0);  
-      */
-
-    //} 
+   
     else {
         
         // Final do... while... loop ensures tankRoundArr is still cleared if no tanks are on the battlefield
@@ -1337,10 +933,7 @@ const didRoundHit = () => {
             }
             // Does round leave board
             if (tankRoundArr[i].x > battlefield.width + 100 || tankRoundArr[i].x < -100) {
-                    
-                //tankRoundArr.splice([i], 1);
-                //console.log('round left canvas happened');
-                //console.log(tankRoundArr.length);
+                
                 // Stop round from moving
                 tankRoundArr[i].velocity = 0;
                 // Clear round from canvas
@@ -1350,21 +943,10 @@ const didRoundHit = () => {
 
             }
 
-            // Ensure error doesn't occur if round is spliced from last if statement
-                // Not needed if utilizing tankRoundArr[i].liveRound
-            /*if (tankRoundArr.length === 0) {
-                
-                //console.log('undefined happened');
-                i = -1;
-                return;
-
-            }*/
-
             i--;
 
-        //} while (i >= 0);
         }
-          //console.log('final else happened');
+         
           return;
       }
     
@@ -1588,21 +1170,10 @@ startMenu.onmousedown = () => {
 
         }, 1000);
 
-        /*if (sec === 0) {
-        topTitleScreen.style.visibility = 'hidden';
-        bottomTitleScreen.style.visibility = 'hidden';
-        lowerScreenRight.innerHTML = 'Click Screen to Pause';
-        lowerScreenRight.style.visibility = 'visible';
-        returnOrigionalTanks();
-        startObj.gameStart = true;
-        drawTanks();
-        }*/
-
     }
 
     else if (!startObj.startClicked) {
 
-        //gameStart = true;
         startObj.startClicked = true;
         startMenu.style.opacity = '.7';
         lowerScreenRight.innerHTML = 'Paused: Click Screen to Resume';
@@ -1615,7 +1186,7 @@ startMenu.onmousedown = () => {
         startObj.startClicked = false;
         startMenu.style.opacity = '';
         lowerScreenRight.innerHTML = 'Click Screen to Pause';
-        lowerScreenRight.style.color = /*'rgb(17, 228, 243)'*/'rgb(82, 235, 82)';
+        lowerScreenRight.style.color = 'rgb(82, 235, 82)';
 
     }
 
@@ -1780,7 +1351,6 @@ startMenuTouch.ontouchstart = () => {
                 // startObj.gameStart is dependent on opening animation
                 startObj.gameStart = true;
                 drawTanks();
-                //startAndOverScreen.style.backgroundColor = '';
                 startAndOverScreen.innerHTML = '';
                 return;
             }
@@ -1788,21 +1358,10 @@ startMenuTouch.ontouchstart = () => {
 
         }, 1000)
 
-        /*if (sec === 0) {
-        topTitleScreen.style.visibility = 'hidden';
-        bottomTitleScreen.style.visibility = 'hidden';
-        lowerScreenRight.innerHTML = 'Click Screen to Pause';
-        lowerScreenRight.style.visibility = 'visible';
-        returnOrigionalTanks();
-        startObj.gameStart = true;
-        drawTanks();
-        }*/
-
     }
 
     else if (!startObj.startClicked) {
 
-        //gameStart = true;
         startObj.startClicked = true;
         startMenu.style.opacity = '.7';
         lowerScreenRight.innerHTML = 'Paused: Click Screen to Resume';
@@ -1836,7 +1395,7 @@ leftOptionMouse.onmousedown = () => {
     startMenu.style.visibility = 'visible';
     startMenuTouch.style.visibility = 'visible';
 
-    bottomAnimationImg.src = './Resources/TanTankLeft.png';
+    bottomAnimationImg.src = './TanTankLeft.png';
 
 }
 leftOptionTouch.ontouchstart = () => {
@@ -1853,7 +1412,7 @@ leftOptionTouch.ontouchstart = () => {
     startMenu.style.visibility = 'visible';
     startMenuTouch.style.visibility = 'visible';
 
-    bottomAnimationImg.src = './Resources/TanTankLeft.png';
+    bottomAnimationImg.src = './TanTankLeft.png';
 
 }
 rightOptionMouse.onmousedown = () => {
@@ -1870,7 +1429,7 @@ rightOptionMouse.onmousedown = () => {
     startMenu.style.visibility = 'visible';
     startMenuTouch.style.visibility = 'visible';
 
-    bottomAnimationImg.src = './Resources/TanTankRight.png';
+    bottomAnimationImg.src = './TanTankRight.png';
 
 }
 rightOptionTouch.ontouchstart = () => {
@@ -1887,7 +1446,7 @@ rightOptionTouch.ontouchstart = () => {
     startMenu.style.visibility = 'visible';
     startMenuTouch.style.visibility = 'visible';
 
-    bottomAnimationImg.src = './Resources/TanTankRight.png';
+    bottomAnimationImg.src = './TanTankRight.png';
 
 }
 
@@ -2043,16 +1602,6 @@ const scoreboardDisplay = () => {
             else if (score < totalHighScoreDisplay) {
                 return totalHighScoreDisplay;
             }
-            /*if (totalHighScoreDisplay.highScore === undefined) {
-                return score;
-            }
-            else if (score > totalHighScoreDisplay.highScore) {
-                totalHighScoreDisplay.highScore = score;
-                return totalHighScoreDisplay.highScore;
-            } 
-            else if (score < totalHighScoreDisplay.highScore) {
-                return score;
-            }*/
             
         }
 
@@ -2113,11 +1662,9 @@ const gameOverDisplay = () => {
         startAndOverScreen.style.animation = 'fadeOut 4s ease-in';
         startAndOverScreen.style.opacity = '1';
         startAndOverScreen.innerHTML = 'GAME OVER';
-        //tanksDestroyed.style.animation = 'colorShift 4s ease-in';
-        //bossesDestroyed.style.animation = 'colorShift 4s ease-in';
-        //highScore.style.animation = 'colorShift 4s ease-in';
+  
         lowerScreenRight.style.visibility = 'hidden';
-        //lowerScreenRight.innerHTML = 'GAME OVER';
+   
         startMenu.style.visibility = 'hidden';
         startMenuTouch.style.visibility = 'hidden';
 
@@ -2158,7 +1705,7 @@ const gameOverDisplay = () => {
         startAndOverScreen.style.opacity = '1';
         startAndOverScreen.innerHTML = 'YOU WIN';
         lowerScreenRight.style.visibility = 'hidden';
-        //lowerScreenRight.innerHTML = 'GAME OVER';
+      
         startMenu.style.visibility = 'hidden';
         startMenuTouch.style.visibility = 'hidden';
 
@@ -2184,102 +1731,6 @@ const gameOverDisplay = () => {
 
 }
 
-// Invoked in didRoundHit()
-/*
-const tankDestroyed = (arrayObject) => {
-    
-    drawFire(arrayObject);
-
-    /*
-    let halfSec = 10;
-
-    const timer = setInterval(function(){
-
-        while (halfSec > 0) {
-
-            if (halfSec >= 9) {
-
-            }
-
-        }
-
-    }, 500)
-    *
-
-}
-*/
-
-// Invoked in drawTanks()
-  // ** Not currently used; probably will delete
-const drawFire = () => {
-
-    if (fireLocation.length === 0) {
-        return;
-    } else {
-
-        //while (fireLocation.length > 0) {
-            battlefield_ctx.drawImage(firstFire, fireLocation[0].x, fireLocation[0].y, firstFire.width, firstFire.height + 20);
-            fireLocation.splice(0, 1);
-        //}
-
-        /*
-        let halfSec = 10;
-        let i = fireLocation.length - 1;
-
-        const timer = setInterval(function(){
-
-            //while (halfSec > 0) {
-
-                if (halfSec >= 9) {
-                    battlefield_ctx.drawImage(firstExplosion, fireLocation[i].x + 25, fireLocation[i].y, firstExplosion.width, firstExplosion.height);
-                    halfSec--;
-                }
-                if (halfSec === 9) {
-                    battlefield_ctx.drawImage(secondExplosion, fireLocation[i].x + 25, fireLocation[i].y, secondExplosion.width, secondExplosion.height);
-                    halfSec--;
-                }
-                if (halfSec === 8) {
-                    battlefield_ctx.drawImage(firstFire, fireLocation[i].x, fireLocation[i].y, firstFire.width, firstFire.height);
-                    halfSec--;
-                }
-                if (halfSec === 7) {
-                    battlefield_ctx.drawImage(secondFire, fireLocation[i].x, fireLocation[i].y, secondFire.width, secondFire.height);
-                    halfSec--;
-                }
-                if (halfSec === 6) {
-                    battlefield_ctx.drawImage(firstFire, fireLocation[i].x, fireLocation[i].y, firstFire.width, firstFire.height);
-                    halfSec--;
-                }
-                if (halfSec === 5) {
-                    battlefield_ctx.drawImage(secondFire, fireLocation[i].x, fireLocation[i].y, secondFire.width, secondFire.height);
-                    halfSec--;
-                }
-                if (halfSec === 4) {
-                    battlefield_ctx.drawImage(firstFire, fireLocation[i].x, fireLocation[i].y, firstFire.width, firstFire.height);
-                    halfSec--;
-                }
-                if (halfSec === 3) {
-                    battlefield_ctx.drawImage(secondFire, fireLocation[i].x, fireLocation[i].y, secondFire.width, secondFire.height);
-                    halfSec--;
-                }
-                if (halfSec === 2) {
-                    battlefield_ctx.drawImage(firstFire, fireLocation[i].x, fireLocation[i].y, firstFire.width, firstFire.height);
-                    halfSec--;
-                }
-                if (halfSec === 1) {
-                    battlefield_ctx.drawImage(secondFire, fireLocation[i].x, fireLocation[i].y, secondFire.width, secondFire.height);
-                    halfSec--;
-                }
-                if (halfSec === 0) {
-                    fireLocation.splice(fireLocation[i], 1);
-                    clearInterval(timer);
-                }
-            //}
-
-        }, 500)
-        */
-    }
-}
 
 //////////////////////////////////
 
@@ -2346,11 +1797,6 @@ const gameStartAnimation = () => {
 
         }, 80)
 
-    /*} 
-    else if (startObj.animationPlayed) {
-        return;
-    }*/
-
 }
 
 const tanTankAnimationAI = () => {
@@ -2386,20 +1832,7 @@ const tanTankAnimationAI = () => {
 
             }
         }
-    }
-
-    // Victory Dance
-    /*
-    else if (darkTankPosition.length === 0) {
-
-
-        tankRoundArr.push({x: tanTankPosition[0].x + 81, y: tanTankPosition[0].y + 17, velocity: 15, darkTankRound: false, roundLive: true});
-        battlefield_ctx.drawImage(muzzleFire, tanTankPosition[0].x + 78, tanTankPosition[0].y + 12, muzzleFire.width, muzzleFire.height);
-
-    }
-    */
-
-    else {
+    } else {
         tanTankPosition[0].facingLeft = false;
         if (tanTankPosition[0].x <= battlefield.width + 10) {
             tanTankPosition[0].x += 12;
@@ -2435,7 +1868,6 @@ const darkTankAnimationAI = () => {
 
 }
 
-//gameStartAnimation();
 
 ///////////////////////////////////////////////////
 
