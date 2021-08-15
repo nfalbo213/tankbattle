@@ -35,13 +35,6 @@ body {
 }
 
 /* Battlefield/Canvas */
-/*.screen-wrapper {
-    margin: 2% 2% 0 2%;
-    /*position: relative;*
-    /*display: flex;
-    justify-content: center;
-    align-items: center;*
-}*/
 .canvas-wrapper {
     
     position: relative;
@@ -62,9 +55,6 @@ body {
 }
 #battlefield {
     position: absolute;
-    /*top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);*/
     z-index: 0;
   }
 .top-animation-screen {
