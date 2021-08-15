@@ -32,14 +32,6 @@ body {
     /* Disable 'double-tap' zoom in mobile */
     /*touch-action: manipulation;*/
     box-shadow: 5px 5px 5px 5px black;
-    
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    -webkit-tap-highlight-color: transparent;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
 }
 
 /* Battlefield/Canvas */
@@ -455,6 +447,14 @@ body {
         margin: 5px auto auto auto;
         padding: 50px 5px 80px 5px;
         touch-action: none;
+        /* Should limit Highlighting from phone (along with touch-action: none)*/
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        -webkit-tap-highlight-color: transparent;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
     }
     .battlefield-cover {
         visibility: hidden;
