@@ -657,6 +657,30 @@ const generateRandomAI = () => {
             // 0 < y
             y = 0 + (Math.floor(Math.random() * 8) * 100);
         }
+        
+        if (darkTankPosition.length > 0) {
+
+            let arr = [];
+            arr.push({x: x, y: y, facingLeft: facingLeft, health: health, boss: boss});
+
+            for (let i = darkTankPosition.length - 1; i >= 0; i--) {
+
+                if (darkTankPosition[i] === arr[0]) {
+                    arr.splice(0, 1);
+                    generateRandomAI();
+                    i = -1;
+                    return;
+                } 
+                else if (darkTankPosition[i].x <= arr[0].x + 80 && darkTankPosition[i].x >= arr[0].x - 80 && darkTankPosition[i].y <= arr[0].y + 80 && darkTankPosition[i].y >= - 40) {
+                    arr.splice(0, 1);
+                    generateRandomAI();
+                    i = -1;
+                    return;
+                }
+
+            }
+
+        } 
 
         darkTankPosition.push({x: x, y: y, facingLeft: facingLeft, health: health, boss: boss});
 
