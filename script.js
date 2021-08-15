@@ -1168,6 +1168,7 @@ startMenu.onmousedown = () => {
                 startAndOverScreen.style.animation = 'fadeIn 4s ease-in';
                 startAndOverScreen.style.opacity = '0';
                 startAndOverScreen.innerHTML = 'Ready';
+                scoreboardDisplay();
                 
             }
             else if (sec === 3) {
@@ -1188,7 +1189,7 @@ startMenu.onmousedown = () => {
                 lowerScreenRight.style.visibility = 'visible';
                 // startObj.gameStart is dependent on opening animation and to some degree, scoreboardDisplay() via didRoundHit()
                 startObj.gameStart = true;
-                scoreboardDisplay();
+                //scoreboardDisplay();
                 drawTanks();
                 //startAndOverScreen.style.backgroundColor = '';
                 startAndOverScreen.innerHTML = '';
