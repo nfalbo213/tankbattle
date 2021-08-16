@@ -422,7 +422,7 @@ body {
 .full-keyboard-gamepad-wrapper {
     padding: 2%;
     margin: 100px;
-    display: none;
+    display: flex;
     justify-content: space-between;
     align-items: flex-end;
     flex-direction: row-reverse;
@@ -576,6 +576,7 @@ body {
 }
 
 /* doesn't work - needed for smaller height screens */
+/*
 @media screen and (max-width: 1024px) and (max-height: 800px) {
     .main-body-wrapper {
         touch-action: none;
@@ -592,3 +593,4 @@ body {
         margin: 20px 100px 100px 100px;
     }
 } 
+*/
