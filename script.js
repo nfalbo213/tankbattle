@@ -692,78 +692,6 @@ const generateRandomAI = () => {
     
 }
 
-
-// Keyboard Controls
-
-document.addEventListener("keydown", playerContols);
-
-function playerContols(event) {
-  
-    const SPACEBAR = 32;
-    const LEFT_KEY = 37;
-    const RIGHT_KEY = 39;
-    const UP_KEY = 38;
-    const DOWN_KEY = 40;
-  
-    const keyPressed = event.keyCode;
-    
-    // Ensure Controls are only usable during gameplay
-    if (startObj.gameStart && !startObj.startClicked && !startObj.gameOver) {
-
-        if (keyPressed === SPACEBAR) {
-            if (tanTankPosition.length > 0) {
-                if (tanTankPosition[0].facingLeft === true) {
-                    tankRoundArr.push({x: tanTankPosition[0].x, y: tanTankPosition[0].y + 17, velocity: -15, darkTankRound: false, roundLive: true});
-                    battlefield_ctx.drawImage(muzzleFire, tanTankPosition[0].x - 15, tanTankPosition[0].y + 12, muzzleFire.width, muzzleFire.height);
-                    roundFired = true;
-                    
-                } 
-                else if (tanTankPosition[0].facingLeft === false) {
-                    tankRoundArr.push({x: tanTankPosition[0].x + 81, y: tanTankPosition[0].y + 17, velocity: 15, darkTankRound: false, roundLive: true});
-                    battlefield_ctx.drawImage(muzzleFire, tanTankPosition[0].x + 78, tanTankPosition[0].y + 12, muzzleFire.width, muzzleFire.height);
-                    roundFired = true;
-                   
-                }
-            }
-        }
-        if (keyPressed === LEFT_KEY) {
-            if (tanTankPosition.length > 0) {
-                tanTankPosition[0].x = tanTankPosition[0].x - 10;
-                tanTankPosition[0].facingLeft = true;
-               
-            } else {
-                return;
-            }
-        }
-        if (keyPressed === UP_KEY) {
-            if (tanTankPosition.length > 0) {
-                tanTankPosition[0].y = tanTankPosition[0].y - 10;
-            } else {
-                return;
-            }
-        }
-        if (keyPressed === RIGHT_KEY) {
-            if (tanTankPosition.length > 0) {
-                tanTankPosition[0].x = tanTankPosition[0].x + 10;
-                tanTankPosition[0].facingLeft = false;
-            } else {
-                return;
-            }
-        }
-        if (keyPressed === DOWN_KEY) {
-            if (tanTankPosition.length > 0) {
-                tanTankPosition[0].y = tanTankPosition[0].y + 10;
-            } else {
-                return;
-            }
-        }
-
-    } else {
-        return;
-    }
-    
-  }
-
 // Fire Munition
 const fireRound = () => {
     
@@ -1025,10 +953,9 @@ const downButton = document.getElementById('down-button');
 // Functions
 
 // Start Menu
-// startClicked implicatded in drawTanks(), startMenu.onmousedown()
+
+// startObj moved to top of file
 //let startObj = {startClicked: false, animationPlayed: false, gameStart: false, gameOver: false, battleRoyal: false, onTouchLeft: false, onTouchUp: false, onTouchRight: false, onTouchDown: false, currentScore: 0, totalHighScoreDisplay: 25};
-//let gameStart = false;
-//let gameOver = false;
 
 // only runs on desktop browsers (see media query)
   // ** Any Changes here must also be made in startMenuTouch.ontouchstart()
@@ -1637,6 +1564,145 @@ downButton.ontouchend = () => {
     downButton.style.backgroundColor = '';
     startObj.onTouchDown = false;
 }
+
+// Keyboard Controls
+
+const upButtonKeyboard = document.getElementById('up-button-keyboard');
+const leftButtonKeyboard = document.getElementById('left-button-keyboard');
+const downButtonKeyboard = document.getElementById('down-button-keyboard');
+const rightButtonKeyboard = document.getElementById('right-button-keyboard');
+const fireButtonKeyboard = document.getElementById('fire-button-keyboard');
+
+document.addEventListener("keydown", playerContols);
+document.addEventListener("keyup", playerContolsDisplay);
+
+function playerContols(event) {
+  
+    const spacebar = 32;
+    const leftKey = 37;
+    const rightKey = 39;
+    const upKey = 38;
+    const downKey = 40;
+  
+    const keyPressed = event.keyCode;
+    
+    // Ensure Controls are only usable during gameplay
+    if (startObj.gameStart && !startObj.startClicked && !startObj.gameOver) {
+
+        if (keyPressed === spacebar) {
+            if (tanTankPosition.length > 0) {
+                if (tanTankPosition[0].facingLeft === true) {
+                    tankRoundArr.push({x: tanTankPosition[0].x, y: tanTankPosition[0].y + 17, velocity: -15, darkTankRound: false, roundLive: true});
+                    battlefield_ctx.drawImage(muzzleFire, tanTankPosition[0].x - 15, tanTankPosition[0].y + 12, muzzleFire.width, muzzleFire.height);
+                    roundFired = true;
+                    fireButtonKeyboard.style.backgroundColor = 'lightcoral';
+                    fireButtonKeyboard.style.color = 'lightgrey';
+                    fireButtonKeyboard.style.boxShadow = 'none';
+                    fireButtonKeyboard.style.outlineOffset = '5px 5px 5px';
+                    //console.log(tanTankPosition);
+                    //console.log(tankRoundArr);
+                } 
+                else if (tanTankPosition[0].facingLeft === false) {
+                    tankRoundArr.push({x: tanTankPosition[0].x + 81, y: tanTankPosition[0].y + 17, velocity: 15, darkTankRound: false, roundLive: true});
+                    battlefield_ctx.drawImage(muzzleFire, tanTankPosition[0].x + 78, tanTankPosition[0].y + 12, muzzleFire.width, muzzleFire.height);
+                    roundFired = true;
+                    fireButtonKeyboard.style.backgroundColor = 'lightcoral';
+                    fireButtonKeyboard.style.color = 'lightgrey';
+                    fireButtonKeyboard.style.boxShadow = 'none';
+                    fireButtonKeyboard.style.outlineOffset = '5px 5px 5px';
+                    //console.log(tanTankPosition);
+                    //console.log(tankRoundArr);
+                }
+            }
+        }
+        if (keyPressed === leftKey) {
+            if (tanTankPosition.length > 0) {
+                startObj.onTouchLeft = true;
+                //tanTankPosition[0].x = tanTankPosition[0].x - 10;
+                tanTankPosition[0].facingLeft = true;
+                leftButtonKeyboard.style.boxShadow = 'none';
+                leftButtonKeyboard.style.backgroundColor = 'rgb(80, 80, 80)';
+                leftButtonKeyboard.style.outlineOffset = '5px 5px 5px';
+                //console.log(tanTankPosition);
+            } else {
+                return;
+            }
+        }
+        if (keyPressed === upKey) {
+            if (tanTankPosition.length > 0) {
+                startObj.onTouchUp = true;
+                //tanTankPosition[0].y = tanTankPosition[0].y - 10;
+                upButtonKeyboard.style.boxShadow = 'none';
+                upButtonKeyboard.style.backgroundColor = 'rgb(80, 80, 80)';
+            } else {
+                return;
+            }
+        }
+        if (keyPressed === rightKey) {
+            if (tanTankPosition.length > 0) {
+                startObj.onTouchRight = true;
+                //tanTankPosition[0].x = tanTankPosition[0].x + 10;
+                tanTankPosition[0].facingLeft = false;
+                rightButtonKeyboard.style.boxShadow = 'none';
+                rightButtonKeyboard.style.backgroundColor = 'rgb(80, 80, 80)';
+            } else {
+                return;
+            }
+        }
+        if (keyPressed === downKey) {
+            if (tanTankPosition.length > 0) {
+                startObj.onTouchDown = true;
+                //tanTankPosition[0].y = tanTankPosition[0].y + 10;
+                downButtonKeyboard.style.boxShadow = 'none';
+                downButtonKeyboard.style.backgroundColor = 'rgb(80, 80, 80)';
+            } else {
+                return;
+            }
+        }
+
+    } else {
+        return;
+    }
+    
+  }
+
+function playerContolsDisplay(event) {
+  
+    const spacebar = 32;
+    const leftKey = 37;
+    const rightKey = 39;
+    const upKey = 38;
+    const downKey = 40;
+  
+    const keyUp = event.keyCode;
+
+        if (keyUp === spacebar) {
+            fireButtonKeyboard.style.backgroundColor = '';
+            fireButtonKeyboard.style.color = '';
+            fireButtonKeyboard.style.boxShadow = ''; 
+        }
+        if (keyUp === leftKey) {
+            leftButtonKeyboard.style.boxShadow = '';
+            leftButtonKeyboard.style.backgroundColor = '';
+            startObj.onTouchLeft = false;
+        }
+        if (keyUp === upKey) {
+            upButtonKeyboard.style.boxShadow = '';
+            upButtonKeyboard.style.backgroundColor = '';
+            startObj.onTouchUp = false;
+        }
+        if (keyUp === downKey) {
+            downButtonKeyboard.style.boxShadow = '';
+            downButtonKeyboard.style.backgroundColor = '';
+            startObj.onTouchDown= false;
+        }
+        if (keyUp === rightKey) {
+            rightButtonKeyboard.style.boxShadow = '';
+            rightButtonKeyboard.style.backgroundColor = '';
+            startObj.onTouchRight = false;
+        }
+}
+
 //////////////////////////////////
 
 
