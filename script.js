@@ -1850,6 +1850,7 @@ const gameOverDisplay = () => {
         startAndOverScreen.style.opacity = '1';
         startAndOverScreen.style.color = 'rgb(82, 235, 82)'
         startAndOverScreen.innerHTML = `NEW HIGH SCORE: ${startObj.totalHighScoreDisplay}`;
+        lowerScreenRight.style.visibility = 'hidden';
         startMenu.style.visibility = 'hidden';
         startMenuTouch.style.visibility = 'hidden';
 
