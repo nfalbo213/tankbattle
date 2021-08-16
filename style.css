@@ -166,7 +166,7 @@ body {
     /*background-color: lightgreen;*/
     
 }
-#tanks-destroyed, #bosses-destroyed, #high-score {
+#tanks-destroyed, #bosses-destroyed, #current-score, #high-score {
     padding: 0 10px 0 10px;
     background-color: lightgreen;
     display: none;
@@ -182,11 +182,9 @@ body {
     border-right: 1px solid black;
     border-radius: 0 0 0 0;
 }
-#high-score {
+#current-score {
     border-bottom: 1px solid black;
     border-right: 1px solid black;
-    border-radius: 0 0 10px 0;
-}
 #high-score {
     border-bottom: 1px solid black;
     border-right: 1px solid black;
