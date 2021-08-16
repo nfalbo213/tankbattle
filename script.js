@@ -1024,7 +1024,7 @@ const downButton = document.getElementById('down-button');
 
 // Start Menu
 // startClicked implicatded in drawTanks(), startMenu.onmousedown()
-let startObj = {startClicked: false, animationPlayed: false, gameStart: false, gameOver: false, battleRoyal: false, onTouchLeft: false, onTouchUp: false, onTouchRight: false, onTouchDown: false, currentScore: 0, totalHighScoreDisplay: 15};
+let startObj = {startClicked: false, animationPlayed: false, gameStart: false, gameOver: false, battleRoyal: false, onTouchLeft: false, onTouchUp: false, onTouchRight: false, onTouchDown: false, currentScore: 0, totalHighScoreDisplay: 25};
 //let gameStart = false;
 //let gameOver = false;
 
