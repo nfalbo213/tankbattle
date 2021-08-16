@@ -1038,12 +1038,15 @@ startMenu.onmousedown = () => {
         // Reset game to origional parameters
         tanksDestroyed.style.display = 'none';
         bossesDestroyed.style.display = 'none';
+        currentScore.style.display = 'none';
         highScore.style.display = 'none';
-        scoreboard.style.zIndex = '';
+        scoreboard.style.zIndex = '1';
         tanksDestroyed.style.backgroundColor = '';
         tanksDestroyed.style.color = '';
         bossesDestroyed.style.backgroundColor = '';
         bossesDestroyed.style.color = '';
+        currentScore.style.backgroundColor = '';
+        currentScore.style.color = '';
         highScore.style.backgroundColor = '';
         highScore.style.color = '';
 
@@ -1228,15 +1231,18 @@ startMenuTouch.ontouchstart = () => {
     // Reset game to origional parameters and restart animation
     if (startObj.gameOver) {
 
-        // Reset game to origional parameters
+         // Reset game to origional parameters
         tanksDestroyed.style.display = 'none';
         bossesDestroyed.style.display = 'none';
+        currentScore.style.display = 'none';
         highScore.style.display = 'none';
-        scoreboard.style.zIndex = '';
+        scoreboard.style.zIndex = '1';
         tanksDestroyed.style.backgroundColor = '';
         tanksDestroyed.style.color = '';
         bossesDestroyed.style.backgroundColor = '';
         bossesDestroyed.style.color = '';
+        currentScore.style.backgroundColor = '';
+        currentScore.style.color = '';
         highScore.style.backgroundColor = '';
         highScore.style.color = '';
 
