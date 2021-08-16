@@ -1024,7 +1024,7 @@ const downButton = document.getElementById('down-button');
 
 // Start Menu
 // startClicked implicatded in drawTanks(), startMenu.onmousedown()
-let startObj = {startClicked: false, animationPlayed: false, gameStart: false, gameOver: false, battleRoyal: false, onTouchLeft: false, onTouchUp: false, onTouchRight: false, onTouchDown: false};
+let startObj = {startClicked: false, animationPlayed: false, gameStart: false, gameOver: false, battleRoyal: false, onTouchLeft: false, onTouchUp: false, onTouchRight: false, onTouchDown: false, currentScore: 0, totalHighScoreDisplay: 15};
 //let gameStart = false;
 //let gameOver = false;
 
@@ -1639,10 +1639,8 @@ downButton.ontouchend = () => {
 const scoreboard = document.getElementById('scoreboard-wrapper');
 const tanksDestroyed = document.getElementById('tanks-destroyed');
 const bossesDestroyed = document.getElementById('bosses-destroyed');
+const currentScore = document.getElementById('current-score');
 const highScore = document.getElementById('high-score');
-
-
-let totalHighScoreDisplay = 25; /*= {highScore: ''};*/
 
 // [{boss: true/false}] and destroyedTanksArr.length = score
 let destroyedTanksArr = [];
@@ -1654,7 +1652,7 @@ const scoreboardDisplay = () => {
 
     if (startObj.battleRoyal) {
 
-        let tanksScoreDisplay = destroyedTanksArr.length;
+        //let tanksScoreDisplay = destroyedTanksArr.length;
         bossesScoreDisplay = function(){
 
             let bossNumber = 0; 
@@ -1669,41 +1667,51 @@ const scoreboardDisplay = () => {
                     }
                 }
             } else {
-                return bossNumber;
-            }
-
+                    return bossNumber;
+                }
         }
+        let tanksScoreDisplay = destroyedTanksArr.length - bossesScoreDisplay();
         highScoreDisplay = function(){
             
             let bossNumber = bossesScoreDisplay() * 10;
-            let tankNumber = destroyedTanksArr.length;
-            let score = tankNumber + bossNumber;
+            let tankNumber = destroyedTanksArr.length - bossesScoreDisplay();
+            startObj.currentScore = tankNumber + bossNumber;
 
-            if (score >= totalHighScoreDisplay) {
-                totalHighScoreDisplay = score;
-                return totalHighScoreDisplay;
+            if (startObj.currentScore > startObj.totalHighScoreDisplay) {
+                startObj.totalHighScoreDisplay = startObj.currentScore;
+                return startObj.totalHighScoreDisplay;
             }
-            else if (score < totalHighScoreDisplay) {
-                return totalHighScoreDisplay;
+            else if (startObj.currentScore < startObj.totalHighScoreDisplay || startObj.currentScore === startObj.totalHighScoreDisplay) {
+                return startObj.totalHighScoreDisplay;
             }
             
         }
 
         
-        tanksDestroyed.innerHTML = `Tanks: ${tanksScoreDisplay}`
+        tanksDestroyed.innerHTML = `Tanks: ${tanksScoreDisplay}`;
         bossesDestroyed.style.borderRadius = '0';
-        bossesDestroyed.innerHTML = `Bosses: ${bossesScoreDisplay()}`
-        highScore.innerHTML = `High-Score: ${highScoreDisplay()}`
+        bossesDestroyed.innerHTML = `Bosses: ${bossesScoreDisplay()}`;
         tanksDestroyed.style.display = 'flex';
         bossesDestroyed.style.display = 'flex';
         highScore.style.display = 'flex';
+        // highScoreDisplay() needs to be invoked inorder for startObj.totalHighScoreDisplay to be updated
+        highScoreDisplay();
+        if (startObj.currentScore >= startObj.totalHighScoreDisplay) {
+            currentScore.style.display = 'none';
+            highScore.innerHTML = `NEW HIGH-SCORE: ${highScoreDisplay()}`;
+        }
+        else if (startObj.currentScore < startObj.totalHighScoreDisplay) {
+            currentScore.style.display = 'flex';
+            highScore.innerHTML = `High-Score: ${highScoreDisplay()}`;
+            // in order to be accurate, currentScore needs to be displayed after highScoreDisplay() is invoked
+            currentScore.innerHTML = `Score: ${startObj.currentScore}`;
+        }
         
 
     }
 
     if (!startObj.battleRoyal) {
 
-        let tanksScoreDisplay = darkTankPosition.length;
         bossesScoreDisplay = function(){
 
             let bossNumber = 0;
@@ -1722,10 +1730,11 @@ const scoreboardDisplay = () => {
             }
 
         }
+        let tanksScoreDisplay = darkTankPosition.length - bossesScoreDisplay();
 
-        tanksDestroyed.innerHTML = `Tanks Remaining: ${tanksScoreDisplay}`
+        tanksDestroyed.innerHTML = `Tanks Remaining: ${tanksScoreDisplay}`;
         bossesDestroyed.style.borderRadius = '0 0 10px 0';
-        bossesDestroyed.innerHTML = `Bosses Remaining: ${bossesScoreDisplay()}`
+        bossesDestroyed.innerHTML = `Bosses Remaining: ${bossesScoreDisplay()}`;
         bossesDestroyed.style.display = 'flex';
         tanksDestroyed.style.display = 'flex';
         highScore.style.display = 'none';
@@ -1741,14 +1750,47 @@ const scoreboardDisplay = () => {
 // Invoked in didRoundHit()
 const gameOverDisplay = () => {
 
-    if (tanTankPosition.length === 0) {
+    if (tanTankPosition.length === 0 && !startObj.battleRoyal) {
         startObj.gameOver = true;
         startAndOverScreen.style.animation = 'fadeOut 4s ease-in';
         startAndOverScreen.style.opacity = '1';
         startAndOverScreen.innerHTML = 'GAME OVER';
-  
         lowerScreenRight.style.visibility = 'hidden';
-   
+        startMenu.style.visibility = 'hidden';
+        startMenuTouch.style.visibility = 'hidden';
+
+        let sec = 4;
+
+        const timer = setInterval(function(){
+
+            if (sec === 1) {
+                startMenuTouch.style.visibility = 'visible';
+                startMenu.style.visibility = 'visible';
+                lowerScreenRight.style.color = 'red';
+                lowerScreenRight.style.visibility = 'visible';
+                lowerScreenRight.innerHTML = 'Click Screen to Reset Game';
+
+                scoreboard.style.zIndex = '3';
+                tanksDestroyed.style.backgroundColor = 'rgba(144, 238, 144, 0)';
+                tanksDestroyed.style.color = 'white';
+                bossesDestroyed.style.backgroundColor = 'rgba(144, 238, 144, 0)';
+                bossesDestroyed.style.color = 'white';
+
+            }
+            else if (sec === 0) {
+                clearInterval(timer);
+                return;
+            }
+            sec--;
+
+        }, 1000)
+    }
+    else if (tanTankPosition.length === 0 && startObj.battleRoyal && startObj.currentScore < startObj.totalHighScoreDisplay) {
+        startObj.gameOver = true;
+        startAndOverScreen.style.animation = 'fadeOut 4s ease-in';
+        startAndOverScreen.style.opacity = '1';
+        startAndOverScreen.innerHTML = 'GAME OVER';
+        lowerScreenRight.style.visibility = 'hidden';
         startMenu.style.visibility = 'hidden';
         startMenuTouch.style.visibility = 'hidden';
 
@@ -1763,15 +1805,68 @@ const gameOverDisplay = () => {
                 lowerScreenRight.style.visibility = 'visible';
                 lowerScreenRight.innerHTML = 'Click Screen to Reset Game';
                 
-                if (startObj.battleRoyal) {
-                    scoreboard.style.zIndex = '3';
-                    tanksDestroyed.style.backgroundColor = 'rgba(144, 238, 144, 0)';
-                    tanksDestroyed.style.color = 'white';
-                    bossesDestroyed.style.backgroundColor = 'rgba(144, 238, 144, 0)';
-                    bossesDestroyed.style.color = 'white';
+                scoreboard.style.zIndex = '3';
+                tanksDestroyed.style.backgroundColor = 'rgba(144, 238, 144, 0)';
+                tanksDestroyed.style.color = 'white';
+                bossesDestroyed.style.backgroundColor = 'rgba(144, 238, 144, 0)';
+                bossesDestroyed.style.color = 'white';
+                currentScore.style.backgroundColor = 'rgba(144, 238, 144, 0)';
+                currentScore.style.color = 'white';
+                highScore.style.backgroundColor = 'rgba(144, 238, 144, 0)';
+                highScore.style.color = 'white';
+                // Ensure last second kill didn't create high score
+                if (startObj.currentScore >= startObj.totalHighScoreDisplay){
+                    startAndOverScreen.style.color = 'rgb(82, 235, 82)'
+                    startAndOverScreen.innerHTML = `NEW HIGH SCORE: ${startObj.totalHighScoreDisplay}`;
                     highScore.style.backgroundColor = 'rgba(144, 238, 144, 0)';
-                    highScore.style.color = 'white';
+                    highScore.style.color = 'rgb(82, 235, 82)';
+                    lowerScreenRight.style.color = 'rgb(82, 235, 82)';
                 }
+                startObj.currentScore = 0;
+
+            }
+            else if (sec === 0) {
+                clearInterval(timer);
+                return;
+            }
+            sec--;
+
+        }, 1000)
+    }
+    else if (tanTankPosition.length === 0 && startObj.battleRoyal && startObj.currentScore >= startObj.totalHighScoreDisplay) {
+        startObj.gameOver = true;
+        startAndOverScreen.style.animation = 'fadeOut 4s ease-in';
+        startAndOverScreen.style.opacity = '1';
+        startAndOverScreen.style.color = 'rgb(82, 235, 82)'
+        startAndOverScreen.innerHTML = `NEW HIGH SCORE: ${startObj.totalHighScoreDisplay}`;
+        startMenu.style.visibility = 'hidden';
+        startMenuTouch.style.visibility = 'hidden';
+
+        let sec = 4;
+
+        const timer = setInterval(function(){
+
+            if (sec === 1) {
+                startMenuTouch.style.visibility = 'visible';
+                startMenu.style.visibility = 'visible';
+                lowerScreenRight.style.color = 'rgb(82, 235, 82)';
+                lowerScreenRight.style.visibility = 'visible';
+                lowerScreenRight.innerHTML = 'Click Screen to Reset Game';
+                
+                
+                scoreboard.style.zIndex = '3';
+                tanksDestroyed.style.backgroundColor = 'rgba(144, 238, 144, 0)';
+                tanksDestroyed.style.color = 'white';
+                bossesDestroyed.style.backgroundColor = 'rgba(144, 238, 144, 0)';
+                bossesDestroyed.style.color = 'white';
+                currentScore.style.backgroundColor = 'rgba(144, 238, 144, 0)';
+                currentScore.style.color = 'white';
+                highScore.style.backgroundColor = 'rgba(144, 238, 144, 0)';
+                highScore.style.color = 'rgb(82, 235, 82)';
+                // Ensure any late kills are still counted
+                startAndOverScreen.innerHTML = `NEW HIGH SCORE: ${startObj.totalHighScoreDisplay}`;
+                startObj.currentScore = 0;
+                
 
             }
             else if (sec === 0) {
@@ -1789,7 +1884,6 @@ const gameOverDisplay = () => {
         startAndOverScreen.style.opacity = '1';
         startAndOverScreen.innerHTML = 'YOU WIN';
         lowerScreenRight.style.visibility = 'hidden';
-      
         startMenu.style.visibility = 'hidden';
         startMenuTouch.style.visibility = 'hidden';
 
@@ -1803,6 +1897,12 @@ const gameOverDisplay = () => {
                 lowerScreenRight.style.color = 'rgb(82, 235, 82)';
                 lowerScreenRight.style.visibility = 'visible';
                 lowerScreenRight.innerHTML = 'Click Screen to Reset Game';
+
+                scoreboard.style.zIndex = '3';
+                tanksDestroyed.style.backgroundColor = 'rgba(144, 238, 144, 0)';
+                tanksDestroyed.style.color = 'rgb(82, 235, 82)';
+                bossesDestroyed.style.backgroundColor = 'rgba(144, 238, 144, 0)';
+                bossesDestroyed.style.color = 'rgb(82, 235, 82)';
             }
             else if (sec === 0) {
                 clearInterval(timer);
