@@ -1173,6 +1173,7 @@ startMenu.onmousedown = () => {
                 startAndOverScreen.style.animation = 'fadeIn 4s ease-in';
                 startAndOverScreen.style.opacity = '0';
                 startAndOverScreen.innerHTML = 'Ready';
+                
                 scoreboardDisplay();
                 
             }
@@ -1367,6 +1368,8 @@ startMenuTouch.ontouchstart = () => {
                 startAndOverScreen.style.animation = 'fadeIn 4s ease-in';
                 startAndOverScreen.style.opacity = '0';
                 startAndOverScreen.innerHTML = 'Ready';
+                
+                scoreboardDisplay();
                 
             }
             else if (sec === 3) {
