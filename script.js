@@ -7,11 +7,7 @@
 
 let firstExplosion;
 let secondExplosion;
-let firstFire;
-let secondFire;
 let muzzleFire;
-
-let fireLocation = [];
 
 firstExplosion = new Image(95, 55);
 firstExplosion.src = './Explosion.png';
@@ -20,11 +16,6 @@ secondExplosion.src = './ExplosionReverse.png';
 
 muzzleFire = new Image(25, 15);
 muzzleFire.src = './ExplosionReverse.png';
-
-firstFire = new Image(70, 30);
-firstFire.src = './Fire.png';
-secondFire = new Image(70, 30);
-secondFire.src = './FireReverse.png';
 
 let tanTankImg;
 
