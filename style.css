@@ -425,6 +425,10 @@ body {
 }
 
 @media screen and (min-width: 1025px) {
+    body {
+        margin: auto;
+        transform: scale(0.5) translate(0, -50%);
+    }
     .main-body-wrapper {
         margin: 0 auto;
         /* Should limit Highlighting from mouse */
