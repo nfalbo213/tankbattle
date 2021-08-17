@@ -1564,7 +1564,7 @@ const rightButtonKeyboard = document.getElementById('right-button-keyboard');
 const fireButtonKeyboard = document.getElementById('fire-button-keyboard');
 
 document.addEventListener("keydown", playerContols);
-document.addEventListener("keypress", preventScroll);
+document.addEventListener("keydown", preventScroll);
 document.addEventListener("keyup", playerContolsDisplay);
 
 function playerContols(event) {
