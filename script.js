@@ -1598,9 +1598,6 @@ function playerContols(event) {
                     fireButtonKeyboard.style.backgroundColor = 'lightcoral';
                     fireButtonKeyboard.style.color = 'lightgrey';
                     fireButtonKeyboard.style.boxShadow = 'none';
-                    fireButtonKeyboard.style.outlineOffset = '5px 5px 5px';
-                    //console.log(tanTankPosition);
-                    //console.log(tankRoundArr);
                 } 
                 else if (tanTankPosition[0].facingLeft === false) {
                     tankRoundArr.push({x: tanTankPosition[0].x + 81, y: tanTankPosition[0].y + 17, velocity: 15, darkTankRound: false, roundLive: true});
@@ -1609,9 +1606,6 @@ function playerContols(event) {
                     fireButtonKeyboard.style.backgroundColor = 'lightcoral';
                     fireButtonKeyboard.style.color = 'lightgrey';
                     fireButtonKeyboard.style.boxShadow = 'none';
-                    fireButtonKeyboard.style.outlineOffset = '5px 5px 5px';
-                    //console.log(tanTankPosition);
-                    //console.log(tankRoundArr);
                 }
             }
         }
@@ -1622,8 +1616,6 @@ function playerContols(event) {
                 tanTankPosition[0].facingLeft = true;
                 leftButtonKeyboard.style.boxShadow = 'none';
                 leftButtonKeyboard.style.backgroundColor = 'rgb(80, 80, 80)';
-                leftButtonKeyboard.style.outlineOffset = '5px 5px 5px';
-                //console.log(tanTankPosition);
             } else {
                 return;
             }
