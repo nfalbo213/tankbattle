@@ -10,8 +10,6 @@
 body {
     margin: 0;
     padding: 0;
-
-    /*background-color: rgb(207, 199, 199);*/
     background-color: #f3f3f3;
 }
 /* Wrapper Div */
@@ -20,9 +18,6 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* padding top set to leave space from navbar at top of page
-    padding-top: 20%;
-    */
     max-width: 1000px;
     padding: 50px 10px 100px 10px;
     margin: 1% auto auto auto;
@@ -38,17 +33,11 @@ body {
 .canvas-wrapper {
     
     position: relative;
-    /*display: block;*/
-    /*justify-content: center;
-    align-items: center;*/
-
     height: 800px;
     width: 800px;
     margin: 2% 2% 0 2%;
-    /*padding: 5% 5% 0 5%;*/
     padding: 50px 50px 0 50px;
     border: 1px solid black;
-    /*border-radius: 0 0 70px 0;*/
     background-color: black;
 
     font-family: Droid Sans Mono;
@@ -60,12 +49,11 @@ body {
 .top-animation-screen {
     position: relative;
     display: flex;
-    /*align-items: center;*/
     justify-content: center;
     flex-direction: column;
     text-align: center;
     font-family: Droid Sans Mono;
-    background-color: /*rgb(71, 68, 68)*/rgb(15, 15, 15);
+    background-color: rgb(15, 15, 15);
     color: rgb(255, 0, 0);
     font-size: 100px;
     font-weight: bold;
@@ -83,9 +71,7 @@ body {
     flex-direction: row;
     text-align: center;
     font-family: Droid Sans Mono;
-    background-color: /*rgb(71, 68, 68)*/rgb(15, 15, 15);
-    /*color: /*rgb(214, 19, 19);*rgb(82, 235, 82);
-    font-size: 24px;*/
+    background-color: rgb(15, 15, 15);
     font-weight: normal;
     margin-top: 200px;
     height: 200px;
@@ -95,7 +81,7 @@ body {
 
 }
 #bottom-title-text {
-    color: /*rgb(214, 19, 19);*/rgb(82, 235, 82);
+    color: rgb(82, 235, 82);
     font-size: 24px;
 }
 .bottom-animation-left, .bottom-animation-right {
@@ -104,7 +90,7 @@ body {
     justify-content: center;
     height: 100px;
     width: 140px;
-    color: /*rgb(214, 19, 19);*//*rgb(82, 235, 82)*/white;
+    color: white;
     font-size: 20px;
     text-align: center;
     background-color: rgb(119, 110, 110);
@@ -131,29 +117,12 @@ body {
     cursor: not-allowed;
 }
 
-/*
-@keyframes colorShift {
-    from { 
-      color: black;
-      border: 1px solid black;
-      background-color: lightgreen;
-      z-index: 1;
-    }
-    to {
-      color : white;
-      border: 1px solid white;
-      background-color: rgba(144, 238, 144, 0);
-      z-index: 3;
-    }
-}
-*/
-
+/* Scoreboard */
 .scoreboard {
     position: absolute;
     z-index: 1;
     opacity: .6;
-    width: /*650px*/800px;
-    /*margin-left: 9%;*/
+    width: 800px;
     display: flex;
     align-content: center;
     align-items: center;
@@ -215,7 +184,6 @@ body {
     width: 800px;
     height: 800px;
     background-color: rgb(39, 37, 37);
-    /*animation: fadeIn 1s ease-in;*/
     color: red;
     text-align: center;
     display: flex;
@@ -263,39 +231,26 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    /*align-items: center;*/
-    /*text-align: start;*/
     background-color: black;
     color: darkgrey;
     border: 1px solid black;
     border-radius: 0 0 80px 0;
-    /*margin: 0 5% 0 5%;*/
-    /*margin: 2% 2% 0 2%;*/
-    /*padding: 1% 5% 4% 5%;*/
     padding: 5px 50px 50px 50px;
-    /*z-index: 1;*/
+    
 }
 .lower-screen-message {
     font-family: Droid Sans Mono;
     font-size: 36px;
-    /*margin: 0 5% 4%;*/
-    /*align-items: flex-start;*/
 }
 #lower-screen-right {
     font-size: 24px;
     color: rgb(82, 235, 82);
-    /*color: rgb(17, 228, 243);*/
 }
-
-
 
 /* Mobile Gamepad */
 .full-gamepad-wrapper {
-    /*background-color: lightgrey;
-    border: 3px solid black;
-    border-radius: 50px;*/
+    
     padding: 2%;
-    /*margin: 100px;*/
     margin: 50px 50px 0 50px;
     display: flex;
     justify-content: space-around;
@@ -304,9 +259,8 @@ body {
 
 }
 .fire-button {
-    /*position: relative;*/
+    
     margin: 0 0 0 50px;
-    /*padding: 0;*/
     width: 300px;
     height: 150px;
     background-color: indianred;
@@ -314,14 +268,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-
     color: white;
     font-size: 50px;
     font-weight: bolder;
     font-family: Droid Sans Mono;
-    /*border: 1px solid black;*/
     border-radius: 100px;
-
     box-shadow: 5px 5px 5px black;
 
     cursor: not-allowed;
@@ -339,50 +290,27 @@ body {
     justify-content: space-between;
     align-content: space-between;
     align-items: center;
-    /*margin-bottom: 50%;*/
-
-    /*width: 900px;*/
 }
-
-.gamepad-button {
-    
-    /*display: none;*/
-    
+.gamepad-button { 
     margin: auto;
     width: 150px;
     height: 150px;
-    /*font-family: 'Work Sans';*/
-    background-color: /*lightskyblue*/darkgrey;
-    /*padding-top: 18px;*.
-    /*margin-bottom: 21px;*/
+    background-color: darkgrey;
     cursor: not-allowed;
-    /*border: 1px solid black;
-    border-radius: 30px;*/
-
     box-shadow: 5px 5px 5px black;
 }
-
 .gamepad-logo {
     background-image: url("./CenterCircle.png");
     background-size: 60%;
     background-repeat: no-repeat;
     background-position: center;
-
     background-color: darkgrey;
-
-    /*display: none;*/
-
     margin: auto;
     width: 150px;
     height: 150px;
-    /*font-family: 'Work Sans';*/
-    /*padding-top: 18px;*/
-    font-size: 24px;
-    /*margin-bottom: 21px;*/
     cursor: auto;
     box-shadow: 5px 5px 5px black;
 }
-
 #up-button {
     background-image: url("./ResizedUpButton.png");
     background-size: /*60%*/80%;
@@ -415,7 +343,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    /*margin-top: 277px;*/
 }
 
 /* Keyboard Gamepad */
@@ -438,8 +365,8 @@ body {
     height: 90px;
     width: 400px;
     margin: 0 50px 0 0;
-    background-image: url("./KeyboardReformatted.png");
-    background-size: /*60%*/50%;
+    background-image: url("./Keyboard.png");
+    background-size: 50%;
     background-repeat: no-repeat;
     background-position: center;
 }
@@ -452,16 +379,12 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-
     color: white;
     font-size: 50px;
     font-weight: bolder;
     font-family: Droid Sans Mono;
-    /*border: 1px solid black;*/
     border-radius: 100px;
-
     box-shadow: 5px 5px 5px black;
-
     cursor: not-allowed;
 }
 .gamepad-button-keyboard {
@@ -470,9 +393,7 @@ body {
     width: 100px;
     height: 100px;
     background-color: darkgrey;
-    
     cursor: not-allowed;
-
     box-shadow: 5px 5px 5px black;
 }
 #up-button-keyboard {
@@ -506,7 +427,6 @@ body {
 @media screen and (min-width: 1025px) {
     .main-body-wrapper {
         margin: 0 auto;
-
         /* Should limit Highlighting from mouse */
         -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
         -webkit-tap-highlight-color: transparent;
