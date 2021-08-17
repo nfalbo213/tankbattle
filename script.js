@@ -1657,29 +1657,29 @@ function playerContolsDisplay(event) {
     const upKey = 38;
     const downKey = 40;
   
-    const keyUp = event.keyCode;
+    const keyPressed = event.keyCode;
 
-        if (keyUp === spacebar) {
+        if (keyPressed === spacebar) {
             fireButtonKeyboard.style.backgroundColor = '';
             fireButtonKeyboard.style.color = '';
             fireButtonKeyboard.style.boxShadow = ''; 
         }
-        if (keyUp === leftKey) {
+        if (keyPressed === leftKey) {
             leftButtonKeyboard.style.boxShadow = '';
             leftButtonKeyboard.style.backgroundColor = '';
             startObj.onTouchLeft = false;
         }
-        if (keyUp === upKey) {
+        if (keyPressed === upKey) {
             upButtonKeyboard.style.boxShadow = '';
             upButtonKeyboard.style.backgroundColor = '';
             startObj.onTouchUp = false;
         }
-        if (keyUp === downKey) {
+        if (keyPressed === downKey) {
             downButtonKeyboard.style.boxShadow = '';
             downButtonKeyboard.style.backgroundColor = '';
             startObj.onTouchDown= false;
         }
-        if (keyUp === rightKey) {
+        if (keyPressed === rightKey) {
             rightButtonKeyboard.style.boxShadow = '';
             rightButtonKeyboard.style.backgroundColor = '';
             startObj.onTouchRight = false;
@@ -1693,9 +1693,9 @@ function preventScroll(event) {
     const upKey = 38;
     const downKey = 40;
   
-    const keyPress = event.keyCode; 
+    const keyPressed = event.keyCode; 
 
-    if (keyPress === leftKey || keyPress === rightKey || keyPress === upKey || keyPress === downKey) {
+    if (keyPressed === leftKey || keyPressed === rightKey || keyPressed === upKey || keyPressed === downKey) {
 
         event.preventDefault();
 
