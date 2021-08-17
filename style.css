@@ -349,7 +349,7 @@ body {
 .full-keyboard-gamepad-wrapper {
     padding: 2%;
     margin: 100px;
-    display: flex;
+    display: none;
     justify-content: space-between;
     align-items: flex-end;
     flex-direction: row-reverse;
