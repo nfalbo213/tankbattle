@@ -11,7 +11,7 @@
     <body>
         <div class="main-body-wrapper">
             
-            <!--<div class="screen-wrapper">-->
+                <!-- Game Screen & Screen Related Elements -->
                 <div class="canvas-wrapper">
                     
                     <canvas id="battlefield" width="800" height="800">
@@ -42,10 +42,16 @@
                     <div id="start-and-over-screen" class="battlefield-message">
                         
                     </div>
+                    
+                    <!-- Animation Screen Elements -->
+                    <!-- Top Screen -->
                     <div id="top-title-screen" class="top-animation-screen">
+                        
                         <div>Tank</div>
                         <div>Battle</div>
+                        
                     </div>
+                    <!-- Bottom Screen -->
                     <div id="bottom-title-screen" class="bottom-animation-screen">
                         
                         <div class="option-button-wrapper">
@@ -72,16 +78,11 @@
                         </div>
 
                     </div>
-                    <!--<div class="lower-screen-row">
-                        <div class="lower-screen-message">
-                            Tank Battle
-                        </div>
-                        <div id="lower-screen-right" class="lower-screen-message">
-                            Click Screen to Start
-                        </div>
-                    </div>-->
+                    
                 </div>
-                <!-- ** Wrap lower-screen-row into canvas-wrapper-->
+                <!-- ^^ End of on-screen elements -->
+            
+                <!-- Bellow Screen Messages -->
                 <div class="lower-screen-row">
                     <div class="lower-screen-message">
                         Tank Battle
@@ -90,95 +91,78 @@
                         Click Screen to Begin
                     </div>
                 </div>
-            <!--</div>-->
-
+                <!-- ^^ End of screen related elements -->
+            
+            
             <!-- Mobile Gamepad -->
-
             <div class="full-gamepad-wrapper">
-
+                
+                <!-- Mobile Directionpad -->
                 <div class="movement-button-wrapper">
+                    
                     <div class="gamepad-wrapper-up">
-                        <div id="up-button" class="gamepad-button">
-                            
-                        </div>
+                        
+                        <div id="up-button" class="gamepad-button"></div>
+                        
                     </div>
                     <div class="gamepad-wrapper-side">
-                        <div id="left-button" class="gamepad-button">
                         
-                        </div>
-                    
-                    <!-- Mobile Gamepad Logo -->
-                    
-                    <div class="gamepad-wrapper-side">
-                    
-                        <div class="gamepad-logo">
-                            
-                        </div>
-                    </div>
-                    
-                        <div id="right-button" class="gamepad-button">
+                        <div id="left-button" class="gamepad-button"></div> 
+                        <div class="gamepad-logo"></div>
+                        <div id="right-button" class="gamepad-button"></div>
                         
-                        </div>
                     </div>
                     <div class="gamepad-wrapper-down">
-                        <div id="down-button" class="gamepad-button">
-                        
-                        </div>
+                        <div id="down-button" class="gamepad-button"></div>
                     </div>
+                    
                 </div>
-
+                
+                <!-- Mobile Fire Button -->
                 <div id="fire-button" class="fire-button">
                     <div>
                         FIRE
                     </div>
                 </div>
-                
-                <!-- Keyboard Gamepad -->
 
+            </div>
+            <!-- ^^ End of Mobile Gamepad -->
+            
+            
+            <!-- Keyboard Gamepad -->
             <div class="full-keyboard-gamepad-wrapper">
-
+                <!-- Keyboard Directionpad -->
                 <div class="movement-button-wrapper">
+                    
                     <div class="gamepad-wrapper-up">
-                        <div id="up-button-keyboard" class="gamepad-button-keyboard">
-                            
-                        </div>
+                        
+                        <div id="up-button-keyboard" class="gamepad-button-keyboard"></div>
+                        
                     </div>
                     <div class="gamepad-wrapper-side">
-                        <div id="left-button-keyboard" class="gamepad-button-keyboard">
                         
-                        </div>
-                    
-                    <!-- Middle of Gamepad -->
-                    
-                    <div class="gamepad-wrapper-side">
-                        <div id="down-button-keyboard" class="gamepad-button-keyboard">
+                        <div id="left-button-keyboard" class="gamepad-button-keyboard"></div>
+                        <div id="down-button-keyboard" class="gamepad-button-keyboard"></div>
+                        <div id="right-button-keyboard" class="gamepad-button-keyboard"></div>
                         
-                        </div>
-                    </div>
-                    
-                        <div id="right-button-keyboard" class="gamepad-button-keyboard">
-                        
-                        </div>
                     </div>
                     
                 </div>
 
-                <!-- ^^ Keypad Controls ^^ -->
-
+                <!-- Keyboard Fire Button -->
                 <div class="keyboard-fire-button-wrapper">
-                    <div id="keyboard-controls-directions">
-
-                    </div>
+                    
+                    <div id="keyboard-controls-directions"></div>
                     <div id="fire-button-keyboard" class="fire-button-keyboard">
                         <div>
                             FIRE
                         </div>
                     </div>
+                    
                 </div>
                 
             </div>
-
-            </div>
+            <!-- ^^ End of Keyboard Gamepad -->
 
         </div>
     </body>
