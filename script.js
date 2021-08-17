@@ -1564,6 +1564,7 @@ const rightButtonKeyboard = document.getElementById('right-button-keyboard');
 const fireButtonKeyboard = document.getElementById('fire-button-keyboard');
 
 document.addEventListener("keydown", playerContols);
+document.addEventListener("keypress", preventScroll);
 document.addEventListener("keyup", playerContolsDisplay);
 
 function playerContols(event) {
@@ -1683,6 +1684,23 @@ function playerContolsDisplay(event) {
             rightButtonKeyboard.style.backgroundColor = '';
             startObj.onTouchRight = false;
         }
+}
+
+function preventScroll(event) {
+
+    const leftKey = 37;
+    const rightKey = 39;
+    const upKey = 38;
+    const downKey = 40;
+  
+    const keyPress = event.keyCode; 
+
+    if (keyPress === leftKey || keyPress === rightKey || keyPress === upKey || keyPress === downKey) {
+
+        event.preventDefault();
+
+    }
+
 }
 
 //////////////////////////////////
@@ -1991,9 +2009,6 @@ const bottomAnimationImg = document.getElementById('bottom-animation-image');
 
 // Animation Functions
 const gameStartAnimation = () => {
-
-    // This if statement may be redundent
-    //if (!startObj.animationPlayed) {
 
         tanTankPosition = [
             {x: -80, y: 475, facingLeft: false, health: 5}
