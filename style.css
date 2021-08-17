@@ -427,6 +427,7 @@ body {
 @media screen and (min-width: 1025px) {
     body {
         margin: auto;
+        overflow: hidden;
         transform: scale(0.5) translate(0, -50%);
     }
     .main-body-wrapper {
