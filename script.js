@@ -1438,7 +1438,6 @@ fireButton.ontouchstart = () => {
     fireButton.style.backgroundColor = 'lightcoral';
     fireButton.style.color = 'lightgrey';
     fireButton.style.boxShadow = 'none';
-    fireButton.style.outlineOffset = '5px 5px 5px';
     } else {
         return;
     }
