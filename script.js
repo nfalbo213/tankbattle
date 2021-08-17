@@ -1688,6 +1688,7 @@ function playerContolsDisplay(event) {
 
 function preventScroll(event) {
 
+    const spacebar = 32;
     const leftKey = 37;
     const rightKey = 39;
     const upKey = 38;
@@ -1695,7 +1696,7 @@ function preventScroll(event) {
   
     const keyPressed = event.keyCode; 
 
-    if (keyPressed === leftKey || keyPressed === rightKey || keyPressed === upKey || keyPressed === downKey) {
+    if (keyPressed === leftKey || keyPressed === rightKey || keyPressed === upKey || keyPressed === downKey || keyPressed === spacebar) {
 
         event.preventDefault();
 
