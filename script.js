@@ -827,12 +827,15 @@ const didRoundHit = () => {
 
             if (tankRoundArr[i].x >= tanTankPosition[0].x + 40 === true && tankRoundArr[i].x <= tanTankPosition[0].x + 55 === true && tankRoundArr[i].y <= tanTankPosition[0].y + 40 === true && tankRoundArr[i].y >= tanTankPosition[0].y === true && tankRoundArr[i].roundLive === true) {
                 
+                // Create impact vibration
+                navigator.vibrate(80);
                 // Draw imact explosion
                 battlefield_ctx.drawImage(muzzleFire, tankRoundArr[i].x, tankRoundArr[i].y, muzzleFire.width - 8, muzzleFire.height - 8);
                 // Lower tank health
                 tanTankPosition[0].health = tanTankPosition[0].health - 1;
                 // Check tank damage and remove from play if health is 0
                 if (tanTankPosition[0].health === 0) {
+                    navigator.vibrate(300);
                     if (tanTankPosition[0].facingLeft) {
                         battlefield_ctx.drawImage(firstExplosion, tanTankPosition[0].x, tanTankPosition[0].y, firstExplosion.width, firstExplosion.height);
                     }
@@ -1160,6 +1163,8 @@ startMenu.onmousedown = () => {
   // ** Any Changes here must also be made in startMenu.onmousedown()
 startMenuTouch.ontouchstart = () => {
     
+    navigator.vibrate(30);
+    
     // Reset game to origional parameters and restart animation
     if (startObj.gameOver) {
 
@@ -1426,6 +1431,9 @@ rightOptionTouch.ontouchstart = () => {
 // Fire Button
 fireButton.ontouchstart = () => {
     if (startObj.gameStart && !startObj.startClicked && !startObj.gameOver) {
+        
+        navigator.vibrate(100);
+        
         if (tanTankPosition[0].facingLeft === true) {
             tankRoundArr.push({x: tanTankPosition[0].x, y: tanTankPosition[0].y + 17, velocity: -15, darkTankRound: false, roundLive: true});
             battlefield_ctx.drawImage(muzzleFire, tanTankPosition[0].x - 15, tanTankPosition[0].y + 12, muzzleFire.width, muzzleFire.height);
@@ -1453,7 +1461,10 @@ fireButton.ontouchend = () => {
 // Direction Pad
 // LEFT
 leftButton.ontouchstart = () => {
-    if (startObj.gameStart && !startObj.startClicked && !startObj.gameOver) {  
+    if (startObj.gameStart && !startObj.startClicked && !startObj.gameOver) { 
+        
+        navigator.vibrate(50);
+        
         startObj.onTouchLeft = true;
         //tanTankPosition[0].x -= 10;
         tanTankPosition[0].facingLeft = true;
@@ -1482,6 +1493,7 @@ leftButton.ontouchend = () => {
 }
 // UP
 upButton.ontouchstart = () => {
+    navigator.vibrate(50);
     if (startObj.gameStart && !startObj.startClicked && !startObj.gameOver) {
         startObj.onTouchUp = true;
         //tanTankPosition[0].y -= 10;
@@ -1510,6 +1522,7 @@ upButton.ontouchend = () => {
 }
 // RIGHT
 rightButton.ontouchstart = () => {
+    navigator.vibrate(50);
     if (startObj.gameStart && !startObj.startClicked && !startObj.gameOver) {
         startObj.onTouchRight = true;
         //tanTankPosition[0].x += 10;
@@ -1522,6 +1535,7 @@ rightButton.ontouchstart = () => {
     }
 }
 const rightButtonHold = () => {
+    navigator.vibrate(50);
     if (tanTankPosition.length > 0) {
         if (startObj.onTouchRight) {
             tanTankPosition[0].x += 10;
@@ -1539,6 +1553,7 @@ rightButton.ontouchend = () => {
 }
 // DOWN
 downButton.ontouchstart = () => {
+    navigator.vibrate(50);
     if (startObj.gameStart && !startObj.startClicked && !startObj.gameOver) {
         startObj.onTouchDown = true;
         //tanTankPosition[0].y += 10;
