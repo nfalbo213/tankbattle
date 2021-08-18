@@ -119,31 +119,42 @@ const returnOrigionalTanks = () => {
     if (!startObj.battleRoyal) {
 
         tanTankPosition = [
-            {x: -520, y: 200, facingLeft: false, health: 5}
+            {x: -520, y: 390, facingLeft: false, health: 5}
         ];
         darkTankPosition = [
             // First Wave
-            {x: 500, y: 220, facingLeft: true, health: 5, boss: false}, 
-            {x: 600, y: 160, facingLeft: true, health: 5, boss: false}, 
-            {x: 600, y: 280, facingLeft: true, health: 5, boss: false},
+            {x: battlefield.width + 100, y: 200, facingLeft: true, health: 5, boss: false}, 
+            {x: battlefield.width, y: 400, facingLeft: true, health: 5, boss: false}, 
+            {x: battlefield.width + 100, y: 650, facingLeft: true, health: 5, boss: false},
             // Second Wave
-            {x: 800, y: 190, facingLeft: true, health: 6, boss: false}, 
-            {x: 900, y: 0, facingLeft: true, health: 6, boss: false}, 
-            {x: 900, y: 500, facingLeft: true, health: 6, boss: false},
+            {x: battlefield.width + 300, y: 0, facingLeft: true, health: 6, boss: false}, 
+            {x: battlefield.width + 200, y: 400, facingLeft: true, health: 6, boss: false}, 
+            {x: battlefield.width + 300, y: 800, facingLeft: true, health: 6, boss: false},
             // Third Wave
-            {x: 1100, y: 220, facingLeft: true, health: 6, boss: false}, 
-            {x: 1200, y: -200, facingLeft: true, health: 6, boss: false}, 
-            {x: 1200, y: 600, facingLeft: true, health: 6, boss: false},
-            {x: 1300, y: -400, facingLeft: true, health: 6, boss: false}, 
-            {x: 1300, y: 900, facingLeft: true, health: 6, boss: false},
+            {x: battlefield.width + 600, y: -300, facingLeft: true, health: 6, boss: false}, 
+            {x: battlefield.width + 500, y: 0, facingLeft: true, health: 6, boss: false}, 
+            {x: battlefield.width + 400, y: 400, facingLeft: true, health: 6, boss: false},
+            {x: battlefield.width + 500, y: 800, facingLeft: true, health: 6, boss: false}, 
+            {x: battlefield.width + 600, y: 1100, facingLeft: true, health: 6, boss: false},
             // Fourth Wave
-            {x: 1400, y: 220, facingLeft: true, health: 7, boss: false}, 
-            {x: 1500, y: -400, facingLeft: true, health: 7, boss: false}, 
-            {x: 1500, y: 800, facingLeft: true, health: 7, boss: false},
-            {x: 1500, y: -600, facingLeft: true, health: 7, boss: false}, 
-            {x: 1500, y: 1100, facingLeft: true, health: 7, boss: false},
+            {x: battlefield.width + 800, y: -400, facingLeft: true, health: 7, boss: false}, 
+            {x: battlefield.width + 700, y: -100, facingLeft: true, health: 7, boss: false}, 
+            {x: battlefield.width + 600, y: 400, facingLeft: true, health: 7, boss: false},
+            {x: battlefield.width + 700, y: 900, facingLeft: true, health: 7, boss: false}, 
+            {x: battlefield.width + 800, y: 1200, facingLeft: true, health: 7, boss: false},
+            // Fifth Wave
+            {x: battlefield.width + 900, y: -550, facingLeft: true, health: 8, boss: false}, 
+            {x: battlefield.width + 800, y: -250, facingLeft: true, health: 8, boss: false}, 
+            {x: battlefield.width + 700, y: 400, facingLeft: true, health: 8, boss: false},
+            {x: battlefield.width + 900, y: 400, facingLeft: true, health: 8, boss: false},
+            {x: battlefield.width + 800, y: 1050, facingLeft: true, health: 8, boss: false}, 
+            {x: battlefield.width + 900, y: 1350, facingLeft: true, health: 8, boss: false},
             // Boss
-            {x: 2300, y: 220, facingLeft: true, health: 12, boss: true},
+            {x: battlefield.width + 1600, y: -800, facingLeft: true, health: 12, boss: true},
+            {x: battlefield.width + 1500, y: -700, facingLeft: true, health: 12, boss: true},
+            {x: battlefield.width + 1400, y: 400, facingLeft: true, health: 12, boss: true},
+            {x: battlefield.width + 1500, y: 1500, facingLeft: true, health: 12, boss: true},
+            {x: battlefield.width + 1600, y: 1600, facingLeft: true, health: 12, boss: true}
             //{x: 2300, y: 2220, facingLeft: true, health: 12, boss: true},
             //{x: 2300, y: -1780, facingLeft: true, health: 12, boss: true}
             
