@@ -804,10 +804,9 @@ const didRoundHit = () => {
             // Make round dead
             tankRoundArr[i].roundLive = false;
             
-            if (destroyedTanksArr.length > 25 && startObj.battleRoyal) {
+            if (destroyedTanksArr.length > 0 && startObj.battleRoyal) {
 
                 if(darkTankPosition.length === 1) {
-                    generateRandomAI();
                     generateRandomAI();
                     generateRandomAI();
                     generateRandomAI();
