@@ -804,30 +804,20 @@ const didRoundHit = () => {
             // Make round dead
             tankRoundArr[i].roundLive = false;
             
-            if (destroyedTanksArr.length > 0 && startObj.battleRoyal) {
-
+            // Generate AI Tanks for 'Battle Royal' Gameplay Mode
+            if (startObj.battleRoyal) {
                 if(darkTankPosition.length === 1) {
                     generateRandomAI();
                     generateRandomAI();
                     generateRandomAI();
                     generateRandomAI();
                 }
-
             }
-              
+             
             if (darkTankPosition.length === 0) {
-                if (startObj.battleRoyal) {
-                    generateRandomAI();
-                    generateRandomAI();
-                    generateRandomAI();
-                    generateRandomAI();
-                    generateRandomAI();
-                }
-                else if (!startObj.battleRoyal) {
-                    gameOverDisplay();
-                    i = -1;
-                    break;
-                }
+                 gameOverDisplay();
+                 i = -1;
+                 break;
             }
     
           }
