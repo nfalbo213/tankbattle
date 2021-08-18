@@ -1452,8 +1452,7 @@ fireButton.ontouchend = () => {
 
 // Direction Pad
 // LEFT
-leftButton.ontouchstart = (event) => {
-    event.navigator.vibrate(100);
+leftButton.ontouchstart = () => {
     if (startObj.gameStart && !startObj.startClicked && !startObj.gameOver) {
         startObj.onTouchLeft = true;
         //tanTankPosition[0].x -= 10;
