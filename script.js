@@ -155,8 +155,6 @@ const returnOrigionalTanks = () => {
             {x: battlefield.width + 1400, y: 400, facingLeft: true, health: 12, boss: true},
             {x: battlefield.width + 1500, y: 1500, facingLeft: true, health: 12, boss: true},
             {x: battlefield.width + 1600, y: 1600, facingLeft: true, health: 12, boss: true}
-            //{x: 2300, y: 2220, facingLeft: true, health: 12, boss: true},
-            //{x: 2300, y: -1780, facingLeft: true, health: 12, boss: true}
             
         ];
 
@@ -321,7 +319,7 @@ const drawHealthBar = () => {
 
             if (darkTankPosition[i].health === 12) {
                 battlefield_ctx.fillStyle = 'black';
-                battlefield_ctx.fillRect(darkTankPosition[i].x, darkTankPosition[i].y - 1, 80, 9); // 80 is image width
+                battlefield_ctx.fillRect(darkTankPosition[i].x, darkTankPosition[i].y - 1, 80, 10); // 80 is image width
                 // Draw a border around healthbar
                 battlefield_ctx.strokestyle = 'black';
                 battlefield_ctx.strokeRect(darkTankPosition[i].x, darkTankPosition[i].y - 1, 80, 8);
