@@ -50,6 +50,7 @@ const battlefieldBorder = 'black';
 const battlefieldBackground = 'lightgreen';
 
 // Start Menu and gameplay-dependent object
+    // Origionaly found in controls global variables
 let startObj = {startClicked: false, animationPlayed: false, gameStart: false, gameOver: false, battleRoyal: false, onTouchLeft: false, onTouchUp: false, onTouchRight: false, onTouchDown: false, currentScore: 0, totalHighScoreDisplay: 25};
 
 ///////////////////
