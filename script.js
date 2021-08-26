@@ -804,7 +804,7 @@ const didRoundHit = () => {
             tankRoundArr[i].roundLive = false;
             
             // Generate AI Tanks for 'Battle Royal' Gameplay Mode
-            if (startObj.battleRoyal) {
+            if (startObj.battleRoyal && startObj.gameStart) {
                 if(darkTankPosition.length === 1) {
                     generateRandomAI();
                     generateRandomAI();
