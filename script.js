@@ -1158,7 +1158,8 @@ startMenu.onmousedown = () => {
 
 // Only runs on mobile browsers (see media query)
   // ** Any Changes here must also be made in startMenu.onmousedown()
-startMenuTouch.ontouchstart = () => {
+//startMenuTouch.ontouchstart = () => {
+startMenuTouch.onpointerdown = () => {
     
     // Reset game to origional parameters and restart animation
     if (startObj.gameOver) {
@@ -1367,7 +1368,8 @@ leftOptionMouse.onmousedown = () => {
     bottomAnimationImg.src = './TanTankLeft.png';
 
 }
-leftOptionTouch.ontouchstart = () => {
+//leftOptionTouch.ontouchstart = () => {
+leftOptionMouse.onpointerdown = () => {
 
     startObj.battleRoyal = false;
     leftOptionTouch.style.backgroundColor = 'rgb(15, 15, 15)';
@@ -1401,7 +1403,8 @@ rightOptionMouse.onmousedown = () => {
     bottomAnimationImg.src = './TanTankRight.png';
 
 }
-rightOptionTouch.ontouchstart = () => {
+//rightOptionTouch.ontouchstart = () => {
+rightOptionMouse.onpointerdown = () => {
 
     startObj.battleRoyal = true;
     rightOptionTouch.style.backgroundColor = 'rgb(15, 15, 15)';
