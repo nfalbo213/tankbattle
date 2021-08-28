@@ -450,10 +450,10 @@ body {
         z-index: 3;
     }
     #left-option-mouse, #right-option-mouse {
-        z-index: 2;
+        z-index: 6;
     }
     #left-option-touch, #right-option-touch {
-        z-index: 1;
+        z-index: 5;
     }
     .full-gamepad-wrapper {
         display: none;
@@ -486,10 +486,10 @@ body {
         z-index: 4;
     }
     #left-option-mouse, #right-option-mouse {
-        z-index: 1;
+        z-index: 5;
     }
     #left-option-touch, #right-option-touch {
-        z-index: 2;
+        z-index: 6;
     }
     .full-gamepad-wrapper {
         display: flex;
