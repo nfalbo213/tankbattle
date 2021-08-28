@@ -1403,8 +1403,8 @@ rightOptionMouse.onmousedown = () => {
     bottomAnimationImg.src = './TanTankRight.png';
 
 }
-//rightOptionTouch.ontouchstart = () => {
-rightOptionMouse.onpointerdown = () => {
+rightOptionTouch.ontouchstart = () => {
+//rightOptionMouse.onpointerdown = () => {
 
     startObj.battleRoyal = true;
     rightOptionTouch.style.backgroundColor = 'rgb(15, 15, 15)';
