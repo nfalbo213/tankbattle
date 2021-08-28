@@ -1369,7 +1369,7 @@ leftOptionMouse.onmousedown = () => {
 
 }
 //leftOptionTouch.ontouchstart = () => {
-leftOptionMouse.onpointerdown = () => {
+leftOptionTouch.onpointerdown = () => {
 
     startObj.battleRoyal = false;
     leftOptionTouch.style.backgroundColor = 'rgb(15, 15, 15)';
@@ -1404,7 +1404,7 @@ rightOptionMouse.onmousedown = () => {
 
 }
 //rightOptionTouch.ontouchstart = () => {
-rightOptionMouse.onpointerdown = () => {
+rightOptionTouch.onpointerdown = () => {
 
     startObj.battleRoyal = true;
     rightOptionTouch.style.backgroundColor = 'rgb(15, 15, 15)';
