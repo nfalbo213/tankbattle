@@ -106,14 +106,14 @@ body {
     position: absolute;
     border: none;
     visibility: visible;
-    z-index: 2;
+    z-index: inherit;
     cursor: pointer;
 }
 #left-option-touch, #right-option-touch {
     position: absolute;
     border: none;
     visibility: visible;
-    z-index: 1;
+    z-index: inherit;
     cursor: not-allowed;
 }
 
@@ -450,10 +450,12 @@ body {
         z-index: 3;
     }
     #left-option-mouse, #right-option-mouse {
-        z-index: 2;
+        /*z-index: 2;*/
+        visibility: visible;
     }
     #left-option-touch, #right-option-touch {
-        z-index: 1;
+        /*z-index: 1;*/
+        visibility: hidden;
     }
     .full-gamepad-wrapper {
         display: none;
@@ -486,10 +488,12 @@ body {
         z-index: 4;
     }
     #left-option-mouse, #right-option-mouse {
-        z-index: 1;
+        /*z-index: 1;*/
+        visibility: hidden;
     }
     #left-option-touch, #right-option-touch {
-        z-index: 2;
+        /*z-index: 2;*/
+        visibility: visible;
     }
     .full-gamepad-wrapper {
         display: flex;
