@@ -1424,7 +1424,8 @@ rightOptionTouch.ontouchstart = () => {
 // Gamepad
 
 // Fire Button
-fireButton.ontouchstart = () => {
+//fireButton.ontouchstart = () => {
+fireButton.onpointerdown = () => {
     if (startObj.gameStart && !startObj.startClicked && !startObj.gameOver) {
         if (tanTankPosition[0].facingLeft === true) {
             tankRoundArr.push({x: tanTankPosition[0].x, y: tanTankPosition[0].y + 17, velocity: -15, darkTankRound: false, roundLive: true});
@@ -1444,7 +1445,8 @@ fireButton.ontouchstart = () => {
         return;
     }
 }
-fireButton.ontouchend = () => {
+//fireButton.ontouchend = () => {
+fireButton.onpointerup = () => {
     fireButton.style.backgroundColor = '';
     fireButton.style.color = '';
     fireButton.style.boxShadow = '';
@@ -1452,7 +1454,8 @@ fireButton.ontouchend = () => {
 
 // Direction Pad
 // LEFT
-leftButton.ontouchstart = () => {
+//leftButton.ontouchstart = () => {
+leftButton.onpointerdown = () => {
     if (startObj.gameStart && !startObj.startClicked && !startObj.gameOver) {
         startObj.onTouchLeft = true;
         //tanTankPosition[0].x -= 10;
@@ -1475,13 +1478,15 @@ const leftButtonHold = () => {
         return;
     }
 }
-leftButton.ontouchend = () => {
+//leftButton.ontouchend = () => {
+leftButton.onpointerup = () => {
     leftButton.style.boxShadow = '';
     leftButton.style.backgroundColor = '';
     startObj.onTouchLeft = false;
 }
 // UP
-upButton.ontouchstart = () => {
+//upButton.ontouchstart = () => {
+upButton.onpointerdown = () => {
     if (startObj.gameStart && !startObj.startClicked && !startObj.gameOver) {
         startObj.onTouchUp = true;
         //tanTankPosition[0].y -= 10;
@@ -1503,13 +1508,15 @@ const upButtonHold = () => {
         return
     }
 }
-upButton.ontouchend = () => {
+//upButton.ontouchend = () => {
+upButton.onpointerup = () => {
     upButton.style.boxShadow = '';
     upButton.style.backgroundColor = '';
     startObj.onTouchUp = false;
 }
 // RIGHT
-rightButton.ontouchstart = () => {
+//rightButton.ontouchstart = () => {
+rightButton.onpointerdown = () => {
     if (startObj.gameStart && !startObj.startClicked && !startObj.gameOver) {
         startObj.onTouchRight = true;
         //tanTankPosition[0].x += 10;
@@ -1532,13 +1539,15 @@ const rightButtonHold = () => {
         return;
     }   
 }
-rightButton.ontouchend = () => {
+//rightButton.ontouchend = () => {
+rightButton.onpointerup = () => {
     rightButton.style.boxShadow = '';
     rightButton.style.backgroundColor = '';
     startObj.onTouchRight = false;
 }
 // DOWN
-downButton.ontouchstart = () => {
+//downButton.ontouchstart = () => {
+downButton.onpointerdown = () => {
     if (startObj.gameStart && !startObj.startClicked && !startObj.gameOver) {
         startObj.onTouchDown = true;
         //tanTankPosition[0].y += 10;
@@ -1560,7 +1569,8 @@ const downButtonHold = () => {
         return;
     }
 }
-downButton.ontouchend = () => {
+//downButton.ontouchend = () => {
+downButton.onpointerup = () => {
     downButton.style.boxShadow = '';
     downButton.style.backgroundColor = '';
     startObj.onTouchDown = false;
