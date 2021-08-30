@@ -124,39 +124,38 @@ const returnOrigionalTanks = () => {
         ];
         darkTankPosition = [
             // First Wave
-            {x: battlefield.width + 100, y: 200, facingLeft: true, health: 5, boss: false}, 
-            {x: battlefield.width, y: 400, facingLeft: true, health: 5, boss: false}, 
-            {x: battlefield.width + 100, y: 650, facingLeft: true, health: 5, boss: false},
+            {x: battlefield.width + 100, y: 200, facingLeft: true, health: 5, boss: false, roundFiredIndex: 0}, 
+            {x: battlefield.width, y: 400, facingLeft: true, health: 5, boss: false, roundFiredIndex: 0}, 
+            {x: battlefield.width + 100, y: 650, facingLeft: true, health: 5, boss: false, roundFiredIndex: 0},
             // Second Wave
-            {x: battlefield.width + 300, y: 0, facingLeft: true, health: 6, boss: false}, 
-            {x: battlefield.width + 200, y: 400, facingLeft: true, health: 6, boss: false}, 
-            {x: battlefield.width + 300, y: 800, facingLeft: true, health: 6, boss: false},
+            {x: battlefield.width + 300, y: 0, facingLeft: true, health: 6, boss: false, roundFiredIndex: 0}, 
+            {x: battlefield.width + 200, y: 400, facingLeft: true, health: 6, boss: false, roundFiredIndex: 0}, 
+            {x: battlefield.width + 300, y: 800, facingLeft: true, health: 6, boss: false, roundFiredIndex: 0},
             // Third Wave
-            {x: battlefield.width + 600, y: -300, facingLeft: true, health: 6, boss: false}, 
-            {x: battlefield.width + 500, y: 0, facingLeft: true, health: 6, boss: false}, 
-            {x: battlefield.width + 400, y: 400, facingLeft: true, health: 6, boss: false},
-            {x: battlefield.width + 500, y: 800, facingLeft: true, health: 6, boss: false}, 
-            {x: battlefield.width + 600, y: 1100, facingLeft: true, health: 6, boss: false},
+            {x: battlefield.width + 600, y: -300, facingLeft: true, health: 6, boss: false, roundFiredIndex: 0}, 
+            {x: battlefield.width + 500, y: 0, facingLeft: true, health: 6, boss: false, roundFiredIndex: 0}, 
+            {x: battlefield.width + 400, y: 400, facingLeft: true, health: 6, boss: false, roundFiredIndex: 0},
+            {x: battlefield.width + 500, y: 800, facingLeft: true, health: 6, boss: false, roundFiredIndex: 0}, 
+            {x: battlefield.width + 600, y: 1100, facingLeft: true, health: 6, boss: false, roundFiredIndex: 0},
             // Fourth Wave
-            {x: battlefield.width + 800, y: -400, facingLeft: true, health: 7, boss: false}, 
-            {x: battlefield.width + 700, y: -100, facingLeft: true, health: 7, boss: false}, 
-            {x: battlefield.width + 600, y: 400, facingLeft: true, health: 7, boss: false},
-            {x: battlefield.width + 700, y: 900, facingLeft: true, health: 7, boss: false}, 
-            {x: battlefield.width + 800, y: 1200, facingLeft: true, health: 7, boss: false},
+            {x: battlefield.width + 800, y: -400, facingLeft: true, health: 7, boss: false, roundFiredIndex: 0}, 
+            {x: battlefield.width + 700, y: -100, facingLeft: true, health: 7, boss: false, roundFiredIndex: 0}, 
+            {x: battlefield.width + 600, y: 400, facingLeft: true, health: 7, boss: false, roundFiredIndex: 0},
+            {x: battlefield.width + 700, y: 900, facingLeft: true, health: 7, boss: false, roundFiredIndex: 0}, 
+            {x: battlefield.width + 800, y: 1200, facingLeft: true, health: 7, boss: false, roundFiredIndex: 0},
             // Fifth Wave
-            {x: battlefield.width + 900, y: -550, facingLeft: true, health: 8, boss: false}, 
-            {x: battlefield.width + 800, y: -250, facingLeft: true, health: 8, boss: false}, 
-            {x: battlefield.width + 700, y: 400, facingLeft: true, health: 8, boss: false},
-            {x: battlefield.width + 900, y: 400, facingLeft: true, health: 8, boss: false},
-            {x: battlefield.width + 800, y: 1050, facingLeft: true, health: 8, boss: false}, 
-            {x: battlefield.width + 900, y: 1350, facingLeft: true, health: 8, boss: false},
+            {x: battlefield.width + 900, y: -550, facingLeft: true, health: 8, boss: false, roundFiredIndex: 0}, 
+            {x: battlefield.width + 800, y: -250, facingLeft: true, health: 8, boss: false, roundFiredIndex: 0}, 
+            {x: battlefield.width + 700, y: 400, facingLeft: true, health: 8, boss: false, roundFiredIndex: 0},
+            {x: battlefield.width + 900, y: 400, facingLeft: true, health: 8, boss: false, roundFiredIndex: 0},
+            {x: battlefield.width + 800, y: 1050, facingLeft: true, health: 8, boss: false, roundFiredIndex: 0}, 
+            {x: battlefield.width + 900, y: 1350, facingLeft: true, health: 8, boss: false, roundFiredIndex: 0},
             // Boss
-            {x: battlefield.width + 1600, y: -800, facingLeft: true, health: 12, boss: true},
-            {x: battlefield.width + 1500, y: -700, facingLeft: true, health: 12, boss: true},
-            {x: battlefield.width + 1400, y: 400, facingLeft: true, health: 12, boss: true},
-            {x: battlefield.width + 1500, y: 1500, facingLeft: true, health: 12, boss: true},
-            {x: battlefield.width + 1600, y: 1600, facingLeft: true, health: 12, boss: true}
-            
+            {x: battlefield.width + 1600, y: -800, facingLeft: true, health: 12, boss: true, roundFiredIndex: 0},
+            {x: battlefield.width + 1500, y: -700, facingLeft: true, health: 12, boss: true, roundFiredIndex: 0},
+            {x: battlefield.width + 1400, y: 400, facingLeft: true, health: 12, boss: true, roundFiredIndex: 0},
+            {x: battlefield.width + 1500, y: 1500, facingLeft: true, health: 12, boss: true, roundFiredIndex: 0},
+            {x: battlefield.width + 1600, y: 1600, facingLeft: true, health: 12, boss: true, roundFiredIndex: 0}  
         ];
 
     }
@@ -578,17 +577,30 @@ const tankAI = () => {
             // AI fire round right towards player 
             if (tanTankPosition[i].y <= darkTankPosition[n].y + 40 && tanTankPosition[i].y >= darkTankPosition[n].y - 40 && darkTankPosition[n].facingLeft === false) {
 
-                roundFired = true;
-                tankRoundArr.push({x: darkTankPosition[n].x + 81, y: darkTankPosition[n].y + 17, velocity: 15, darkTankRound: true, roundLive: true});
-                battlefield_ctx.drawImage(muzzleFire, darkTankPosition[n].x + 81, darkTankPosition[n].y + 12, muzzleFire.width, muzzleFire.height);
+                if (darkTankPosition[i].roundFiredIndex === 0 || darkTankPosition[i].roundFiredIndex === 2) {
+                    roundFired = true;
+                    tankRoundArr.push({x: darkTankPosition[n].x + 81, y: darkTankPosition[n].y + 17, velocity: 15, darkTankRound: true, roundLive: true});
+                    battlefield_ctx.drawImage(muzzleFire, darkTankPosition[n].x + 81, darkTankPosition[n].y + 12, muzzleFire.width, muzzleFire.height);
+                }
+                if (darkTankPosition[i].roundFiredIndex === 3) {
+                    darkTankPosition[i].roundFiredIndex = 0;
+                }
+                darkTankPosition[i].roundFiredIndex += 1;
+                
 
             }
             // AI fire round left towards player 
             if (tanTankPosition[i].y <= darkTankPosition[n].y + 40 && tanTankPosition[i].y >= darkTankPosition[n].y - 40 && darkTankPosition[n].facingLeft === true) {
 
-                roundFired = true;
-                tankRoundArr.push({x: darkTankPosition[n].x, y: darkTankPosition[n].y + 17, velocity: -15, darkTankRound: true, roundLive: true});
-                battlefield_ctx.drawImage(muzzleFire, darkTankPosition[n].x - 15, darkTankPosition[n].y + 12, muzzleFire.width, muzzleFire.height);
+                if (darkTankPosition[i].roundFiredIndex === 0 || darkTankPosition[i].roundFiredIndex === 2) {
+                    roundFired = true;
+                    tankRoundArr.push({x: darkTankPosition[n].x, y: darkTankPosition[n].y + 17, velocity: -15, darkTankRound: true, roundLive: true});
+                    battlefield_ctx.drawImage(muzzleFire, darkTankPosition[n].x - 15, darkTankPosition[n].y + 12, muzzleFire.width, muzzleFire.height);
+                }
+                if (darkTankPosition[i].roundFiredIndex === 3) {
+                    darkTankPosition[i].roundFiredIndex = 0;
+                }
+                darkTankPosition[i].roundFiredIndex += 1;
 
             }
             // Damage Player if AI and Player are in same position
@@ -596,9 +608,16 @@ const tankAI = () => {
                 tanTankPosition[i].health -= 1;
                 // Remove Player from game if health === 0
                 if (tanTankPosition[i].health === 0) {
+                    if (tanTankPosition[0].facingLeft) {
+                        battlefield_ctx.drawImage(firstExplosion, tanTankPosition[0].x, tanTankPosition[0].y, firstExplosion.width, firstExplosion.height);
+                    }
+                    if (!tanTankPosition[0].facingLeft) {
+                        battlefield_ctx.drawImage(secondExplosion, tanTankPosition[0].x - 10, tanTankPosition[0].y, secondExplosion.width, secondExplosion.height);
+                    }
                     tanTankPosition.splice(tanTankPosition[i], 1);
                 }
                 if (tanTankPosition.length === 0) {
+                    
                     gameOverDisplay();
                     i = -1;
                 }
@@ -624,6 +643,7 @@ const generateRandomAI = () => {
     let y;
     let health;
     let boss;
+    let roundFiredIndex = 0;
 
     if (startObj.battleRoyal) {
 
@@ -664,7 +684,7 @@ const generateRandomAI = () => {
         if (darkTankPosition.length > 0) {
 
             let arr = [];
-            arr.push({x: x, y: y, facingLeft: facingLeft, health: health, boss: boss});
+            arr.push({x: x, y: y, facingLeft: facingLeft, health: health, boss: boss, roundFiredIndex: roundFiredIndex});
 
             for (let i = darkTankPosition.length - 1; i >= 0; i--) {
 
@@ -685,7 +705,7 @@ const generateRandomAI = () => {
 
         } 
 
-        darkTankPosition.push({x: x, y: y, facingLeft: facingLeft, health: health, boss: boss});
+        darkTankPosition.push({x: x, y: y, facingLeft: facingLeft, health: health, boss: boss, roundFiredIndex: roundFiredIndex});
 
     } else {
         return;
