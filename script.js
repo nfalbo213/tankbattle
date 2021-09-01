@@ -32,6 +32,11 @@ darkTankImgLeft.src ='./DarkTankLeft.png';
 darkTankImgRight = new Image(80, 40);
 darkTankImgRight.src ='./DarkTankRight.png';
 
+let bossCrownImg;
+
+bossCrownImg = new Image(30, 25);
+bossCrownImg.src ='./BossCrown.png'
+
 let tanTankPosition = [];
 let darkTankPosition = [];
 
@@ -319,10 +324,13 @@ const drawHealthBar = () => {
 
             if (darkTankPosition[i].health === 12) {
                 battlefield_ctx.fillStyle = 'black';
-                battlefield_ctx.fillRect(darkTankPosition[i].x, darkTankPosition[i].y - 1, 80, 10); // 80 is image width
+                battlefield_ctx.fillRect(darkTankPosition[i].x, darkTankPosition[i].y - 1, 80, 9); // 80 is image width
                 // Draw a border around healthbar
                 battlefield_ctx.strokestyle = 'black';
                 battlefield_ctx.strokeRect(darkTankPosition[i].x, darkTankPosition[i].y - 1, 80, 8);
+                if (darkTankPosition[i].boss) {
+                    battlefield_ctx.drawImage(bossCrownImg, darkTankPosition[i].x + 33, darkTankPosition[i].y - (11 + bossCrownImg.height), bossCrownImg.width, bossCrownImg.height);
+                }
             }
             if (darkTankPosition[i].health === 11) {
                 battlefield_ctx.fillStyle = 'black';
@@ -330,6 +338,9 @@ const drawHealthBar = () => {
                 // Draw a border around healthbar
                 battlefield_ctx.strokestyle = 'black';
                 battlefield_ctx.strokeRect(darkTankPosition[i].x, darkTankPosition[i].y - 1, 80, 7);
+                if (darkTankPosition[i].boss) {
+                    battlefield_ctx.drawImage(bossCrownImg, darkTankPosition[i].x + 33, darkTankPosition[i].y - (10 + bossCrownImg.height), bossCrownImg.width, bossCrownImg.height);
+                }
             }
             if (darkTankPosition[i].health === 10) {
                 battlefield_ctx.fillStyle = 'black';
@@ -337,6 +348,9 @@ const drawHealthBar = () => {
                 // Draw a border around healthbar
                 battlefield_ctx.strokestyle = 'black';
                 battlefield_ctx.strokeRect(darkTankPosition[i].x, darkTankPosition[i].y - 1, 80, 6);
+                if (darkTankPosition[i].boss) {
+                    battlefield_ctx.drawImage(bossCrownImg, darkTankPosition[i].x + 33, darkTankPosition[i].y - (9 + bossCrownImg.height), bossCrownImg.width, bossCrownImg.height);
+                }
             }
             if (darkTankPosition[i].health === 9) {
                 battlefield_ctx.fillStyle = 'silver';
@@ -344,6 +358,9 @@ const drawHealthBar = () => {
                 // Draw a border around healthbar
                 battlefield_ctx.strokestyle = 'black';
                 battlefield_ctx.strokeRect(darkTankPosition[i].x, darkTankPosition[i].y - 1, 80, 5);
+                if (darkTankPosition[i].boss) {
+                    battlefield_ctx.drawImage(bossCrownImg, darkTankPosition[i].x + 33, darkTankPosition[i].y - (8 + bossCrownImg.height), bossCrownImg.width, bossCrownImg.height);
+                }
             }
             if (darkTankPosition[i].health === 8) {
                 battlefield_ctx.fillStyle = 'darkslategrey';
@@ -351,6 +368,9 @@ const drawHealthBar = () => {
                 // Draw a border around healthbar
                 battlefield_ctx.strokestyle = 'black';
                 battlefield_ctx.strokeRect(darkTankPosition[i].x, darkTankPosition[i].y - 1, 80, 4);
+                if (darkTankPosition[i].boss) {
+                    battlefield_ctx.drawImage(bossCrownImg, darkTankPosition[i].x + 33, darkTankPosition[i].y - (7 + bossCrownImg.height), bossCrownImg.width, bossCrownImg.height);
+                }
             }
             if (darkTankPosition[i].health === 7) {
                 battlefield_ctx.fillStyle = 'blue';
@@ -358,6 +378,9 @@ const drawHealthBar = () => {
                 // Draw a border around healthbar
                 battlefield_ctx.strokestyle = 'black';
                 battlefield_ctx.strokeRect(darkTankPosition[i].x, darkTankPosition[i].y - 1, 80, 3);
+                if (darkTankPosition[i].boss) {
+                    battlefield_ctx.drawImage(bossCrownImg, darkTankPosition[i].x + 33, darkTankPosition[i].y - (6 + bossCrownImg.height), bossCrownImg.width, bossCrownImg.height);
+                }
             }
             if (darkTankPosition[i].health === 6) {
                 battlefield_ctx.fillStyle = 'royalblue';
@@ -365,6 +388,9 @@ const drawHealthBar = () => {
                 // Draw a border around healthbar
                 battlefield_ctx.strokestyle = 'black';
                 battlefield_ctx.strokeRect(darkTankPosition[i].x, darkTankPosition[i].y - 1, 80, 3);
+                if (darkTankPosition[i].boss) {
+                    battlefield_ctx.drawImage(bossCrownImg, darkTankPosition[i].x + 33, darkTankPosition[i].y - (5 + bossCrownImg.height), bossCrownImg.width, bossCrownImg.height);
+                }
             }
             if (darkTankPosition[i].health === 5) {
                 battlefield_ctx.fillStyle = '#00ff00';
@@ -372,13 +398,20 @@ const drawHealthBar = () => {
                 // Draw a border around healthbar
                 battlefield_ctx.strokestyle = 'black';
                 battlefield_ctx.strokeRect(darkTankPosition[i].x, darkTankPosition[i].y - 1, 80, 3);
+                if (darkTankPosition[i].boss) {
+                    battlefield_ctx.drawImage(bossCrownImg, darkTankPosition[i].x + 33, darkTankPosition[i].y - (5 + bossCrownImg.height), bossCrownImg.width, bossCrownImg.height);
+                }
             }
+        
             if (darkTankPosition[i].health === 4) {
                 battlefield_ctx.fillStyle = '#00ff00';
                 battlefield_ctx.fillRect(darkTankPosition[i].x, darkTankPosition[i].y - 1, 64, 3); // 64 = 16*4 <-> 16 = 80/5 (80 is image width)
                 // Draw a border around healthbar
                 battlefield_ctx.strokestyle = 'black';
                 battlefield_ctx.strokeRect(darkTankPosition[i].x, darkTankPosition[i].y - 1, 80, 3);
+                if (darkTankPosition[i].boss) {
+                    battlefield_ctx.drawImage(bossCrownImg, darkTankPosition[i].x + 33, darkTankPosition[i].y - (5 + bossCrownImg.height), bossCrownImg.width, bossCrownImg.height);
+                }
             }
             if (darkTankPosition[i].health === 3) {
                 battlefield_ctx.fillStyle = 'yellow';
@@ -386,6 +419,9 @@ const drawHealthBar = () => {
                 // Draw a border around healthbar
                 battlefield_ctx.strokestyle = 'black';
                 battlefield_ctx.strokeRect(darkTankPosition[i].x, darkTankPosition[i].y - 1, 80, 3);
+                if (darkTankPosition[i].boss) {
+                    battlefield_ctx.drawImage(bossCrownImg, darkTankPosition[i].x + 33, darkTankPosition[i].y - (5 + bossCrownImg.height), bossCrownImg.width, bossCrownImg.height);
+                }
             }
             if (darkTankPosition[i].health === 2) {
                 battlefield_ctx.fillStyle = 'yellow';
@@ -393,6 +429,9 @@ const drawHealthBar = () => {
                 // Draw a border around healthbar
                 battlefield_ctx.strokestyle = 'black';
                 battlefield_ctx.strokeRect(darkTankPosition[i].x, darkTankPosition[i].y - 1, 80, 3);
+                if (darkTankPosition[i].boss) {
+                    battlefield_ctx.drawImage(bossCrownImg, darkTankPosition[i].x + 33, darkTankPosition[i].y - (5 + bossCrownImg.height), bossCrownImg.width, bossCrownImg.height);
+                }
             }
             if (darkTankPosition[i].health === 1) {
                 battlefield_ctx.fillStyle = 'red';
@@ -400,6 +439,9 @@ const drawHealthBar = () => {
                 // Draw a border around healthbar
                 battlefield_ctx.strokestyle = 'black';
                 battlefield_ctx.strokeRect(darkTankPosition[i].x, darkTankPosition[i].y - 1, 80, 3);
+                if (darkTankPosition[i].boss) {
+                    battlefield_ctx.drawImage(bossCrownImg, darkTankPosition[i].x + 33, darkTankPosition[i].y - (5 + bossCrownImg.height), bossCrownImg.width, bossCrownImg.height);
+                }
             }
 
             i--;
