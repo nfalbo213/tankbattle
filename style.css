@@ -114,7 +114,7 @@ body {
     border: none;
     visibility: visible;
     z-index: inherit;
-    cursor: not-allowed;
+    cursor: pointer;
 }
 
 /* Scoreboard */
