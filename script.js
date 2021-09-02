@@ -799,9 +799,9 @@ const fireRound = () => {
             }
             else if (tankRoundArr[i].isBossRound) {
                 // Draw a "filled" rectangle to represent the round at the coordinates the round is located
-                battlefield_ctx.fillRect(tankRoundArr[i].x, tankRoundArr[i].y, 6, 2.5);
+                battlefield_ctx.fillRect(tankRoundArr[i].x, tankRoundArr[i].y, 7, 2.5);
                 // Draw a border around the round
-                battlefield_ctx.strokeRect(tankRoundArr[i].x, tankRoundArr[i].y, 6, 2.5);
+                battlefield_ctx.strokeRect(tankRoundArr[i].x, tankRoundArr[i].y, 7, 2.5);
             }
 
             // Change round location according to round velocity
