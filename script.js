@@ -619,30 +619,51 @@ const tankAI = () => {
             // AI fire round right towards player 
             if (tanTankPosition[i].y <= darkTankPosition[n].y + 40 && tanTankPosition[i].y >= darkTankPosition[n].y - 40 && darkTankPosition[n].facingLeft === false) {
 
-                if (darkTankPosition[i].roundFiredIndex === 0 || darkTankPosition[i].roundFiredIndex === 2) {
-                    roundFired = true;
-                    tankRoundArr.push({x: darkTankPosition[n].x + 81, y: darkTankPosition[n].y + 17, velocity: 15, darkTankRound: true, roundLive: true});
-                    battlefield_ctx.drawImage(muzzleFire, darkTankPosition[n].x + 81, darkTankPosition[n].y + 12, muzzleFire.width, muzzleFire.height);
+                if (!darkTankPosition[n].boss) {
+                    if (darkTankPosition[n].roundFiredIndex === 0 || darkTankPosition[n].roundFiredIndex === 2) {
+                        roundFired = true;
+                        //darkTankPosition[i].roundFiredIndex += 1;
+                        tankRoundArr.push({x: darkTankPosition[n].x + 81, y: darkTankPosition[n].y + 17, velocity: 15, darkTankRound: true, roundLive: true, isBossRound: false});
+                        battlefield_ctx.drawImage(muzzleFire, darkTankPosition[n].x + 81, darkTankPosition[n].y + 12, muzzleFire.width, muzzleFire.height);
+                    }
                 }
-                if (darkTankPosition[i].roundFiredIndex === 3) {
-                    darkTankPosition[i].roundFiredIndex = 0;
+                else if (darkTankPosition[n].boss) {
+                    if (darkTankPosition[n].roundFiredIndex === 0 || darkTankPosition[n].roundFiredIndex === 2) {
+                        roundFired = true;
+                        //darkTankPosition[i].roundFiredIndex += 1;
+                        tankRoundArr.push({x: darkTankPosition[n].x + 81, y: darkTankPosition[n].y + 17, velocity: 15, darkTankRound: true, roundLive: true, isBossRound: true});
+                        battlefield_ctx.drawImage(muzzleFire, darkTankPosition[n].x + 81, darkTankPosition[n].y + 12, muzzleFire.width, muzzleFire.height);
+                    }
                 }
-                darkTankPosition[i].roundFiredIndex += 1;
-                
-
+                if (darkTankPosition[n].roundFiredIndex === 3) {
+                    darkTankPosition[n].roundFiredIndex = 0;
+                }
+                darkTankPosition[n].roundFiredIndex += 1;
+            
             }
             // AI fire round left towards player 
             if (tanTankPosition[i].y <= darkTankPosition[n].y + 40 && tanTankPosition[i].y >= darkTankPosition[n].y - 40 && darkTankPosition[n].facingLeft === true) {
 
-                if (darkTankPosition[i].roundFiredIndex === 0 || darkTankPosition[i].roundFiredIndex === 2) {
-                    roundFired = true;
-                    tankRoundArr.push({x: darkTankPosition[n].x, y: darkTankPosition[n].y + 17, velocity: -15, darkTankRound: true, roundLive: true});
-                    battlefield_ctx.drawImage(muzzleFire, darkTankPosition[n].x - 15, darkTankPosition[n].y + 12, muzzleFire.width, muzzleFire.height);
+                if (!darkTankPosition[n].boss) {
+                    if (darkTankPosition[n].roundFiredIndex === 0 || darkTankPosition[n].roundFiredIndex === 2) {
+                        roundFired = true;
+                        //darkTankPosition[i].roundFiredIndex += 1;
+                        tankRoundArr.push({x: darkTankPosition[n].x, y: darkTankPosition[n].y + 17, velocity: -15, darkTankRound: true, roundLive: true, isBossRound: false});
+                        battlefield_ctx.drawImage(muzzleFire, darkTankPosition[n].x - 15, darkTankPosition[n].y + 12, muzzleFire.width, muzzleFire.height);
+                    }
                 }
-                if (darkTankPosition[i].roundFiredIndex === 3) {
-                    darkTankPosition[i].roundFiredIndex = 0;
+                else if (darkTankPosition[n].boss) {
+                    if (darkTankPosition[n].roundFiredIndex === 0 || darkTankPosition[n].roundFiredIndex === 2) {
+                        roundFired = true;
+                        //darkTankPosition[i].roundFiredIndex += 1;
+                        tankRoundArr.push({x: darkTankPosition[n].x, y: darkTankPosition[n].y + 17, velocity: -15, darkTankRound: true, roundLive: true, isBossRound: true});
+                        battlefield_ctx.drawImage(muzzleFire, darkTankPosition[n].x - 15, darkTankPosition[n].y + 12, muzzleFire.width, muzzleFire.height);
+                    }
                 }
-                darkTankPosition[i].roundFiredIndex += 1;
+                if (darkTankPosition[n].roundFiredIndex === 3) {
+                    darkTankPosition[n].roundFiredIndex = 0;
+                }
+                darkTankPosition[n].roundFiredIndex += 1;
 
             }
             // Damage Player if AI and Player are in same position
@@ -765,18 +786,29 @@ const fireRound = () => {
         let i = tankRoundArr.length - 1;
         
         do {
+            // Set the color of the round
             battlefield_ctx.fillStyle = 'black';
-            // Set the border colour of the round
+            // Set the border color of the round
             battlefield_ctx.strokestyle = 'black';
-            // Draw a "filled" rectangle to represent the round at the coordinates the round is located
-            battlefield_ctx.fillRect(tankRoundArr[i].x, tankRoundArr[i].y, 4, 2);
-            // Draw a border around the round
-            battlefield_ctx.strokeRect(tankRoundArr[i].x, tankRoundArr[i].y, 4, 2);
+            
+            if (!tankRoundArr[i].isBossRound) {
+                // Draw a "filled" rectangle to represent the round at the coordinates the round is located
+                battlefield_ctx.fillRect(tankRoundArr[i].x, tankRoundArr[i].y, 4, 2);
+                // Draw a border around the round
+                battlefield_ctx.strokeRect(tankRoundArr[i].x, tankRoundArr[i].y, 4, 2);
+            }
+            else if (tankRoundArr[i].isBossRound) {
+                // Draw a "filled" rectangle to represent the round at the coordinates the round is located
+                battlefield_ctx.fillRect(tankRoundArr[i].x, tankRoundArr[i].y, 6, 2.5);
+                // Draw a border around the round
+                battlefield_ctx.strokeRect(tankRoundArr[i].x, tankRoundArr[i].y, 6, 2.5);
+            }
 
-           
+            // Change round location according to round velocity
             tankRoundArr[i].x = tankRoundArr[i].x + tankRoundArr[i].velocity;
            
-          i--;
+            i--;
+            
         } while (i >= 0);
       } else {
         return;
@@ -891,10 +923,18 @@ const didRoundHit = () => {
                 
                 // Draw imact explosion
                 battlefield_ctx.drawImage(muzzleFire, tankRoundArr[i].x, tankRoundArr[i].y, muzzleFire.width - 8, muzzleFire.height - 8);
-                // Lower tank health
-                tanTankPosition[0].health = tanTankPosition[0].health - 1;
+                
+                if (!tankRoundArr[i].isBossRound) {
+                    // Lower tank health
+                    tanTankPosition[0].health -= 1;
+                }
+                if (tankRoundArr[i].isBossRound) {
+                    // Lower tank health
+                    tanTankPosition[0].health -= 2;
+                }
+            
                 // Check tank damage and remove from play if health is 0
-                if (tanTankPosition[0].health === 0) {
+                if (tanTankPosition[0].health <= 0) {
                     if (tanTankPosition[0].facingLeft) {
                         battlefield_ctx.drawImage(firstExplosion, tanTankPosition[0].x, tanTankPosition[0].y, firstExplosion.width, firstExplosion.height);
                     }
@@ -1493,13 +1533,20 @@ rightOptionTouch.onpointerdown = () => {
 fireButton.onpointerdown = () => {
     if (startObj.gameStart && !startObj.startClicked && !startObj.gameOver) {
         if (tanTankPosition[0].facingLeft === true) {
-            tankRoundArr.push({x: tanTankPosition[0].x, y: tanTankPosition[0].y + 17, velocity: -15, darkTankRound: false, roundLive: true});
+            tankRoundArr.push({
+                x: tanTankPosition[0].x, 
+                y: tanTankPosition[0].y + 17, 
+                velocity: -15, 
+                darkTankRound: false, 
+                roundLive: true, 
+                isBossRound: false
+            });
             battlefield_ctx.drawImage(muzzleFire, tanTankPosition[0].x - 15, tanTankPosition[0].y + 12, muzzleFire.width, muzzleFire.height);
             roundFired = true;
 
         } 
         else if (tanTankPosition[0].facingLeft === false) {
-            tankRoundArr.push({x: tanTankPosition[0].x + 81, y: tanTankPosition[0].y + 17, velocity: 15, darkTankRound: false, roundLive: true});
+            tankRoundArr.push({x: tanTankPosition[0].x + 81, y: tanTankPosition[0].y + 17, velocity: 15, darkTankRound: false, roundLive: true, isBossRound: false});
             battlefield_ctx.drawImage(muzzleFire, tanTankPosition[0].x + 78, tanTankPosition[0].y + 12, muzzleFire.width, muzzleFire.height);
             roundFired = true;
         }
@@ -1669,20 +1716,26 @@ function playerContols(event) {
         if (keyPressed === spacebar) {
             if (tanTankPosition.length > 0) {
                 if (tanTankPosition[0].facingLeft === true) {
-                    tankRoundArr.push({x: tanTankPosition[0].x, y: tanTankPosition[0].y + 17, velocity: -15, darkTankRound: false, roundLive: true});
+                    tankRoundArr.push({x: tanTankPosition[0].x, y: tanTankPosition[0].y + 17, velocity: -15, darkTankRound: false, roundLive: true, isBossRound: false});
                     battlefield_ctx.drawImage(muzzleFire, tanTankPosition[0].x - 15, tanTankPosition[0].y + 12, muzzleFire.width, muzzleFire.height);
                     roundFired = true;
                     fireButtonKeyboard.style.backgroundColor = 'lightcoral';
                     fireButtonKeyboard.style.color = 'lightgrey';
                     fireButtonKeyboard.style.boxShadow = 'none';
+                    //fireButtonKeyboard.style.outlineOffset = '5px 5px 5px';
+                    //console.log(tanTankPosition);
+                    //console.log(tankRoundArr);
                 } 
                 else if (tanTankPosition[0].facingLeft === false) {
-                    tankRoundArr.push({x: tanTankPosition[0].x + 81, y: tanTankPosition[0].y + 17, velocity: 15, darkTankRound: false, roundLive: true});
+                    tankRoundArr.push({x: tanTankPosition[0].x + 81, y: tanTankPosition[0].y + 17, velocity: 15, darkTankRound: false, roundLive: true, isBossRound: false});
                     battlefield_ctx.drawImage(muzzleFire, tanTankPosition[0].x + 78, tanTankPosition[0].y + 12, muzzleFire.width, muzzleFire.height);
                     roundFired = true;
                     fireButtonKeyboard.style.backgroundColor = 'lightcoral';
                     fireButtonKeyboard.style.color = 'lightgrey';
                     fireButtonKeyboard.style.boxShadow = 'none';
+                    //fireButtonKeyboard.style.outlineOffset = '5px 5px 5px';
+                    //console.log(tanTankPosition);
+                    //console.log(tankRoundArr);
                 }
             }
         }
@@ -2157,7 +2210,7 @@ const tanTankAnimationAI = () => {
 
         else if (darkTankPosition[0].x === battlefield.width - 80 || darkTankPosition[0].x === battlefield.width - 90 || darkTankPosition[0].x === battlefield.width - 100) {
 
-            tankRoundArr.push({x: tanTankPosition[0].x + 81, y: tanTankPosition[0].y + 17, velocity: 15, darkTankRound: false, roundLive: true});
+            tankRoundArr.push({x: tanTankPosition[0].x + 81, y: tanTankPosition[0].y + 17, velocity: 15, darkTankRound: false, roundLive: true, isBossRound: false});
             battlefield_ctx.drawImage(muzzleFire, tanTankPosition[0].x + 78, tanTankPosition[0].y + 12, muzzleFire.width, muzzleFire.height);
             roundFired = true;
 
@@ -2172,7 +2225,7 @@ const tanTankAnimationAI = () => {
             if (darkTankPosition[0].x === 10 || darkTankPosition[0].x === 20 || darkTankPosition[0].x === 30) {
 
                 //tanTankPosition[0].facingLeft = true;
-                tankRoundArr.push({x: tanTankPosition[0].x, y: tanTankPosition[0].y + 17, velocity: - 15, darkTankRound: false, roundLive: true});
+                tankRoundArr.push({x: tanTankPosition[0].x, y: tanTankPosition[0].y + 17, velocity: - 15, darkTankRound: false, roundLive: true, isBossRound: false});
                 battlefield_ctx.drawImage(muzzleFire, tanTankPosition[0].x - 15, tanTankPosition[0].y + 12, muzzleFire.width, muzzleFire.height);
                 //roundFired = true;
 
