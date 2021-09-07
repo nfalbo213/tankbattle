@@ -329,7 +329,7 @@ const drawHealthBar = () => {
                 battlefield_ctx.strokestyle = 'black';
                 battlefield_ctx.strokeRect(darkTankPosition[i].x, darkTankPosition[i].y - 1, 80, 8);
                 if (darkTankPosition[i].boss) {
-                    battlefield_ctx.drawImage(bossCrownImg, darkTankPosition[i].x + 33, darkTankPosition[i].y - (11 + bossCrownImg.height), bossCrownImg.width, bossCrownImg.height);
+                    battlefield_ctx.drawImage(bossCrownImg, darkTankPosition[i].x + 33, darkTankPosition[i].y - (10 + bossCrownImg.height), bossCrownImg.width, bossCrownImg.height);
                 }
             }
             if (darkTankPosition[i].health === 11) {
@@ -339,7 +339,7 @@ const drawHealthBar = () => {
                 battlefield_ctx.strokestyle = 'black';
                 battlefield_ctx.strokeRect(darkTankPosition[i].x, darkTankPosition[i].y - 1, 80, 7);
                 if (darkTankPosition[i].boss) {
-                    battlefield_ctx.drawImage(bossCrownImg, darkTankPosition[i].x + 33, darkTankPosition[i].y - (10 + bossCrownImg.height), bossCrownImg.width, bossCrownImg.height);
+                    battlefield_ctx.drawImage(bossCrownImg, darkTankPosition[i].x + 33, darkTankPosition[i].y - (9 + bossCrownImg.height), bossCrownImg.width, bossCrownImg.height);
                 }
             }
             if (darkTankPosition[i].health === 10) {
@@ -349,7 +349,7 @@ const drawHealthBar = () => {
                 battlefield_ctx.strokestyle = 'black';
                 battlefield_ctx.strokeRect(darkTankPosition[i].x, darkTankPosition[i].y - 1, 80, 6);
                 if (darkTankPosition[i].boss) {
-                    battlefield_ctx.drawImage(bossCrownImg, darkTankPosition[i].x + 33, darkTankPosition[i].y - (9 + bossCrownImg.height), bossCrownImg.width, bossCrownImg.height);
+                    battlefield_ctx.drawImage(bossCrownImg, darkTankPosition[i].x + 33, darkTankPosition[i].y - (8 + bossCrownImg.height), bossCrownImg.width, bossCrownImg.height);
                 }
             }
             if (darkTankPosition[i].health === 9) {
@@ -359,7 +359,7 @@ const drawHealthBar = () => {
                 battlefield_ctx.strokestyle = 'black';
                 battlefield_ctx.strokeRect(darkTankPosition[i].x, darkTankPosition[i].y - 1, 80, 5);
                 if (darkTankPosition[i].boss) {
-                    battlefield_ctx.drawImage(bossCrownImg, darkTankPosition[i].x + 33, darkTankPosition[i].y - (8 + bossCrownImg.height), bossCrownImg.width, bossCrownImg.height);
+                    battlefield_ctx.drawImage(bossCrownImg, darkTankPosition[i].x + 33, darkTankPosition[i].y - (7 + bossCrownImg.height), bossCrownImg.width, bossCrownImg.height);
                 }
             }
             if (darkTankPosition[i].health === 8) {
@@ -369,7 +369,7 @@ const drawHealthBar = () => {
                 battlefield_ctx.strokestyle = 'black';
                 battlefield_ctx.strokeRect(darkTankPosition[i].x, darkTankPosition[i].y - 1, 80, 4);
                 if (darkTankPosition[i].boss) {
-                    battlefield_ctx.drawImage(bossCrownImg, darkTankPosition[i].x + 33, darkTankPosition[i].y - (7 + bossCrownImg.height), bossCrownImg.width, bossCrownImg.height);
+                    battlefield_ctx.drawImage(bossCrownImg, darkTankPosition[i].x + 33, darkTankPosition[i].y - (6 + bossCrownImg.height), bossCrownImg.width, bossCrownImg.height);
                 }
             }
             if (darkTankPosition[i].health === 7) {
@@ -379,7 +379,7 @@ const drawHealthBar = () => {
                 battlefield_ctx.strokestyle = 'black';
                 battlefield_ctx.strokeRect(darkTankPosition[i].x, darkTankPosition[i].y - 1, 80, 3);
                 if (darkTankPosition[i].boss) {
-                    battlefield_ctx.drawImage(bossCrownImg, darkTankPosition[i].x + 33, darkTankPosition[i].y - (6 + bossCrownImg.height), bossCrownImg.width, bossCrownImg.height);
+                    battlefield_ctx.drawImage(bossCrownImg, darkTankPosition[i].x + 33, darkTankPosition[i].y - (5 + bossCrownImg.height), bossCrownImg.width, bossCrownImg.height);
                 }
             }
             if (darkTankPosition[i].health === 6) {
