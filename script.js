@@ -631,8 +631,8 @@ const tankAI = () => {
                     if (darkTankPosition[n].roundFiredIndex === 0 || darkTankPosition[n].roundFiredIndex === 2) {
                         roundFired = true;
                         //darkTankPosition[i].roundFiredIndex += 1;
-                        tankRoundArr.push({x: darkTankPosition[n].x + 81, y: darkTankPosition[n].y + 17, velocity: 15, darkTankRound: true, roundLive: true, isBossRound: true});
-                        battlefield_ctx.drawImage(muzzleFire, darkTankPosition[n].x + 81, darkTankPosition[n].y + 12, muzzleFire.width, muzzleFire.height);
+                        tankRoundArr.push({x: darkTankPosition[n].x + 81, y: darkTankPosition[n].y + 17, velocity: 16, darkTankRound: true, roundLive: true, isBossRound: true});
+                        battlefield_ctx.drawImage(muzzleFire, darkTankPosition[n].x + 81, darkTankPosition[n].y + 12, muzzleFire.width + 2, muzzleFire.height + 2);
                     }
                 }
                 if (darkTankPosition[n].roundFiredIndex === 3) {
@@ -656,8 +656,8 @@ const tankAI = () => {
                     if (darkTankPosition[n].roundFiredIndex === 0 || darkTankPosition[n].roundFiredIndex === 2) {
                         roundFired = true;
                         //darkTankPosition[i].roundFiredIndex += 1;
-                        tankRoundArr.push({x: darkTankPosition[n].x, y: darkTankPosition[n].y + 17, velocity: -15, darkTankRound: true, roundLive: true, isBossRound: true});
-                        battlefield_ctx.drawImage(muzzleFire, darkTankPosition[n].x - 15, darkTankPosition[n].y + 12, muzzleFire.width, muzzleFire.height);
+                        tankRoundArr.push({x: darkTankPosition[n].x, y: darkTankPosition[n].y + 17, velocity: -16, darkTankRound: true, roundLive: true, isBossRound: true});
+                        battlefield_ctx.drawImage(muzzleFire, darkTankPosition[n].x - 15, darkTankPosition[n].y + 12, muzzleFire.width + 2, muzzleFire.height + 2);
                     }
                 }
                 if (darkTankPosition[n].roundFiredIndex === 3) {
@@ -921,14 +921,15 @@ const didRoundHit = () => {
 
             if (tankRoundArr[i].x >= tanTankPosition[0].x + 40 === true && tankRoundArr[i].x <= tanTankPosition[0].x + 55 === true && tankRoundArr[i].y <= tanTankPosition[0].y + 40 === true && tankRoundArr[i].y >= tanTankPosition[0].y === true && tankRoundArr[i].roundLive === true) {
                 
-                // Draw imact explosion
-                battlefield_ctx.drawImage(muzzleFire, tankRoundArr[i].x, tankRoundArr[i].y, muzzleFire.width - 8, muzzleFire.height - 8);
-                
                 if (!tankRoundArr[i].isBossRound) {
+                    // Draw imact explosion
+                    battlefield_ctx.drawImage(muzzleFire, tankRoundArr[i].x, tankRoundArr[i].y, muzzleFire.width - 8, muzzleFire.height - 8);
                     // Lower tank health
                     tanTankPosition[0].health -= 1;
                 }
                 if (tankRoundArr[i].isBossRound) {
+                    // Draw imact explosion
+                    battlefield_ctx.drawImage(muzzleFire, tankRoundArr[i].x, tankRoundArr[i].y, muzzleFire.width - 4, muzzleFire.height - 4);
                     // Lower tank health
                     tanTankPosition[0].health -= 2;
                 }
