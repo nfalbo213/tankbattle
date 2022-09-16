@@ -1082,7 +1082,9 @@ const downButton = document.getElementById('down-button');
 
 // only runs on desktop browsers (see media query)
   // ** Any Changes here must also be made in startMenuTouch.ontouchstart()
-startMenu.onmousedown = () => {
+startMenu.onmousedown = (event) => {
+   
+    event.preventDefault();
     
     // Reset game to origional parameters and restart animation
     if (startObj.gameOver) {
@@ -1280,8 +1282,10 @@ startMenu.onmousedown = () => {
 // Only runs on mobile browsers (see media query)
   // ** Any Changes here must also be made in startMenu.onmousedown()
 //startMenuTouch.ontouchstart = () => {
-startMenuTouch.onpointerdown = () => {
+startMenuTouch.onpointerdown = (event) => {
     
+    event.preventDefault();
+   
     // Reset game to origional parameters and restart animation
     if (startObj.gameOver) {
 
@@ -1472,8 +1476,9 @@ startMenuTouch.onpointerdown = () => {
 
 // Gameplay Options
 
-leftOptionMouse.onmousedown = () => {
-
+leftOptionMouse.onmousedown = (event) => {
+    
+    event.preventDefault();
     startObj.battleRoyal = false;
     leftOptionMouse.style.backgroundColor = 'rgb(15, 15, 15)';
     leftOptionMouse.style.color = 'rgb(82, 235, 82)';
@@ -1490,8 +1495,9 @@ leftOptionMouse.onmousedown = () => {
 
 }
 //leftOptionTouch.ontouchstart = () => {
-leftOptionTouch.onpointerdown = () => {
-
+leftOptionTouch.onpointerdown = (event) => {
+   
+    event.preventDefault();
     startObj.battleRoyal = false;
     leftOptionTouch.style.backgroundColor = 'rgb(15, 15, 15)';
     leftOptionTouch.style.color = 'rgb(82, 235, 82)';
@@ -1507,8 +1513,9 @@ leftOptionTouch.onpointerdown = () => {
     bottomAnimationImg.src = './TanTankLeft.png';
 
 }
-rightOptionMouse.onmousedown = () => {
-
+rightOptionMouse.onmousedown = (event) => {
+    
+    event.preventDefault();
     startObj.battleRoyal = true;
     rightOptionMouse.style.backgroundColor = 'rgb(15, 15, 15)';
     rightOptionMouse.style.color = 'rgb(82, 235, 82)';
@@ -1525,8 +1532,9 @@ rightOptionMouse.onmousedown = () => {
 
 }
 //rightOptionTouch.ontouchstart = () => {
-rightOptionTouch.onpointerdown = () => {
-
+rightOptionTouch.onpointerdown = (event) => {
+    
+    event.preventDefault();
     startObj.battleRoyal = true;
     rightOptionTouch.style.backgroundColor = 'rgb(15, 15, 15)';
     rightOptionTouch.style.color = 'rgb(82, 235, 82)';
@@ -1549,7 +1557,7 @@ rightOptionTouch.onpointerdown = () => {
 
 // Fire Button
 //fireButton.ontouchstart = () => {
-fireButton.onpointerdown = () => {
+fireButton.onpointerdown = (event) => {
     event.preventDefault();
     if (startObj.gameStart && !startObj.startClicked && !startObj.gameOver) {
         if (tanTankPosition[0].facingLeft === true) {
@@ -1578,8 +1586,8 @@ fireButton.onpointerdown = () => {
     }
 }
 //fireButton.ontouchend = () => {
-fireButton.onpointerup = () => {
-    //event.preventDefault();
+fireButton.onpointerup = (event) => {
+    event.preventDefault();
     fireButton.style.backgroundColor = '';
     fireButton.style.color = '';
     fireButton.style.boxShadow = '';
@@ -1588,8 +1596,8 @@ fireButton.onpointerup = () => {
 // Direction Pad
 // LEFT
 //leftButton.ontouchstart = () => {
-leftButton.onpointerdown = () => {
-   //event.preventDefault(); 
+leftButton.onpointerdown = (event) => {
+   event.preventDefault(); 
    if (startObj.gameStart && !startObj.startClicked && !startObj.gameOver) {
         startObj.onTouchLeft = true;
         //tanTankPosition[0].x -= 10;
@@ -1613,16 +1621,16 @@ const leftButtonHold = () => {
     }
 }
 //leftButton.ontouchend = () => {
-leftButton.onpointerup = () => {
-    //event.preventDefault();
+leftButton.onpointerup = (event) => {
+    event.preventDefault();
     leftButton.style.boxShadow = '';
     leftButton.style.backgroundColor = '';
     startObj.onTouchLeft = false;
 }
 // UP
 //upButton.ontouchstart = () => {
-upButton.onpointerdown = () => {
-   //event.preventDefault(); 
+upButton.onpointerdown = (event) => {
+   event.preventDefault(); 
    if (startObj.gameStart && !startObj.startClicked && !startObj.gameOver) {
         startObj.onTouchUp = true;
         //tanTankPosition[0].y -= 10;
@@ -1645,16 +1653,16 @@ const upButtonHold = () => {
     }
 }
 //upButton.ontouchend = () => {
-upButton.onpointerup = () => {
-    //event.preventDefault();
+upButton.onpointerup = (event) => {
+    event.preventDefault();
     upButton.style.boxShadow = '';
     upButton.style.backgroundColor = '';
     startObj.onTouchUp = false;
 }
 // RIGHT
 //rightButton.ontouchstart = () => {
-rightButton.onpointerdown = () => {
-   //event.preventDefault(); 
+rightButton.onpointerdown = (event) => {
+   event.preventDefault(); 
    if (startObj.gameStart && !startObj.startClicked && !startObj.gameOver) {
         startObj.onTouchRight = true;
         //tanTankPosition[0].x += 10;
@@ -1678,16 +1686,16 @@ const rightButtonHold = () => {
     }   
 }
 //rightButton.ontouchend = () => {
-rightButton.onpointerup = () => {
-    //event.preventDefault();
+rightButton.onpointerup = (event) => {
+    event.preventDefault();
     rightButton.style.boxShadow = '';
     rightButton.style.backgroundColor = '';
     startObj.onTouchRight = false;
 }
 // DOWN
 //downButton.ontouchstart = () => {
-downButton.onpointerdown = () => {
-   //event.preventDefault(); 
+downButton.onpointerdown = (event) => {
+   event.preventDefault(); 
    if (startObj.gameStart && !startObj.startClicked && !startObj.gameOver) {
         startObj.onTouchDown = true;
         //tanTankPosition[0].y += 10;
@@ -1710,8 +1718,8 @@ const downButtonHold = () => {
     }
 }
 //downButton.ontouchend = () => {
-downButton.onpointerup = () => {
-    //event.preventDefault();
+downButton.onpointerup = (event) => {
+    event.preventDefault();
     downButton.style.boxShadow = '';
     downButton.style.backgroundColor = '';
     startObj.onTouchDown = false;
