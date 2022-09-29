@@ -218,7 +218,7 @@ body {
     height: 800px;
     background-color: white;
 
-    background-image: url('./PauseButton.png');
+    background-image: url('./Resources/PauseButton.png');
     background-size: 30%;
     background-repeat: no-repeat;
     background-position: center;
@@ -234,7 +234,7 @@ body {
     height: 800px;
     background-color: white;
 
-    background-image: url('./PauseButton.png');
+    background-image: url('./Resources/PauseButton.png');
     background-size: 30%;
     background-repeat: no-repeat;
     background-position: center;
@@ -317,7 +317,7 @@ body {
     box-shadow: 5px 5px 5px black;
 }
 .gamepad-logo {
-    background-image: url("./CenterCircle.png");
+    background-image: url("./Resources/CenterCircle.png");
     background-size: 60%;
     background-repeat: no-repeat;
     background-position: center;
@@ -329,28 +329,28 @@ body {
     box-shadow: 5px 5px 5px black;
 }
 #up-button {
-    background-image: url("./ResizedUpButton.png");
+    background-image: url("./Resources/ResizedUpButton.png");
     background-size: 80%;
     background-repeat: no-repeat;
     background-position: center;
     border-radius: 30px 30px 0 0;
 }
 #left-button {
-    background-image: url("./ResizedLeftButton.png");
+    background-image: url("./Resources/ResizedLeftButton.png");
     background-size: 80%;
     background-repeat: no-repeat;
     background-position: center;
     border-radius: 30px 0 0 30px;
 }
 #right-button {
-    background-image: url("./ResizedRightButton.png");
+    background-image: url("./Resources/ResizedRightButton.png");
     background-size: 80%;
     background-repeat: no-repeat;
     background-position: center;
     border-radius: 0 30px 30px 0;
 }
 #down-button {
-    background-image: url("./ResizedDownButton.png");
+    background-image: url("./Resources/ResizedDownButton.png");
     background-size: 80%;
     background-repeat: no-repeat;
     background-position: center;
@@ -382,7 +382,7 @@ body {
     height: 90px;
     width: 400px;
     margin: 0 50px 0 0;
-    background-image: url("./Keyboard.png");
+    background-image: url("./Resources/Keyboard.png");
     background-size: 50%;
     background-repeat: no-repeat;
     background-position: center;
@@ -414,28 +414,28 @@ body {
     box-shadow: 5px 5px 5px black;
 }
 #up-button-keyboard {
-    background-image: url("./ResizedUpButton.png");
+    background-image: url("./Resources/ResizedUpButton.png");
     background-size: 80%;
     background-repeat: no-repeat;
     background-position: center;
     border-radius: 20px 20px 0 0;
 }
 #left-button-keyboard {
-    background-image: url("./ResizedLeftButton.png");
+    background-image: url("./Resources/ResizedLeftButton.png");
     background-size: 80%;
     background-repeat: no-repeat;
     background-position: center;
     border-radius: 20px 0 0 20px;
 }
 #right-button-keyboard {
-    background-image: url("./ResizedRightButton.png");
+    background-image: url("./Resources/ResizedRightButton.png");
     background-size: 80%;
     background-repeat: no-repeat;
     background-position: center;
     border-radius: 0 20px 20px 0;
 }
 #down-button-keyboard {
-    background-image: url("./ResizedDownButton.png");
+    background-image: url("./Resources/ResizedDownButton.png");
     background-size: 80%;
     background-repeat: no-repeat;
     background-position: center;
@@ -520,23 +520,3 @@ body {
         display: none;
     }
 }
-
-/* doesn't work - needed for smaller height screens */
-/*
-@media screen and (max-width: 1024px) and (max-height: 800px) {
-    .main-body-wrapper {
-        touch-action: none;
-    }
-    .battlefield-cover {
-        visibility: hidden;
-        z-index: 3;
-    }
-    .battlefield-cover-touch {
-        visibility: visible;
-        z-index: 4;
-    }
-    .full-gamepad-wrapper {
-        margin: 20px 100px 100px 100px;
-    }
-} 
-*/
