@@ -28,7 +28,7 @@ let secondExplosion;
 let muzzleFire;
 
 firstExplosion = new Image(95, 55);
-firstExplosion.src = './Explosion.png';
+firstExplosion.src = './Resources/Explosion.png';
 secondExplosion = new Image(95, 55);
 secondExplosion.src = './Resources/ExplosionReverse.png';
 
