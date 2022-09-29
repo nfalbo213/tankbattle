@@ -30,30 +30,30 @@ let muzzleFire;
 firstExplosion = new Image(95, 55);
 firstExplosion.src = './Explosion.png';
 secondExplosion = new Image(95, 55);
-secondExplosion.src = './ExplosionReverse.png';
+secondExplosion.src = './Resources/ExplosionReverse.png';
 
 muzzleFire = new Image(25, 15);
-muzzleFire.src = './ExplosionReverse.png';
+muzzleFire.src = './Resources/ExplosionReverse.png';
 
 let tanTankImg;
 
 tanTankImg = new Image(80, 40);
-tanTankImg.src = './TanTankRight.png';
+tanTankImg.src = './Resources/TanTankRight.png';
 
 // Ensure Tanks individually face player when turning by creating specific image and then utilizing darkTankPosition[i].facingLeft in drawEachDarkTank()
 let darkTankImgLeft;
 let darkTankImgRight;
 
 darkTankImgLeft = new Image(80, 40);
-darkTankImgLeft.src ='./DarkTankLeft.png';
+darkTankImgLeft.src ='./Resources/DarkTankLeft.png';
 
 darkTankImgRight = new Image(80, 40);
-darkTankImgRight.src ='./DarkTankRight.png';
+darkTankImgRight.src ='./Resources/DarkTankRight.png';
 
 let bossCrownImg;
 
 bossCrownImg = new Image(30, 25);
-bossCrownImg.src ='./BossCrown.png'
+bossCrownImg.src ='./Resources/BossCrown.png'
 
 let tanTankPosition = [];
 let darkTankPosition = [];
@@ -232,10 +232,10 @@ const drawEachTanTank = () => {
         battlefield_ctx.drawImage(tanTankImg, tanTankPosition[0].x, tanTankPosition[0].y, tanTankImg.width, tanTankImg.height);
 
         if (tanTankPosition[0].facingLeft === true) {
-            tanTankImg.src = "./TanTankLeft.png"
+            tanTankImg.src = "./Resources/TanTankLeft.png"
         }
         if (tanTankPosition[0].facingLeft === false) {
-            tanTankImg.src = "./TanTankRight.png"
+            tanTankImg.src = "./Resources/TanTankRight.png"
         }
 
         // Ensure off screen marker only happens during gameplay and not animation
@@ -1491,7 +1491,7 @@ leftOptionMouse.onmousedown = (event) => {
     startMenu.style.visibility = 'visible';
     startMenuTouch.style.visibility = 'visible';
 
-    bottomAnimationImg.src = './TanTankLeft.png';
+    bottomAnimationImg.src = './Resources/TanTankLeft.png';
 
 }
 //leftOptionTouch.ontouchstart = () => {
@@ -1510,7 +1510,7 @@ leftOptionTouch.onpointerdown = (event) => {
     startMenu.style.visibility = 'visible';
     startMenuTouch.style.visibility = 'visible';
 
-    bottomAnimationImg.src = './TanTankLeft.png';
+    bottomAnimationImg.src = './Resources/TanTankLeft.png';
 
 }
 rightOptionMouse.onmousedown = (event) => {
@@ -1528,7 +1528,7 @@ rightOptionMouse.onmousedown = (event) => {
     startMenu.style.visibility = 'visible';
     startMenuTouch.style.visibility = 'visible';
 
-    bottomAnimationImg.src = './TanTankRight.png';
+    bottomAnimationImg.src = './Resources/TanTankRight.png';
 
 }
 //rightOptionTouch.ontouchstart = () => {
@@ -1547,7 +1547,7 @@ rightOptionTouch.onpointerdown = (event) => {
     startMenu.style.visibility = 'visible';
     startMenuTouch.style.visibility = 'visible';
 
-    bottomAnimationImg.src = './TanTankRight.png';
+    bottomAnimationImg.src = './Resources/TanTankRight.png';
 
 }
 
