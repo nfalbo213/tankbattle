@@ -291,8 +291,8 @@ body {
     font-family: Droid Sans Mono;
     border-radius: 100px;
     box-shadow: 5px 5px 5px black;
-
     cursor: not-allowed;
+    user-select: none;
 }
 .movement-button-wrapper {
     margin: 0 50px 0 0;
@@ -334,6 +334,7 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     border-radius: 30px 30px 0 0;
+    user-select: none;
 }
 #left-button {
     background-image: url("./Resources/ResizedLeftButton.png");
@@ -341,6 +342,7 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     border-radius: 30px 0 0 30px;
+    user-select: none;
 }
 #right-button {
     background-image: url("./Resources/ResizedRightButton.png");
@@ -348,6 +350,7 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     border-radius: 0 30px 30px 0;
+    user-select: none;
 }
 #down-button {
     background-image: url("./Resources/ResizedDownButton.png");
@@ -355,6 +358,7 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     border-radius: 0 0 30px 30px;
+    user-select: none;
 }
 .gamepad-wrapper-down {
     display: flex;
